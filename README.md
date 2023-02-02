@@ -18,7 +18,7 @@ I'll first make the mandatory part to become familiar with the **MLX**, and then
 Wish me luck as I embark on this journey!
 
 I'll keep a diary detailing each day of work just under this. Feel free to read it!  
-I'll also toss some amazing video game music I listened to while working on this project.
+I'll also toss in some amazing video game music I listened to while working on this project.
 
 ## Diary
 
