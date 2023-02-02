@@ -37,6 +37,8 @@ I also imported the MLX and skimmed over its documentation (btw, thanks to hsmit
 
 (This section is for me, akin to a sticky note to remember what I was doing the previous day)
 
+GO BACK TO CHECKING THE MAP
+
 main contains mlx_init.  
 mlx_init contains:  
 - mlx_new_window
