@@ -17,7 +17,8 @@ I already have a good idea of what I'll be doing, I want to make a *Yoshi's Isla
 I'll first make the mandatory part to become familiar with the **MLX**, and then I'll move on to the serious stuff.  
 Wish me luck as I embark on this journey!
 
-I'll keep a diary detailing each day of work just under this. Feel free to read it! I'll also toss some amazing video game music I listened to while working on this project.
+I'll keep a diary detailing each day of work just under this. Feel free to read it!  
+I'll also toss some amazing video game music I listened to while working on this project.
 
 ## Diary
 
