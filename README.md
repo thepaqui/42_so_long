@@ -1,6 +1,6 @@
 # 42_so_long
 
-My *so_long* project for **42 Nice**, last updated on February 2nd 2023, at 11:04.
+My *so_long* project for **42 Nice**, last updated on February 2nd 2023, at 18:49.
 
 ## Presentation
 
