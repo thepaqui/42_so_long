@@ -27,10 +27,21 @@ I'll also toss in some amazing video game music I listened to while working on t
 
 ### February 2nd 2023
 
-I just started this project today, so nothing of note happened. I just setup a basic Makefile, my work tree and my header files.  
-I also imported the MLX and skimmed over its documentation (btw, thanks to hsmits and jvan-sni for [42 Docs]!)
+I just started this project today. I setup a basic Makefile, my work tree and my header files.  
+I also imported the MLX and skimmed over its documentation. (btw, thanks to hsmits and jvan-sni for [42 Docs]!)  
+I did all the parsing and started on the map checking.  
+I also created an error handling system. It took quite some time to figure out but it's gonna save a lot of lines!
 
 [42 Docs]: https://harm-smits.github.io/42docs/libs/minilibx
+
+Here's a [track from *The Binding of Isaac Antibirth Mod*], in honor of my friend bbourret's so_long!
+
+[track from *The Binding of Isaac Antibirth Mod*]: https://youtu.be/LoTXsZ-PcXc
+
+### February 3rd 2023
+
+
+
 </details>
 
 ## Notes
