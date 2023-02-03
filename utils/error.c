@@ -6,15 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:46:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/02 18:44:20 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:31:43 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../sl.h"
-
-static void	puterr(char *s)
-{
-	ft_putendl_fd(s, 2);
-}
+#include "utils.h"
 
 const static char	*g_errmsg[LASTCODE] = {
 	"Invalid error code 0 shouldn't be printed",
@@ -30,7 +25,16 @@ const static char	*g_errmsg[LASTCODE] = {
 	"No exit in map",
 	"Too many exits in map",
 	"No collectibles in map",
+	"Map is not a rectangle",
+	"Map is not surrounded by walls",
+	"Exit is not reachable",
+	"Can't collect all collectibles"
 };
+
+static void	puterr(const char *s)
+{
+	ft_putendl_fd(s, 2);
+}
 
 void	ft_error(int code, t_game *game)
 {
@@ -39,14 +43,14 @@ void	ft_error(int code, t_game *game)
 		puterr(g_errmsg[code]);
 	else
 		puterr("Unknown error");
-	// free game
+	free_game(game);
 	exit(code);
 }
 
 void	errno_error(int code, t_game *game)
 {
 	puterr("Error");
-	strerror(code);
-	// free game
+	puterr(strerror(code));
+	free_game(game);
 	exit(code);
 }

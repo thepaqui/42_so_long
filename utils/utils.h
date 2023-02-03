@@ -6,28 +6,31 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:47:33 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/02 18:44:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:30:53 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef UTILS_H
 # define UTILS_H
 # include <stdlib.h>
 # include <unistd.h>
-# include "../game.h"
+# include <errno.h>
+# include <string.h>
+# include "../srcs/game.h"
 
 /* TEXT */
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
+void	ft_putchar_fd(const char c, int fd);
+void	ft_putstr_fd(const char *s, int fd);
+void	ft_putendl_fd(const char *s, int fd);
 int		isinset(char c, const char *s);
 
 /* MEMORY */
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 char	**ft_free_tab(char **tab, int index);
+t_game	*free_game(t_game *game);
 
 /* STRINGS */
-int		ft_strlen(char *s);
+int		ft_strlen(const char *s);
 char	*ft_strndup(const char *str, int n);
 
 /* GNL */
@@ -51,6 +54,10 @@ void	ft_error(int code, t_game *game);
 # define NOEXIT 10
 # define TOOMANYEXIT 11
 # define NOCOLLECT 12
-# define LASTCODE 13
+# define NOTRECT 13
+# define BADWALLS 14
+# define NOWAY 15
+# define NOMONEY 16
+# define LASTCODE 17
 
 #endif

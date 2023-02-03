@@ -6,14 +6,26 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/02 10:16:26 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/03 16:38:52 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME= so_long
 
-CC= cc -Wall -Wextra -Werror
+INCLUDES= -I./srcs/ -I./utils/ -I./parsing/ -I./checking/# -I./mlx/
 
-SRCS_M=
+CC= cc -Wall -Wextra -Werror $(INCLUDES)
+
+SRCS_M= utils/text.c \
+		utils/mem.c \
+		utils/str.c \
+		utils/gnl/gnl.c \
+		utils/gnl/gnl_utils.c \
+		utils/error.c \
+		parsing/parse.c \
+		checking/check_input.c \
+		checking/check_map.c \
+		checking/check_map_help.c \
+		srcs/main.c
 
 SRCS_B=
 

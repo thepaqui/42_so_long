@@ -6,12 +6,12 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 12:14:06 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/02 15:34:14 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:58:19 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "utils.h"
 
-int	ft_strlen(char *s)
+int	ft_strlen(const char *s)
 {
 	int	len;
 

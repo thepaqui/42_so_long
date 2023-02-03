@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:17:13 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/02 15:33:07 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:34:34 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "utils.h"
@@ -52,5 +52,16 @@ char	**ft_free_tab(char **tab, int index)
 	}
 	if (tab)
 		free(tab);
+	return (NULL);
+}
+
+t_game	*free_game(t_game *game)
+{
+	if (!game)
+		return (NULL);
+	if (MAP)
+		MAP = ft_free_tab(MAP, -1);
+	free(game);
+	game = NULL;
 	return (NULL);
 }
