@@ -40,7 +40,9 @@ Here's a [track from *The Binding of Isaac Antibirth Mod*], in honor of my frien
 
 ### February 3rd 2023
 
+Today I debugged all the code I wrote yesterday and finished all checking, including the flood fill algorithm for map validity!
 
+Music Kirby forgotten land final boss.
 
 </details>
 
