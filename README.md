@@ -1,6 +1,6 @@
 # 42_so_long
 
-My *so_long* project for **42 Nice**, last updated on February 2nd 2023, at 18:49.
+My *so_long* project for **42 Nice**, last updated on February 4nd 2023, at 16:13.
 
 ## Presentation
 
@@ -21,14 +21,10 @@ Wish me luck as I embark on this journey!
 
 (This section is for me, akin to a sticky note to remember what I was doing the previous day)
 
-GO BACK TO CHECKING THE MAP
+GO BACK TO CREATING IMAGES
 
-main contains mlx_init.  
-mlx_init contains:  
-- mlx_new_window
-- mlx_loop_hook -> game loop
-- mlx_hook -> event handling
-- mlx_loop
-
+- mlx_loop_hook -> game loop,
+- mlx_hook -> event handling,
+- mlx_loop.  
 mlx_hook and mlx_loop_hook initialize what will happen in my game loop.  
 Once they're set, I call mlx_loop to start the game loop.
