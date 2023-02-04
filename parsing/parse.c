@@ -6,31 +6,31 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:18:41 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/03 15:47:51 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:34:40 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "parse.h"
 #include <stdio.h> //---------------------------------------------------------
 
-static int	open_mapfile(char *file)
+static int	open_mapfile(char *file, t_game *game)
 {
 	int	fd;
 
 	errno = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		errno_error(errno, NULL);
+		errno_error(errno, game);
 	return (fd);
 }
 
-static void	close_mapfile(int fd)
+static void	close_mapfile(int fd, t_game *game)
 {
 	errno = 0;
 	if (close(fd) == -1)
-		errno_error(errno, NULL);
+		errno_error(errno, game);
 }
 
-static int	count_lines(int fd)
+static int	count_lines(int fd, t_game *game)
 {
 	int		cnt;
 	int		bytes;
@@ -47,47 +47,40 @@ static int	count_lines(int fd)
 		bytes = read(fd, buf, 1);
 	}
 	if (bytes == -1)
-		errno_error(errno, NULL);
+		errno_error(errno, game);
 	return (cnt);
 }
 
-static char	**take_map(int fd, int lines)
+static void	take_map(int fd, int lines, t_game *game)
 {
-	char	**map;
-	int		i;
-	int		gnlerr;
+	int	i;
+	int	gnlerr;
 
-	map = ft_calloc(lines + 1, sizeof(char *));
-	if (!map)
-		ft_error(MALLOCFAIL, NULL);
+	MAP = ft_calloc(lines + 1, sizeof(char *));
+	if (!MAP)
+		ft_error(MALLOCFAIL, game);
 	i = 0;
 	gnlerr = 0;
-	map[i] = get_next_line(fd, &gnlerr);
-	while (map[i] && ++i < lines)
+	MAP[i] = get_next_line(fd, &gnlerr);
+	while (MAP[i] && ++i < lines)
 	{
 		gnlerr = 0;
-		map[i] = get_next_line(fd, &gnlerr);
+		MAP[i] = get_next_line(fd, &gnlerr);
 	}
 	if (gnlerr)
-	{
-		map = ft_free_tab(map, -1);
-		errno_error(gnlerr, NULL);
-	}
-	return (map);
+		errno_error(gnlerr, game);
 }
 
-char	**get_map(char *file)
+void	get_map(char *file, t_game *game)
 {
-	int		fd;
-	int		lines;
-	char	**map;
+	int	fd;
+	int	lines;
 
-	fd = open_mapfile(file);
-	lines = count_lines(fd);
-	close_mapfile(fd);
-	fd = open_mapfile(file);
-	map = take_map(fd, lines);
-	if (!map)
-		ft_error(MALLOCFAIL, NULL);
-	return (map);
+	fd = open_mapfile(file, game);
+	lines = count_lines(fd, game);
+	close_mapfile(fd, game);
+	fd = open_mapfile(file, game);
+	take_map(fd, lines, game);
+	if (!MAP)
+		ft_error(MALLOCFAIL, game);
 }

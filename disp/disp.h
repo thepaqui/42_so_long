@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl.h                                               :+:      :+:    :+:   */
+/*   disp.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 09:43:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/04 14:08:29 by thepaqui         ###   ########.fr       */
+/*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
+/*   Updated: 2023/02/04 14:43:29 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef SL_H
-# define SL_H
-# include <errno.h>
-# include <stdio.h> //---------------------------------------------------------
-# include "game.h"
+#ifndef DISP_H
+# define DISP_H
 # include "../mlx/mlx.h"
-# include "../checking/check.h"
-# include "../parsing/parse.h"
-# include "../utils/utils.h"
-# include "../disp/disp.h"
+# include "../srcs/game.h"
 
-# define ERRCHECK check_err(err, game)
+void	start_mlx(t_game *game);
 
 #endif

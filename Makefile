@@ -6,14 +6,20 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/03 16:38:52 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/04 14:41:15 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME= so_long
 
-INCLUDES= -I./srcs/ -I./utils/ -I./parsing/ -I./checking/# -I./mlx/
+INCLUDES= -Isrcs -Iutils -Iparsing -Ichecking -Imlx
 
-CC= cc -Wall -Wextra -Werror $(INCLUDES)
+CC= cc -Wall -Wextra -Werror
+
+CCOBJ= $(CC) $(INCLUDES)
+
+CCBIN= $(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit
+
+MLX= libmlx.a
 
 SRCS_M= utils/text.c \
 		utils/mem.c \
@@ -25,6 +31,7 @@ SRCS_M= utils/text.c \
 		checking/check_input.c \
 		checking/check_map.c \
 		checking/check_map_help.c \
+		disp/window.c \
 		srcs/main.c
 
 SRCS_B=
@@ -41,8 +48,8 @@ endif
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CC) -o $(NAME) $(OBJS)
+$(NAME): $(MLX) $(OBJS)
+	@$(CCBIN) -o $(NAME) $(OBJS)
 ifdef WITH_BONUS
 	@echo 'Compiled so_long with bonuses!'
 else
@@ -50,13 +57,21 @@ else
 endif
 
 %.o: %.c
-	@$(CC) -o $@ -c $<
+	@$(CCOBJ) -o $@ -c $<
+
+$(MLX): ./mlx/Makefile
+	@make -C mlx
+	@mv mlx/libmlx.a ./
+	@make -C mlx clean
+	@echo 'Compiled mlx library.'
 
 clean:
 	@rm -f $(OBJS_M) $(OBJS_B)
 	@echo 'Deleted all temporary files.'
 
 fclean: clean
+	@rm -f $(MLX)
+	@echo 'Deleted mlx library.'
 	@rm -f $(NAME)
 	@echo 'Deleted so_long.'
 

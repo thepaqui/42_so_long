@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl.h                                               :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 09:43:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/04 14:08:29 by thepaqui         ###   ########.fr       */
+/*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
+/*   Updated: 2023/02/04 16:06:53 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef SL_H
-# define SL_H
-# include <errno.h>
-# include <stdio.h> //---------------------------------------------------------
-# include "game.h"
-# include "../mlx/mlx.h"
-# include "../checking/check.h"
-# include "../parsing/parse.h"
-# include "../utils/utils.h"
-# include "../disp/disp.h"
+#include "disp.h"
 
-# define ERRCHECK check_err(err, game)
-
-#endif
+void	start_mlx(t_game *game)
+{
+	MLX = mlx_init();
+	WIN = mlx_new_window(MLX, WINWID, WINHEI, WINNAME);
+	IMGIMG = mlx_new_image(MLX, WINWID, WINHEI);
+	IMGADD = mlx_get_data_addr(IMGIMG, &IMGBPP, &IMGLINLEN, &IMGENDIAN);
+	mlx_loop(MLX);
+}

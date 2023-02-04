@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:24:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/03 14:24:58 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:35:19 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include "../utils/utils.h"
+# include "../srcs/game.h"
 
-char	**get_map(char *file);
+void	get_map(char *file, t_game *game);
 
 #endif
