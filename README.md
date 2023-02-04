@@ -17,35 +17,6 @@ I already have a good idea of what I'll be doing, I want to make a *Yoshi's Isla
 I'll first make the mandatory part to become familiar with the **MLX**, and then I'll move on to the serious stuff.  
 Wish me luck as I embark on this journey!
 
-I'll keep a diary detailing each day of work just under this. Feel free to read it!  
-I'll also toss in some amazing video game music I listened to while working on this project.
-
-## Diary
-
-<details>
-<summary>Click here to read</summary>
-
-### February 2nd 2023
-
-I just started this project today. I setup a basic Makefile, my work tree and my header files.  
-I also imported the MLX and skimmed over its documentation. (btw, thanks to hsmits and jvan-sni for [42 Docs]!)  
-I did all the parsing and started on the map checking.  
-I also created an error handling system. It took quite some time to figure out but it's gonna save a lot of lines!
-
-[42 Docs]: https://harm-smits.github.io/42docs/libs/minilibx
-
-Here's a [track from *The Binding of Isaac Antibirth Mod*], in honor of my friend bbourret's so_long!
-
-[track from *The Binding of Isaac Antibirth Mod*]: https://youtu.be/LoTXsZ-PcXc
-
-### February 3rd 2023
-
-Today I debugged all the code I wrote yesterday and finished all checking, including the flood fill algorithm for map validity!
-
-Music Kirby forgotten land final boss.
-
-</details>
-
 ## Notes
 
 (This section is for me, akin to a sticky note to remember what I was doing the previous day)
