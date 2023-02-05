@@ -17,14 +17,9 @@ I already have a good idea of what I'll be doing, I want to make a *Yoshi's Isla
 I'll first make the mandatory part to become familiar with the **MLX**, and then I'll move on to the serious stuff.  
 Wish me luck as I embark on this journey!
 
-## Notes
+## To-do list
 
-(This section is for me, akin to a sticky note to remember what I was doing the previous day)
-
-GO BACK TO CREATING IMAGES
-
-- mlx_loop_hook -> game loop,
-- mlx_hook -> event handling,
-- mlx_loop.  
-mlx_hook and mlx_loop_hook initialize what will happen in my game loop.  
-Once they're set, I call mlx_loop to start the game loop.
+- [ ] GET MAP WIDTH AND HEIGHT IN PARSING
+- [ ] MAKE A STRUCT FOR PLAYER
+- [ ] MAKE A STRUCT FOR CAMERA
+- [ ] MAKE GAME LOOP WITH `mlx_loop_hook`
