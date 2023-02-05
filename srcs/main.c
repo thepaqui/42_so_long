@@ -6,49 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:26:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/04 16:06:57 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/05 20:19:33 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "sl.h"
-
-static t_img	*image_init(void)
-{
-	t_img	*image;
-
-	image = ft_calloc(1, sizeof(t_img));
-	if (!image)
-		return (NULL);
-	image->img = NULL;
-	image->add = NULL;
-	image->bits_per_pixel = 0;
-	image->line_len = 0;
-	image->endian = 0;
-	return (image);
-}
-
-static t_game	*game_init(int *err)
-{
-	t_game	*game;
-
-	game = ft_calloc(1, sizeof(t_game));
-	if (!game)
-	{
-		*err = MALLOCFAIL;
-		return (NULL);
-	}
-	IMG = image_init();
-	if (!IMG)
-	{
-		free_game(game);
-		*err = MALLOCFAIL;
-		return (NULL);
-	}
-	MLX = NULL;
-	WIN = NULL;
-	MAP = NULL;
-	NBCOINS = 0;
-	return (game);
-}
 
 static void	check_err(int err, t_game *game)
 {
@@ -70,9 +31,14 @@ int	main(int ac, char **av)
 	get_map(av[1], game);
 	err = check_map(game);
 	ERRCHECK;
-	//for (int i = 0 ; MAP[i] ; i++) //--------------------------------------
-	//	printf("|%s|\n", MAP[i]); //---------------------------------------
-	start_mlx(game);
-	free_game(game); //----------------------------------------------------
-	system("leaks so_long | grep leaks"); //-------------------------------
+/*	for (int i = 0 ; MAPMAP[i] ; i++) //--------------------------------------
+		printf("%s\n", MAPMAP[i]); //-----------------------------------------
+	printf("\nWidth %d\nHeight %d\n", MAPWID, MAPHEI); //---------------------
+	printf("Start at (%d,%d)\n", XSTART, YSTART); //--------------------------
+	printf("Exit at (%d,%d)\n", XEXIT, YEXIT); //-----------------------------
+	printf("%d coins\n", NBCOINS); //---------------------------------------*/
+	launch_game(game);
+	free_game(game);
+	system("leaks so_long | leaks"); //---------------------------------------
+	return (0);
 }

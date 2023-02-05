@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:19:58 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/03 23:14:18 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/05 20:05:55 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "check.h"
@@ -31,21 +31,23 @@ static int	check_walls(char **map, int lines, int last)
 	return (0);
 }
 
-int	check_shape(char **map)
+int	check_shape(t_game *game)
 {
 	int	len;
 	int	i;
 	int	lines;
 
-	len = ft_strlen(map[0]);
+	len = ft_strlen(MAPMAP[0]);
+	MAPWID = len - 2;
 	i = 0;
-	while (map[++i])
-		if (ft_strlen(map[i]) != len)
+	while (MAPMAP[++i])
+		if (ft_strlen(MAPMAP[i]) != len)
 			return (NOTRECT);
+	MAPHEI = i - 2;
 	lines = 0;
-	while (map[lines])
+	while (MAPMAP[lines])
 		lines++;
-	return (check_walls(map, lines, len - 1));
+	return (check_walls(MAPMAP, lines, len - 1));
 }
 
 static char	**duplicate_map(char **map)
@@ -93,7 +95,7 @@ int	check_path(t_game *game)
 	int		y;
 	int		requirements[2];
 
-	flood_map = duplicate_map(MAP);
+	flood_map = duplicate_map(MAPMAP);
 	if (!flood_map)
 		return (MALLOCFAIL);
 	x = XSTART;

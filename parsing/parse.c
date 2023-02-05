@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:18:41 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/04 14:34:40 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/05 18:11:41 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "parse.h"
@@ -56,16 +56,16 @@ static void	take_map(int fd, int lines, t_game *game)
 	int	i;
 	int	gnlerr;
 
-	MAP = ft_calloc(lines + 1, sizeof(char *));
-	if (!MAP)
+	MAPMAP = ft_calloc(lines + 1, sizeof(char *));
+	if (!MAPMAP)
 		ft_error(MALLOCFAIL, game);
 	i = 0;
 	gnlerr = 0;
-	MAP[i] = get_next_line(fd, &gnlerr);
-	while (MAP[i] && ++i < lines)
+	MAPMAP[i] = get_next_line(fd, &gnlerr);
+	while (MAPMAP[i] && ++i < lines)
 	{
 		gnlerr = 0;
-		MAP[i] = get_next_line(fd, &gnlerr);
+		MAPMAP[i] = get_next_line(fd, &gnlerr);
 	}
 	if (gnlerr)
 		errno_error(gnlerr, game);
@@ -81,6 +81,6 @@ void	get_map(char *file, t_game *game)
 	close_mapfile(fd, game);
 	fd = open_mapfile(file, game);
 	take_map(fd, lines, game);
-	if (!MAP)
+	if (!MAPMAP)
 		ft_error(MALLOCFAIL, game);
 }

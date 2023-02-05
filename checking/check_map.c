@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:30:40 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/03 22:31:58 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/05 20:01:18 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "check.h"
@@ -31,15 +31,15 @@ static void	clean_map(char **map)
 
 static void	obj_counter(int i, int j, int *io, t_game *game)
 {
-	if (MAP[i][j] == 'C')
+	if (MAPMAP[i][j] == 'C')
 		NBCOINS++;
-	else if (MAP[i][j] == 'P')
+	else if (MAPMAP[i][j] == 'P')
 	{
 		io[0]++;
 		XSTART = j;
 		YSTART = i;
 	}
-	else if (MAP[i][j] == 'E')
+	else if (MAPMAP[i][j] == 'E')
 	{
 		io[1]++;
 		XEXIT = j;
@@ -71,12 +71,12 @@ static int	check_chars(t_game *game)
 	io[0] = 0;
 	io[1] = 0;
 	i = -1;
-	while (MAP[++i])
+	while (MAPMAP[++i])
 	{
 		j = -1;
-		while (MAP[i][++j])
+		while (MAPMAP[i][++j])
 		{
-			if (!isinset(MAP[i][j], "01CEP"))
+			if (!isinset(MAPMAP[i][j], "01CEP"))
 				return (WRONGCHAR);
 			obj_counter(i, j, io, game);
 		}
@@ -88,14 +88,14 @@ int	check_map(t_game *game)
 {
 	int	err;
 
-	if (!MAP)
+	if (!MAPMAP)
 		return (MALLOCFAIL);
-	clean_map(MAP);
+	clean_map(MAPMAP);
 	NBCOINS = 0;
 	err = check_chars(game);
 	if (err)
 		return (err);
-	err = check_shape(MAP);
+	err = check_shape(game);
 	if (err)
 		return (err);
 	err = check_path(game);

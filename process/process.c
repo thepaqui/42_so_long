@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   process.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
+/*   Updated: 2023/02/05 21:53:19 by thepaqui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "process.h"
+#include <stdio.h> //--------------------------------------------------
+
+static void	debug(t_game *game)
+{
+	printf("Player position (%d,%d)\n", XPLAYER, YPLAYER);
+}
+
+static int	main_loop(t_game *game)
+{
+	debug(game);
+	prepare_new_frame(game);
+	return (0);
+}
+
+void	launch_game(t_game *game)
+{
+	MLX = mlx_init();
+	open_window(game);
+	IMGIMG = mlx_new_image(MLX, WINWID, WINHEI);
+	IMGADD = mlx_get_data_addr(IMGIMG, &IMGBPP, &IMGLLEN, &IMGENDI);
+	BIMGIMG = mlx_new_image(MLX, WINWID, WINHEI);
+	BIMGADD = mlx_get_data_addr(BIMGIMG, &BIMGBPP, &BIMGLLEN, &BIMGENDI);
+	XPLAYER = WINWID / 2;
+	YPLAYER = WINHEI / 2;
+	mlx_loop_hook(MLX, main_loop, game);
+	mlx_hook(WIN, ON_KEYDOWN, 0, handle_key_press, game);
+	mlx_loop(MLX);
+}
