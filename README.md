@@ -1,6 +1,6 @@
 # 42_so_long
 
-My *so_long* project for **42 Nice**, last updated on February 4nd 2023, at 16:13.
+My *so_long* project for **42 Nice**, last updated on February 5th 2023, at 21:59.
 
 ## Presentation
 
@@ -19,12 +19,9 @@ Wish me luck as I embark on this journey!
 
 ## To-do list
 
-- [x] MAKE INIT FOR PLAYER
-- [x] MAKE INIT FOR CAMERA
-- [x] MAKE INIT FOR MAP
-- [x] MAKE FREE FOR PLAYER
-- [x] MAKE FREE FOR CAMERA
-- [x] MAKE FREE FOR MAP
-- [x] FIX LEAKS FROM MLX
-- [ ] GET MAP WIDTH AND HEIGHT IN PARSING
-- [ ] MAKE GAME LOOP WITH `mlx_loop_hook`
+- [x] GET MAP WIDTH AND HEIGHT IN PARSING
+- [x] MAKE GAME LOOP WITH `mlx_loop_hook`
+- [x] GET BASIC MOVEMENT
+- [ ] IMPLEMENT SPRITES AND TEXTURES
+- [ ] ADD SPRITE AND SPRITE INFO TO PLAYER STRUCT
+- [ ] ADD TEXTURES TO MAP STRUCT
