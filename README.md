@@ -21,6 +21,7 @@ Wish me luck as I embark on this journey!
 
 - [x] ADD PLAYER STATE TO PLAYER STRUCT
 - [x] ADD MISSING SPRITE OR TEXTURE PROTECTION
+- [x] ADD VECTOR STRUCT
 - [ ] PARSE XPM FILES INTO T_XPM STRUCT
 - [ ] MAKE `put_t_xpm_to_img` FUNCTION
 - [ ] ADD PLAYER SPRITES
