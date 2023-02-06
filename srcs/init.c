@@ -16,29 +16,29 @@ static t_img	*image_init(void)
 	t_img	*image;
 
 	image = ft_calloc(1, sizeof(t_img));
-	if (!image)
-		return (NULL);
-	image->img = NULL;
-	image->add = NULL;
-	image->bits_per_pixel = 0;
-	image->line_len = 0;
-	image->endian = 0;
 	return (image);
 }
 
-static t_player	*player_init(void)
+static t_player	*player_init(int *err, char *file)
 {
 	t_player	*player;
 
 	player = ft_calloc(1, sizeof(t_player));
 	if (!player)
 		return (NULL);
-	player->pos_x = 0;
-	player->pos_y = 0;
-	player->up = 0;
-	player->down = 0;
-	player->left = 0;
-	player->right = 0;
+	player->pos = ft_calloc(1, sizeof(t_vector));
+	if (!player->pos)
+	{
+		free(player);
+		return (NULL);
+	}
+	player->sprite = parse_xpm(file, err);
+	if (!player->sprite)
+	{
+		free(player);
+		free(player->pos);
+		return (NULL);
+	}
 	return (player);
 }
 
@@ -49,28 +49,31 @@ static t_camera	*camera_init(void)
 	camera = ft_calloc(1, sizeof(t_camera));
 	if (!camera)
 		return (NULL);
-	camera->pos_x = 0;
-	camera->pos_y = 0;
-	camera->width = 0;
-	camera->height = 0;
+	camera->pos = ft_calloc(1, sizeof(t_vector));
+	if (!camera->pos)
+	{
+		free(camera);
+		return (NULL);
+	}
 	return (camera);
 }
 
-static t_map	*map_init(void)
+static t_map	*map_init(int *err, char *file)
 {
 	t_map	*map;
 
 	map = ft_calloc(1, sizeof(t_map));
 	if (!map)
+	{
+		*err = MALLOCFAIL;
 		return (NULL);
-	map->map = NULL;
-	map->width = 0;
-	map->height = 0;
-	map->start[0] = 0;
-	map->start[1] = 0;
-	map->exit[0] = 0;
-	map->exit[1] = 0;
-	map->nbcoins = 0;
+	}
+	map->sprite = parse_xpm(file, err);
+	if (!map->sprite)
+	{
+		free(map);
+		return (NULL);
+	}
 	return (map);
 }
 
@@ -85,17 +88,17 @@ t_game	*game_init(int *err)
 		return (NULL);
 	}
 	IMG = image_init();
-	BIMG = image_init();
-	MAP = map_init();
-	PLAYER = player_init();
 	CAM = camera_init();
-	if (!IMG || !BIMG || !MAP || !PLAYER || !CAM)
+	if (!IMG || !CAM)
 	{
-		free_game(game);
 		*err = MALLOCFAIL;
-		return (NULL);
+		return (free_game(game));
 	}
-	MLX = NULL;
-	WIN = NULL;
+	MAP = map_init(err, MAP_SPRITE);
+	if (!MAP)
+		errno_error(*err, game, MAP_SPRITE);
+	PLAYER = player_init(err, PLAYER_SPRITE);
+	if (!PLAYER)
+		errno_error(*err, game, PLAYER_SPRITE);
 	return (game);
 }

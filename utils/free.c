@@ -34,6 +34,13 @@ static t_player	*free_player(t_player *player)
 {
 	if (!player)
 		return (NULL);
+	if (player->pos)
+	{
+		free(player->pos);
+		player->pos = NULL;
+	}
+	if (player->sprite)
+		free_xpm(player->sprite);
 	free(player);
 	player = NULL;
 	return (NULL);
@@ -43,6 +50,11 @@ static t_camera	*free_camera(t_camera *camera)
 {
 	if (!camera)
 		return (NULL);
+	if (camera->pos)
+	{
+		free(camera->pos);
+		camera->pos = NULL;
+	}
 	free(camera);
 	camera = NULL;
 	return (NULL);
@@ -54,6 +66,8 @@ static t_map	*free_map(t_map *map)
 		return (NULL);
 	if (map->map)
 		map->map = ft_free_tab(map->map, -1);
+	if (map->sprite)
+		free_xpm(map->sprite);
 	free(map);
 	map = NULL;
 	return (NULL);
@@ -64,15 +78,13 @@ t_game	*free_game(t_game *game)
 	if (!game)
 		return (NULL);
 	if (IMG)
-		IMG = free_img(IMG);
-	if (BIMG)
-		BIMG = free_img(BIMG);
+		free_img(IMG);
 	if (PLAYER)
-		PLAYER = free_player(PLAYER);
+		free_player(PLAYER);
 	if (CAM)
-		CAM = free_camera(CAM);
+		free_camera(CAM);
 	if (MAP)
-		MAP = free_map(MAP);
+		free_map(MAP);
 	free(game);
 	game = NULL;
 	return (NULL);

@@ -25,13 +25,13 @@ int	main(int ac, char **av)
 	err = 0;
 	game = NULL;
 	check_input(ac, av, &err);
-	ERRCHECK;
+	check_err(err, game);
 	game = game_init(&err);
-	ERRCHECK;
+	check_err(err, game);
 	get_map(av[1], game);
 	err = check_map(game);
-	ERRCHECK;
-/*	for (int i = 0 ; MAPMAP[i] ; i++) //--------------------------------------
+	check_err(err, game);
+	/*for (int i = 0 ; MAPMAP[i] ; i++) //--------------------------------------
 		printf("%s\n", MAPMAP[i]); //-----------------------------------------
 	printf("\nWidth %d\nHeight %d\n", MAPWID, MAPHEI); //---------------------
 	printf("Start at (%d,%d)\n", XSTART, YSTART); //--------------------------

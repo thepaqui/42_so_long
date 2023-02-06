@@ -47,9 +47,14 @@ void	ft_error(int code, t_game *game)
 	exit(code);
 }
 
-void	errno_error(int code, t_game *game)
+void	errno_error(int code, t_game *game, char *file)
 {
 	puterr("Error");
+	if (file)
+	{
+		ft_putendl_fd(file, 2);
+		ft_putendl_fd(": ", 2);
+	}
 	puterr(strerror(code));
 	free_game(game);
 	exit(code);

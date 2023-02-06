@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl.h                                               :+:      :+:    :+:   */
+/*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 09:43:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/05 18:10:25 by thepaqui         ###   ########.fr       */
+/*   Created: 2023/02/06 18:31:14 by thepaqui          #+#    #+#             */
+/*   Updated: 2023/02/06 21:53:19 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef SL_H
-# define SL_H
-# include <errno.h>
-# include <stdio.h> //---------------------------------------------------------
-# include "game.h"
-# include "../mlx/mlx.h"
-# include "../checking/check.h"
-# include "../parsing/parse.h"
-# include "../utils/utils.h"
-# include "../process/process.h"
+#include "process.h"
 
-t_game	*game_init(int *err);
-
-#endif
+void	update_player(t_game *game)
+{
+    if (PUP && YPLAYER > 0)
+        YPLAYER--;
+    else if (PDO && YPLAYER < WINHEI - 1)
+        YPLAYER++;
+    if (PLE && XPLAYER > 0)
+        XPLAYER--;
+    else if (PRI && XPLAYER < WINWID - 1)
+        XPLAYER++;
+}

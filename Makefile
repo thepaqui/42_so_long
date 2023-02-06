@@ -6,12 +6,12 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/05 18:32:18 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/06 14:53:29 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME= so_long
 
-INCLUDES= -Isrcs -Iutils -Iparsing -Ichecking -Iprocess -Imlx
+INCLUDES= -Isrcs -Iutils -Iparsing -Ichecking -Iprocess -Ixpm -Imlx
 
 CC= cc -Wall -Wextra -Werror
 
@@ -24,16 +24,21 @@ MLX= libmlx.a
 SRCS_M= utils/text.c \
 		utils/mem.c \
 		utils/free.c \
+		utils/free_other.c \
 		utils/str.c \
+		utils/ft_split.c \
 		utils/gnl/gnl.c \
 		utils/gnl/gnl_utils.c \
 		utils/error.c \
 		parsing/parse.c \
+		parsing/xpm.c \
 		checking/check_input.c \
 		checking/check_map.c \
 		checking/check_map_help.c \
 		process/process.c \
 		process/window.c \
+		process/player.c \
+		process/draw.c \
 		process/image.c \
 		process/key_handling.c \
 		srcs/init.c \

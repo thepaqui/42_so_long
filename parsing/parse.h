@@ -18,5 +18,6 @@
 # include "../srcs/game.h"
 
 void	get_map(char *file, t_game *game);
+t_xpm   *parse_xpm(char *file, int *err);
 
 #endif

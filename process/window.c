@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 #include "process.h"
 
-void	close_window(t_game *game, int code)
+void	close_window(t_game *game, int code, char *file)
 {
 	mlx_destroy_window(MLX, WIN);
 	WIN = NULL;
+	if (code)
+		errno_error(code, game, file);
 	free_game(game);
 	system("leaks so_long | grep leaks"); //---------------------------------
 	exit(code);
@@ -22,7 +24,7 @@ void	close_window(t_game *game, int code)
 
 int	handle_cross(t_game *game)
 {
-	close_window(game, 0);
+	close_window(game, 0, NULL);
 	return (0);
 }
 

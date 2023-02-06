@@ -38,12 +38,12 @@ int	check_shape(t_game *game)
 	int	lines;
 
 	len = ft_strlen(MAPMAP[0]);
-	MAPWID = len - 2;
+	MAPWID = len;
 	i = 0;
 	while (MAPMAP[++i])
 		if (ft_strlen(MAPMAP[i]) != len)
 			return (NOTRECT);
-	MAPHEI = i - 2;
+	MAPHEI = i;
 	lines = 0;
 	while (MAPMAP[lines])
 		lines++;

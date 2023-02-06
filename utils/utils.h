@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <errno.h>
 # include <string.h>
+# include <stdio.h>
 # include "../srcs/game.h"
 
 /* TEXT */
@@ -27,11 +28,15 @@ int		isinset(char c, const char *s);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 char	**ft_free_tab(char **tab, int index);
+t_xpm	*free_xpm(t_xpm *xpm);
 t_game	*free_game(t_game *game);
 
 /* STRINGS */
 int		ft_strlen(const char *s);
+int		ft_strclen(const char *str, const char *set);
 char	*ft_strndup(const char *str, int n);
+int		ft_strlcpy(char *dst, const char *src, int dstsize);
+char	**ft_split(const char *s, const char *set);
 
 /* GNL */
 size_t	ft_strlcat_gnl(char *dst, const char *src, size_t dstsize);
@@ -40,7 +45,7 @@ char	*get_next_line(int fd, int *err);
 # define BUFFER_SIZE 10
 
 /* ERROR */
-void	errno_error(int code, t_game *game);
+void	errno_error(int code, t_game *game, char *file);
 void	ft_error(int code, t_game *game);
 # define TOOFEWARGS 1
 # define TOOMANYARGS 2
