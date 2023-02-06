@@ -1,6 +1,6 @@
 # 42_so_long
 
-My *so_long* project for **42 Nice**, last updated on February 5th 2023, at 21:59.
+My *so_long* project for **42 Nice**, last updated on February 6th 2023, at 23:57.
 
 ## Presentation
 
@@ -22,9 +22,11 @@ Wish me luck as I embark on this journey!
 - [x] ADD PLAYER STATE TO PLAYER STRUCT
 - [x] ADD MISSING SPRITE OR TEXTURE PROTECTION
 - [x] ADD VECTOR STRUCT
-- [ ] PARSE XPM FILES INTO T_XPM STRUCT
-- [ ] MAKE `put_t_xpm_to_img` FUNCTION
+- [x] ADD XPM STRUCT
+- [ ] PARSE XPM FILES INTO T_XPM STRUCT (parsing/xpm.c)
+- [ ] MAKE `put_t_xpm_to_img` FUNCTION (process/xpm.c)
 - [ ] ADD PLAYER SPRITES
 - [ ] ADD TEXTURES
 - [ ] ADD TEXT TEXTURES
 - [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
+- [ ] REMOVE MACROS FOR SHORTENED NAMES
