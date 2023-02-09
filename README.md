@@ -19,6 +19,8 @@ Wish me luck as I embark on this journey!
 
 ## To-do list
 
+Go back to palette.c! Segfault when closing window!
+
 - [x] ADD PLAYER STATE TO PLAYER STRUCT
 - [x] ADD MISSING SPRITE OR TEXTURE PROTECTION
 - [x] ADD VECTOR STRUCT
