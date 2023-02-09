@@ -19,7 +19,7 @@ Wish me luck as I embark on this journey!
 
 ## To-do list
 
-Go back to palette.c! Segfault when closing window!
+Go back to palette.c for palette checking! Segfault when closing window!
 
 - [x] ADD PLAYER STATE TO PLAYER STRUCT
 - [x] ADD MISSING SPRITE OR TEXTURE PROTECTION
