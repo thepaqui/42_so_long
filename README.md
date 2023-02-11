@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 11th 2023, at 20:44.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 11th 2023, at 23:15.
 
 ## Presentation
 
@@ -25,7 +25,7 @@ Implement get_colors() in palette.c!
 - [x] ADD TEXTURES
 - [x] CHECK PALETTE FORMAT
 - [x] ADD COLOR KEYWORDS (REFERENCE X11)
-- [ ] GET PALETTE COLORS
+- [x] GET PALETTE COLORS
 - [ ] CHECK PALETTE VALIDITY
 - [ ] PARSE XPM FILES INTO T_XPM STRUCT (parsing/xpm.c)
 - [ ] MAKE `put_t_xpm_to_img` FUNCTION (process/xpm.c)
