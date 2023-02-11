@@ -19,7 +19,7 @@ Wish me luck as I embark on this journey!
 
 ## To-do list
 
-Go back to palette.c for palette checking! Segfault when closing window!
+Implement get_colors() in palette.c!
 
 - [x] ADD PLAYER SPRITES
 - [x] ADD TEXTURES
