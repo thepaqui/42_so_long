@@ -1,6 +1,6 @@
 # 42_so_long
 
-My *so_long* project for **42 Nice**, last updated on February 11th 2023, at 20:43.
+My *so_long* project for **42 Nice**, last updated on February 11th 2023, at 20:44.
 
 ## Presentation
 
@@ -23,6 +23,7 @@ Go back to palette.c for palette checking! Segfault when closing window!
 
 - [x] ADD PLAYER SPRITES
 - [x] ADD TEXTURES
+- [x] CHECK PALETTE FORMAT
 - [ ] GET PALETTE COLORS
 - [ ] CHECK PALETTE VALIDITY
 - [ ] PARSE XPM FILES INTO T_XPM STRUCT (parsing/xpm.c)
