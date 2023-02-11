@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 16:37:38 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/11 22:57:44 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct	s_camera
 	t_vector	size;
 }				t_camera;
 
-# define MAP_SPRITE "./textures/map/floor.xpm" // change
+# define MAP_SPRITE "./textures/test.xpm" //"./textures/map/floor.xpm" // change
 
 typedef struct	s_map
 {
@@ -75,8 +75,6 @@ typedef struct	s_game
 {
 	void		*mlx;
 	void		*window;
-	int			win_wid;
-	int			win_hei;
 	t_img		*image;
 	t_player	*player;
 	t_camera	*camera;
@@ -86,8 +84,8 @@ typedef struct	s_game
 /* MLX AND WINDOW */
 # define MLX game->mlx
 # define WIN game->window
-# define WINWID game->win_wid
-# define WINHEI game->win_hei
+# define WINWID game->camera->size.x
+# define WINHEI game->camera->size.y
 # define WINNAME "thepaqui's so_long!"
 
 /* WINDOW IMAGE */

@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:03:18 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 20:35:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/11 23:10:08 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,6 @@ static int	check_pal_format(char **tab)
 	return (0);
 }
 
-static int	get_tokens(char **tab, t_xpm *xpm)
-{
-	int	i;
-
-	xpm->token = ft_calloc(xpm->pal_size, sizeof(char));
-	if (!xpm->token)
-		return (MALLOCFAIL);
-	i = 0;
-	while (tab[++i])
-		xpm->token[i - 1] = tab[i][0];
-	return (0);
-}
-
 int	get_palette(t_xpm *xpm, char *raw_pal)
 {
 	int		err;
@@ -106,9 +93,12 @@ int	get_palette(t_xpm *xpm, char *raw_pal)
 	err = check_pal_format(tab); // "%c c (%x/%s)" also check keywords
 	if (!err)
 		err = get_tokens(tab, xpm);
-	/*if (!err)
-		err = get_colors(tab, xpm);
 	if (!err)
+		err = get_colors(tab, xpm);
+	for (int i = 0;i < xpm->pal_size;i++) { //---------------------------------------
+		printf("COLOR %i:\t%c - 0x%08X\n", i, xpm->token[i], xpm->palette[i]); //---------
+	} //-----------------------------------------------------------------------------
+	/*if (!err)
 		err = check_palette(tab, xpm);*/
 	ft_free_tab(tab, -1);
 	return (err);

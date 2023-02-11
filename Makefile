@@ -6,19 +6,19 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/11 19:07:01 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/11 22:14:01 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= so_long
 
-INCLUDES= -Isrcs -Iutils -Iparsing -Ichecking -Iprocess -Ixpm -Imlx
+INCLUDES= -Isrcs -Iutils -Iparsing -Ichecking -Iprocess -Imlx
 
 CC= cc -Wall -Wextra -Werror
 
 CCOBJ= $(CC) $(INCLUDES)
 
-CCBIN= $(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit
+CCBIN= $(CC) -L./ -lmlx -framework OpenGL -framework AppKit
 
 MLX= libmlx.a
 
@@ -27,11 +27,13 @@ SRCS_M= utils/text.c \
 		utils/free.c \
 		utils/free_other.c \
 		utils/str.c \
+		utils/ft_atoi_base.c \
 		utils/ft_split.c \
 		utils/gnl/gnl.c \
 		utils/gnl/gnl_utils.c \
 		utils/error.c \
 		parsing/parse.c \
+		parsing/palette_info.c \
 		parsing/palette.c \
 		parsing/color_keyword.c \
 		parsing/xpm.c \

@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:47:33 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 17:43:07 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/11 22:09:25 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	ft_putchar_fd(const char c, int fd);
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_putendl_fd(const char *s, int fd);
 int		isinset(char c, const char *s);
+void	str_toupper(char *s);
 int		ft_atoi(const char *str);
+int		ft_atoi_base(char *str, char *base);
 
 /* MEMORY */
 void	*ft_memset(void *b, int c, size_t len);
