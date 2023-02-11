@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/06 15:21:41 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:37:38 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef GAME_H
 # define GAME_H
 
@@ -18,11 +19,16 @@ typedef struct	s_vector
 	int	y;
 }				t_vector;
 
+# define SPRITE_DIM 64
+
 typedef struct  s_xpm
 {
     int     *palette;
     char    *token;
-    char    *spritesheet;
+	int		pal_size;
+    char    **spritesheet;
+	int		spr_per_line;
+	int		spr_per_column;
 }               t_xpm;
 
 typedef struct	s_img
@@ -34,7 +40,7 @@ typedef struct	s_img
 	int		endian;
 }				t_img;
 
-# define PLAYER_SPRITE "./xpm/test.xpm" // change
+# define PLAYER_SPRITE "./textures/ph/phid.xpm" // change
 
 typedef struct	s_player
 {
@@ -53,7 +59,7 @@ typedef struct	s_camera
 	t_vector	size;
 }				t_camera;
 
-# define MAP_SPRITE "./xpm/test.xpm" // change
+# define MAP_SPRITE "./textures/map/floor.xpm" // change
 
 typedef struct	s_map
 {
@@ -69,6 +75,8 @@ typedef struct	s_game
 {
 	void		*mlx;
 	void		*window;
+	int			win_wid;
+	int			win_hei;
 	t_img		*image;
 	t_player	*player;
 	t_camera	*camera;
@@ -78,8 +86,8 @@ typedef struct	s_game
 /* MLX AND WINDOW */
 # define MLX game->mlx
 # define WIN game->window
-# define WINWID 1024
-# define WINHEI 896
+# define WINWID game->win_wid
+# define WINHEI game->win_hei
 # define WINNAME "thepaqui's so_long!"
 
 /* WINDOW IMAGE */

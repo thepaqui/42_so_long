@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:18:41 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/05 18:11:41 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 20:12:25 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "parse.h"
 #include <stdio.h> //---------------------------------------------------------
 
@@ -58,7 +59,7 @@ static void	take_map(int fd, int lines, t_game *game, char *file)
 
 	MAPMAP = ft_calloc(lines + 1, sizeof(char *));
 	if (!MAPMAP)
-		ft_error(MALLOCFAIL, game);
+		ft_error(MALLOCFAIL, game, NULL);
 	i = 0;
 	gnlerr = 0;
 	MAPMAP[i] = get_next_line(fd, &gnlerr);
@@ -82,5 +83,5 @@ void	get_map(char *file, t_game *game)
 	fd = open_mapfile(file, game);
 	take_map(fd, lines, game, file);
 	if (!MAPMAP)
-		ft_error(MALLOCFAIL, game);
+		ft_error(MALLOCFAIL, game, NULL);
 }

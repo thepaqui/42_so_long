@@ -6,15 +6,16 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:26:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/05 20:19:33 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:16:07 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "sl.h"
 
 static void	check_err(int err, t_game *game)
 {
 	if (err)
-		ft_error(err, game);
+		ft_error(err, game, NULL);
 }
 
 int	main(int ac, char **av)
@@ -31,7 +32,7 @@ int	main(int ac, char **av)
 	get_map(av[1], game);
 	err = check_map(game);
 	check_err(err, game);
-	/*for (int i = 0 ; MAPMAP[i] ; i++) //--------------------------------------
+	/*for (int i = 0 ; MAPMAP[i] ; i++) //------------------------------------
 		printf("%s\n", MAPMAP[i]); //-----------------------------------------
 	printf("\nWidth %d\nHeight %d\n", MAPWID, MAPHEI); //---------------------
 	printf("Start at (%d,%d)\n", XSTART, YSTART); //--------------------------
@@ -39,6 +40,6 @@ int	main(int ac, char **av)
 	printf("%d coins\n", NBCOINS); //---------------------------------------*/
 	launch_game(game);
 	free_game(game);
-	system("leaks so_long | leaks"); //---------------------------------------
+	system("leaks so_long | grep leak"); //-----------------------------------
 	return (0);
 }

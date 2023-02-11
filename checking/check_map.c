@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:30:40 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/05 20:01:18 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:48:33 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "check.h"
 
 static void	clean_map(char **map)

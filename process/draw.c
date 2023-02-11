@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:47:55 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/06 15:21:43 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:14:43 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "process.h"
 #include <stdio.h>//--------------------------------------
 
@@ -20,7 +21,7 @@ void	put_pixel_to_img(t_img *img, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	put_background_color_to_img(t_img *img, int color)
+void	put_background_color_to_img(t_game *game, int color)
 {
 	int	x;
 	int	y;
@@ -30,7 +31,7 @@ void	put_background_color_to_img(t_img *img, int color)
 	{
 		x = -1;
 		while (++x < WINWID - 1)
-			put_pixel_to_img(img, x, y, color);
+			put_pixel_to_img(IMG, x, y, color);
 	}
 }
 

@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:44:50 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/05 21:53:13 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:43:57 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "process.h"
 
 static void	key_move(int key, t_game *game)
@@ -25,7 +26,7 @@ static void	key_move(int key, t_game *game)
 
 int	handle_key_press(int key, t_game *game)
 {
-	printf("KEY %i IS PRESSED\n", key); //-
+	//printf("KEY %i IS PRESSED\n", key); //-----------------------------------
 	if (key == KEY_ESC)
 		close_window(game, 0, NULL);
 	if (key >= KEY_ARRLE && key <= KEY_ARRUP)
@@ -47,7 +48,7 @@ static void	key_stop_move(int key, t_game *game)
 
 int	handle_key_release(int key, t_game *game)
 {
-	printf("KEY %i IS RELEASED\n", key); //-
+	//printf("KEY %i IS RELEASED\n", key); //------------------------------------
 	if (key >= KEY_ARRLE && key <= KEY_ARRUP)
 		key_stop_move(key, game);
 	return (0);

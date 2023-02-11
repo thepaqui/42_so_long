@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 09:43:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/05 18:10:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:47:56 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef SL_H
 # define SL_H
 # include <errno.h>

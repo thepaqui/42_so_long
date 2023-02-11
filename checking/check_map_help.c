@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:19:58 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/05 20:05:55 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:48:28 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "check.h"
 
 static int	check_walls(char **map, int lines, int last)

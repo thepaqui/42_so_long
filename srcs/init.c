@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/05 21:40:22 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:32:38 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "sl.h"
 
 static t_img	*image_init(void)
@@ -33,8 +34,10 @@ static t_player	*player_init(int *err, char *file)
 		return (NULL);
 	}
 	player->sprite = parse_xpm(file, err);
-	if (!player->sprite)
+	if (!player->sprite || *err)
 	{
+		if (player->sprite)
+			free(player->sprite);
 		free(player);
 		free(player->pos);
 		return (NULL);
@@ -69,8 +72,10 @@ static t_map	*map_init(int *err, char *file)
 		return (NULL);
 	}
 	map->sprite = parse_xpm(file, err);
-	if (!map->sprite)
+	if (!map->sprite || *err)
 	{
+		if (map->sprite)
+			free(map->sprite);
 		free(map);
 		return (NULL);
 	}
@@ -96,9 +101,13 @@ t_game	*game_init(int *err)
 	}
 	MAP = map_init(err, MAP_SPRITE);
 	if (!MAP)
-		errno_error(*err, game, MAP_SPRITE);
+		error_handling(*err, game, MAP_SPRITE);
 	PLAYER = player_init(err, PLAYER_SPRITE);
 	if (!PLAYER)
-		errno_error(*err, game, PLAYER_SPRITE);
+		error_handling(*err, game, PLAYER_SPRITE);
+	// !-- Should probably move the 3 following lines to launch_game() --!
+	WINWID = SPRITE_DIM * 16; //should be CAMWID
+	WINHEI = SPRITE_DIM * 14; //should be CAMHEI
+	//add window size assignment and protection here!
 	return (game);
 }

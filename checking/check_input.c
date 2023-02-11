@@ -6,12 +6,13 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:21:13 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/03 14:29:32 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:50:27 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "check.h"
 
-static int	is_file_type(char *path, char *ext)
+int	is_file_type(char *path, char *ext)
 {
 	int	len;
 	int	dot;
@@ -28,7 +29,12 @@ static int	is_file_type(char *path, char *ext)
 	i = -1;
 	while (ext[++i])
 		if (ext[i] != path[dot + 1 + i])
-			return (NOTBER);
+		{
+			if (!ft_strncmp(ext, "ber", 3))
+				return (NOTBER);
+			else
+				return (NOTXPM);
+		}
 	return (0);
 }
 

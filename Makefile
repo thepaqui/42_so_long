@@ -6,9 +6,10 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/06 14:53:29 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/11 19:07:01 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 NAME= so_long
 
 INCLUDES= -Isrcs -Iutils -Iparsing -Ichecking -Iprocess -Ixpm -Imlx
@@ -31,10 +32,13 @@ SRCS_M= utils/text.c \
 		utils/gnl/gnl_utils.c \
 		utils/error.c \
 		parsing/parse.c \
+		parsing/palette.c \
+		parsing/color_keyword.c \
 		parsing/xpm.c \
 		checking/check_input.c \
 		checking/check_map.c \
 		checking/check_map_help.c \
+		checking/check_xpm.c \
 		process/process.c \
 		process/window.c \
 		process/player.c \

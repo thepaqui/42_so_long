@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 16:27:08 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/05 20:16:41 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:05:50 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "process.h"
 
 void	close_window(t_game *game, int code, char *file)
@@ -16,7 +17,7 @@ void	close_window(t_game *game, int code, char *file)
 	mlx_destroy_window(MLX, WIN);
 	WIN = NULL;
 	if (code)
-		errno_error(code, game, file);
+		error_handling(code, game, file);
 	free_game(game);
 	system("leaks so_long | grep leaks"); //---------------------------------
 	exit(code);

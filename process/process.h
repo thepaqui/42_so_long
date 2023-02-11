@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/06 14:53:00 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:15:37 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef PROCESS_H
 # define PROCESS_H
 # include <stdlib.h>
@@ -53,7 +54,7 @@ void	update_player(t_game *game);
 
 /* RENDER */
 void	put_pixel_to_img(t_img *img, int x, int y, int color);
-void	put_background_color_to_img(t_img *img, int color);
+void	put_background_color_to_img(t_game *game, int color);
 //void	put_xpm_to_img(t_xpm *xpm, t_game *game, t_vector *pos, t_vector *size);
 void	draw_player(t_game *game);
 void	prepare_new_frame(t_game *game);

@@ -6,10 +6,11 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 12:14:06 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/03 18:58:19 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:32:13 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "utils.h"
+
+# include "utils.h"
 
 int	ft_strlen(const char *s)
 {
@@ -83,4 +84,21 @@ int	ft_strlcpy(char *dst, const char *src, int dstsize)
 		dst[j] = '\0';
 	}
 	return (i);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, int n)
+{
+	int	i;
+
+	if ((!s1 && !s2) || !n)
+		return (0);
+	i = 0;
+	while (i < n && (s1[i] || s2[i]))
+	{
+		if (s1[i] == s2[i])
+			i++;
+		else
+			return (((unsigned char)s1[i] - (unsigned char)s2[i]));
+	}
+	return (0);
 }
