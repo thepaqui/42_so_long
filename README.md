@@ -1,6 +1,6 @@
 # 42_so_long
 
-My *so_long* project for **42 Nice**, last updated on February 11th 2023, at 20:45.
+My *so_long* project for **42 Nice**, last updated on February 11th 2023, at 20:43.
 
 ## Presentation
 
@@ -28,5 +28,8 @@ Go back to palette.c for palette checking! Segfault when closing window!
 - [ ] PARSE XPM FILES INTO T_XPM STRUCT (parsing/xpm.c)
 - [ ] MAKE `put_t_xpm_to_img` FUNCTION (process/xpm.c)
 - [ ] ADD TEXT TEXTURES
+- [ ] MERGE ANIMATIONS IN SPRITESHEETS
+- [ ] IMPLEMENT SPRITEHEETS
+- [ ] USE MLX ORIGINAL XPM FUNCTION TO CATCH ALL UNEXPECTED CASES
 - [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
 - [ ] REMOVE MACROS FOR SHORTENED NAMES
