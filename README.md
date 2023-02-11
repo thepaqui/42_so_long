@@ -24,6 +24,7 @@ Go back to palette.c for palette checking! Segfault when closing window!
 - [x] ADD PLAYER SPRITES
 - [x] ADD TEXTURES
 - [x] CHECK PALETTE FORMAT
+- [x] ADD COLOR KEYWORDS (REFERENCE X11)
 - [ ] GET PALETTE COLORS
 - [ ] CHECK PALETTE VALIDITY
 - [ ] PARSE XPM FILES INTO T_XPM STRUCT (parsing/xpm.c)
