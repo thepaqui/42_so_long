@@ -1,6 +1,6 @@
 # 42_so_long
 
-My *so_long* project for **42 Nice**, last updated on February 6th 2023, at 23:57.
+My *so_long* project for **42 Nice**, last updated on February 11th 2023, at 20:45.
 
 ## Presentation
 
@@ -21,14 +21,12 @@ Wish me luck as I embark on this journey!
 
 Go back to palette.c for palette checking! Segfault when closing window!
 
-- [x] ADD PLAYER STATE TO PLAYER STRUCT
-- [x] ADD MISSING SPRITE OR TEXTURE PROTECTION
-- [x] ADD VECTOR STRUCT
-- [x] ADD XPM STRUCT
+- [x] ADD PLAYER SPRITES
+- [x] ADD TEXTURES
+- [ ] GET PALETTE COLORS
+- [ ] CHECK PALETTE VALIDITY
 - [ ] PARSE XPM FILES INTO T_XPM STRUCT (parsing/xpm.c)
 - [ ] MAKE `put_t_xpm_to_img` FUNCTION (process/xpm.c)
-- [ ] ADD PLAYER SPRITES
-- [ ] ADD TEXTURES
 - [ ] ADD TEXT TEXTURES
 - [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
 - [ ] REMOVE MACROS FOR SHORTENED NAMES
