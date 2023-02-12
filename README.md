@@ -28,7 +28,10 @@ Implement `put_t_xpm_to_img()` in `xpm.c`!
 - [x] PARSE XPM FILES INTO T_XPM STRUCT (`parsing/xpm.c`)
 - [x] HANDLE STRINGS NOT FULLY COMPOSED OF DIGITS AS ERRORS FOR PALETTE INFO
 - [x] STRENGTHEN INVALID XPM DETECTION (especially around `"`, `\n` and `,`)
-- [ ] MAKE `put_t_xpm_to_img` FUNCTION (`process/xpm.c`)
+- [x] MAKE `put_t_xpm_to_img` FUNCTION (`process/xpm.c`)
+- [ ] MAKE THE GAME 16x16
+- [ ] TEST `put_t_xpm_to_img` FUNCTION WITH ACTUAL SPRITESHEET
+- [ ] ADD ANIMATION CODE (`update_player()`)
 - [ ] USE MLX'S ORIGINAL XPM FUNCTION TO CATCH OTHER UNEXPECTED CASES
 - [ ] ADD TEXT TEXTURES
 - [ ] MERGE ANIMATIONS IN SPRITESHEETS
