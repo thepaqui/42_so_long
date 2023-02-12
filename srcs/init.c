@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 20:32:38 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:32:53 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,12 @@ static t_player	*player_init(int *err, char *file)
 	player = ft_calloc(1, sizeof(t_player));
 	if (!player)
 		return (NULL);
-	player->pos = ft_calloc(1, sizeof(t_vector));
-	if (!player->pos)
-	{
-		free(player);
-		return (NULL);
-	}
 	player->sprite = parse_xpm(file, err);
 	if (!player->sprite || *err)
 	{
 		if (player->sprite)
-			free(player->sprite);
+			player->sprite = free_xpm(player->sprite);
 		free(player);
-		free(player->pos);
 		return (NULL);
 	}
 	return (player);
@@ -50,14 +43,6 @@ static t_camera	*camera_init(void)
 	t_camera	*camera;
 
 	camera = ft_calloc(1, sizeof(t_camera));
-	if (!camera)
-		return (NULL);
-	camera->pos = ft_calloc(1, sizeof(t_vector));
-	if (!camera->pos)
-	{
-		free(camera);
-		return (NULL);
-	}
 	return (camera);
 }
 
@@ -75,7 +60,7 @@ static t_map	*map_init(int *err, char *file)
 	if (!map->sprite || *err)
 	{
 		if (map->sprite)
-			free(map->sprite);
+			map->sprite = free_xpm(map->sprite);
 		free(map);
 		return (NULL);
 	}

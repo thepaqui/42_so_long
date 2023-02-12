@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:24:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 21:51:56 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:54:58 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	get_map(char *file, t_game *game);
 int		get_tokens(char **tab, t_xpm *xpm);
 int		get_colors(char **tab, t_xpm *xpm);
 int		get_palette(t_xpm *xpm, char *raw_pal);
+int		get_spritesheet(t_xpm *xpm, char *sprites);
 t_xpm   *parse_xpm(char *file, int *err);
 
 /* COLOR */

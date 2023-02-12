@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:47:33 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 22:09:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:07:54 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_strclen(const char *str, const char *set);
 char	*ft_strndup(const char *str, int n);
 int		ft_strlcpy(char *dst, const char *src, int dstsize);
 int		ft_strncmp(const char *s1, const char *s2, int n);
+void	print_tab(char **tab);
 char	**ft_split(const char *s, const char *set);
 
 /* GNL */
@@ -80,6 +81,9 @@ void	error_handling(int code, t_game *game, char *file);
 # define BADPALFORM -25
 # define BADPALCOLOR -26
 # define BADPALKEYWORD -27
-# define LASTCODE 28
+# define DOUBLEPALTOKEN -28
+# define UNDEFTOKEN -29
+# define MISMATCHSPRDIM -30
+# define LASTCODE 31
 
 #endif

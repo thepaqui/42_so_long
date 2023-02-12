@@ -6,39 +6,39 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:56:32 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 21:53:40 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:58:35 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-const static char	*g_color_keyword[KEYWORD_NB] = {
-	"None",
-	"white",
-	"black",
-	"red",
-	"green",
-	"lime",
-	"blue",
-	"yellow",
-	"cyan",
-	"aqua",
-	"fuschia",
-	"magenta",
-	"gray",
-	"grey",
-	"gold",
-	"silver",
-	"brown",
-	"beige",
-	"pink",
-	"purple",
-	"violet",
-	"orange",
-	"teal"
+const static char	*g_color_word[KEYWORD_NB] = {
+	"NONE",
+	"WHITE",
+	"BLACK",
+	"RED",
+	"GREEN",
+	"LIME",
+	"BLUE",
+	"YELLOW",
+	"CYAN",
+	"AQUA",
+	"FUSCHIA",
+	"MAGENTA",
+	"GRAY",
+	"GREY",
+	"GOLD",
+	"SILVER",
+	"BROWN",
+	"BEIGE",
+	"PINK",
+	"PURPLE",
+	"VIOLET",
+	"ORANGE",
+	"TEAL"
 };
 
-const static int	g_color_keyword_values[KEYWORD_NB] = {
+const static int	g_color_word_value[KEYWORD_NB] = {
 	0xFF000000,
 	0x00FFFFFF,
 	0x00000000,
@@ -68,9 +68,10 @@ int	is_keyword_valid(char *word)
 {
 	int	i;
 
+	str_toupper(word);
 	i = -1;
 	while (++i < KEYWORD_NB)
-		if (!ft_strncmp(word, g_color_keyword[i], ft_strlen(word)))
+		if (!ft_strncmp(word, g_color_word[i], ft_strlen(word)))
 			return (1);
 	return (0);
 }
@@ -81,8 +82,8 @@ int	get_argb_from_keyword(char *word, int *err)
 
 	i = -1;
 	while (++i < KEYWORD_NB)
-		if (!ft_strncmp(word, g_color_keyword[i], ft_strlen(word)))
-			return (g_color_keyword_values[i]);
+		if (!ft_strncmp(word, g_color_word[i], ft_strlen(word)))
+			return (g_color_word_value[i]);
 	*err = BADPALKEYWORD;
 	return (0x00FFFFFF);
 }

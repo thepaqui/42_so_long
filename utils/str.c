@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 12:14:06 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/09 15:32:13 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:24:15 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,3 +102,9 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 	}
 	return (0);
 }
+
+void	print_tab(char **tab)
+{ //--------------
+	for (int i = 0;tab[i];i++)
+		printf("tab[%i]\t=\t\"%s\"\n", i, tab[i]);
+} //--------------

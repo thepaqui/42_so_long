@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:20:37 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 23:01:48 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:57:31 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ static int	color_code_to_argb(char *code, int *err)
 		return (ft_atoi_base(&code[1], "0123456789ABCDEF"));
 	}
 	else
+	{
+		str_toupper(code);
 		return (get_argb_from_keyword(code, err));
+	}
 }
 
 int	get_colors(char **tab, t_xpm *xpm)

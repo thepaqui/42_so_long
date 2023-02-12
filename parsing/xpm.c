@@ -6,45 +6,36 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:10:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 19:59:49 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:15:59 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 #define XPMBUFFER 6000 //works for 64 x 64 textures only! should be replaced
 
-/*static int	get_sprite(t_xpm *xpm, char *sprite)
-{
-
-}*/
-
 static t_xpm	*parse_xpm_text_to_struct(char *xpm, int *err)
 {
 	t_xpm	*ret;
 	char	**split;
 
+	split = NULL;
 	ret = ft_calloc(1, sizeof(t_xpm));
 	if (!ret)
-	{
 		*err = MALLOCFAIL;
-		return (NULL);
-	}
-	split = ft_split(xpm, "/");
+	if (!*err)
+		split = ft_split(xpm, "/");
 	if (!split)
-	{
 		*err = MALLOCFAIL;
-		free(ret);
-		return (NULL);
-	}
-	*err = check_xpm(split, ret);
-	if (*err)
-	{
-		free(ret);
-		return ((t_xpm *)ft_free_tab(split, -1));
-	}
-	*err = get_palette(ret, split[3]);
-	//*err = get_sprite(ret, split[5]);
-	ft_free_tab(split, -1);
+	if (!*err)
+		*err = check_xpm(split, ret);
+	if (!*err)
+		*err = get_palette(ret, split[3]);
+	if (!*err)
+		*err = get_spritesheet(ret, split[5]);
+	if (split)
+		split = ft_free_tab(split, -1);
+	if (*err && ret)
+		ret = free_xpm(ret);
 	return (ret);
 }
 
@@ -97,7 +88,5 @@ t_xpm	*parse_xpm(char *file, int *err)
 	printf("\nparsing \"%s\" !\n", file); //-------------------------------
 	xpm = parse_xpm_text_to_struct(text, err);
 	free(text);
-	if (!xpm)
-		return (NULL);
 	return (xpm);
 }

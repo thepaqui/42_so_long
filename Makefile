@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/11 22:14:01 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/12 16:56:40 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS_M= utils/text.c \
 		parsing/palette_info.c \
 		parsing/palette.c \
 		parsing/color_keyword.c \
+		parsing/spritesheet.c \
 		parsing/xpm.c \
 		checking/check_input.c \
 		checking/check_map.c \

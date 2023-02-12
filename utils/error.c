@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:46:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 20:16:01 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 18:14:47 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ const static char	*g_errmsg[LASTCODE] = {
 	"Invalid palette color token",
 	"Invalid palette formatting",
 	"Invalid palette color (hex code)",
-	"Invalid palette color (keyword)"
+	"Invalid palette color (keyword)",
+	"Multiple identical palette tokens",
+	"Undefined color token in sprite",
+	"Mismatched sprite dimensions"
 };
 
 static void	puterr(const char *s)

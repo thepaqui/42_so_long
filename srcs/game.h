@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/11 22:57:44 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:46:28 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct	s_img
 
 typedef struct	s_player
 {
-	t_vector	*pos;
+	t_vector	pos;
 	int			up;
 	int			down;
 	int			left;
@@ -55,7 +55,7 @@ typedef struct	s_player
 
 typedef struct	s_camera
 {
-	t_vector	*pos;
+	t_vector	pos;
 	t_vector	size;
 }				t_camera;
 
@@ -98,8 +98,8 @@ typedef struct	s_game
 
 /* PLAYER */
 # define PLAYER game->player
-# define XPLAYER PLAYER->pos->x
-# define YPLAYER PLAYER->pos->y
+# define XPLAYER PLAYER->pos.x
+# define YPLAYER PLAYER->pos.y
 # define PUP PLAYER->up
 # define PDO PLAYER->down
 # define PLE PLAYER->left
@@ -116,8 +116,8 @@ typedef struct	s_game
 
 /* CAMERA */
 # define CAM game->camera
-# define XCAM CAM->pos->x
-# define YCAM CAM->pos->y
+# define XCAM CAM->pos.x
+# define YCAM CAM->pos.y
 # define CAMWID CAM->size.x
 # define CAMHEI CAM->size.y
 

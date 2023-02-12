@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:23 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/09 16:56:14 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:42:42 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,8 @@ static t_player	*free_player(t_player *player)
 {
 	if (!player)
 		return (NULL);
-	if (player->pos)
-	{
-		free(player->pos);
-		player->pos = NULL;
-	}
 	if (player->sprite)
-		free_xpm(player->sprite);
+		player->sprite = free_xpm(player->sprite);
 	free(player);
 	player = NULL;
 	return (NULL);
@@ -51,11 +46,6 @@ static t_camera	*free_camera(t_camera *camera)
 {
 	if (!camera)
 		return (NULL);
-	if (camera->pos)
-	{
-		free(camera->pos);
-		camera->pos = NULL;
-	}
 	free(camera);
 	camera = NULL;
 	return (NULL);
@@ -68,7 +58,7 @@ static t_map	*free_map(t_map *map)
 	if (map->map)
 		map->map = ft_free_tab(map->map, -1);
 	if (map->sprite)
-		free_xpm(map->sprite);
+		map->sprite = free_xpm(map->sprite);
 	free(map);
 	map = NULL;
 	return (NULL);
