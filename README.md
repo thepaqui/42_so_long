@@ -19,16 +19,16 @@ Wish me luck as I embark on this journey!
 
 ## To-do list
 
-Implement check_tokens() in palette.c!
+Implement `put_t_xpm_to_img()` in `xpm.c`!
 
 - [x] MAKE COLOR KEYWORDS CASE INSENSITIVE
 - [x] CHECK PALETTE VALIDITY (double color is fine, double token isn't)
 - [x] PARSE XPM SPRITE INTO SPRITESHEET
 - [x] CHECK SPRITESHEET VALIDITY (undefined token, wrong size)
-- [x] PARSE XPM FILES INTO T_XPM STRUCT (parsing/xpm.c)
+- [x] PARSE XPM FILES INTO T_XPM STRUCT (`parsing/xpm.c`)
 - [x] HANDLE STRINGS NOT FULLY COMPOSED OF DIGITS AS ERRORS FOR PALETTE INFO
 - [x] STRENGTHEN INVALID XPM DETECTION (especially around `"`, `\n` and `,`)
-- [ ] MAKE `put_t_xpm_to_img` FUNCTION (process/xpm.c)
+- [ ] MAKE `put_t_xpm_to_img` FUNCTION (`process/xpm.c`)
 - [ ] USE MLX'S ORIGINAL XPM FUNCTION TO CATCH OTHER UNEXPECTED CASES
 - [ ] ADD TEXT TEXTURES
 - [ ] MERGE ANIMATIONS IN SPRITESHEETS
