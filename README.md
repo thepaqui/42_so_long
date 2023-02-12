@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 11th 2023, at 23:15.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 12th 2023, at 20:58.
 
 ## Presentation
 
@@ -19,19 +19,20 @@ Wish me luck as I embark on this journey!
 
 ## To-do list
 
-Implement get_colors() in palette.c!
+Implement check_tokens() in palette.c!
 
-- [x] ADD PLAYER SPRITES
-- [x] ADD TEXTURES
-- [x] CHECK PALETTE FORMAT
-- [x] ADD COLOR KEYWORDS (REFERENCE X11)
-- [x] GET PALETTE COLORS
-- [ ] CHECK PALETTE VALIDITY
-- [ ] PARSE XPM FILES INTO T_XPM STRUCT (parsing/xpm.c)
+- [x] MAKE COLOR KEYWORDS CASE INSENSITIVE
+- [x] CHECK PALETTE VALIDITY (double color is fine, double token isn't)
+- [x] PARSE XPM SPRITE INTO SPRITESHEET
+- [x] CHECK SPRITESHEET VALIDITY (undefined token, wrong size)
+- [x] PARSE XPM FILES INTO T_XPM STRUCT (parsing/xpm.c)
+- [x] HANDLE STRINGS NOT FULLY COMPOSED OF DIGITS AS ERRORS FOR PALETTE INFO
+- [x] STRENGTHEN INVALID XPM DETECTION (especially around `"`, `\n` and `,`)
 - [ ] MAKE `put_t_xpm_to_img` FUNCTION (process/xpm.c)
+- [ ] USE MLX'S ORIGINAL XPM FUNCTION TO CATCH OTHER UNEXPECTED CASES
 - [ ] ADD TEXT TEXTURES
 - [ ] MERGE ANIMATIONS IN SPRITESHEETS
 - [ ] IMPLEMENT SPRITEHEETS
-- [ ] USE MLX ORIGINAL XPM FUNCTION TO CATCH ALL UNEXPECTED CASES
 - [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
 - [ ] REMOVE MACROS FOR SHORTENED NAMES
+- [ ] CHECK NORM
