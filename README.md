@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 18th 2023, at 16:26.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 18th 2023, at 23:37.
 
 ## Presentation
 
@@ -16,6 +16,8 @@ Needless to say, I've been eyeing this project for a while now, and I'm finally 
 I already have a good idea of what I'll be doing, I want to make a *Yoshi's Island* (SNES) inspired game. Well, only for the bonuses.  
 I'll first make the mandatory part to become familiar with the **MLX**, and then I'll move on to the serious stuff.  
 Wish me luck as I embark on this journey!
+
+ADVICE: Maps shouldn't be any larger than 60 (width) by 30 (height) for playability. More than that works but isn't the best.
 
 ## To-do list
 
@@ -34,7 +36,7 @@ Implement hitboxes in `process/collisions.c`!
 - [x] IMPLEMENT HITBOXES
 - [x] IMPLEMENT WALL COLLISIONS
 - [x] IMPLEMENT HITBOXES FOR COINS
-- [ ] GET COIN LOCATIONS IN A `t_vector` ARRAY TO INCREASE PERFORMANCE IN HUGE MAPS
+- [x] GET COIN LOCATIONS IN A `t_vector` ARRAY TO INCREASE PERFORMANCE IN HUGE MAPS
 - [ ] USE MLX'S ORIGINAL XPM FUNCTION TO CATCH OTHER UNEXPECTED CASES
 - [ ] ADD TEXT TEXTURES
 - [ ] DISPLAY COIN AND MOVE COUNTER
