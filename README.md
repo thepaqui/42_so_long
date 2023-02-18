@@ -19,23 +19,22 @@ Wish me luck as I embark on this journey!
 
 ## To-do list
 
-Implement `put_t_xpm_to_img()` in `xpm.c`!
+Implement hitboxes in `process/collisions.c`!
 
-- [x] MAKE COLOR KEYWORDS CASE INSENSITIVE
-- [x] CHECK PALETTE VALIDITY (double color is fine, double token isn't)
-- [x] PARSE XPM SPRITE INTO SPRITESHEET
-- [x] CHECK SPRITESHEET VALIDITY (undefined token, wrong size)
-- [x] PARSE XPM FILES INTO T_XPM STRUCT (`parsing/xpm.c`)
-- [x] HANDLE STRINGS NOT FULLY COMPOSED OF DIGITS AS ERRORS FOR PALETTE INFO
-- [x] STRENGTHEN INVALID XPM DETECTION (especially around `"`, `\n` and `,`)
-- [x] MAKE `put_t_xpm_to_img` FUNCTION (`process/xpm.c`)
-- [ ] MAKE THE GAME 16x16
-- [ ] TEST `put_t_xpm_to_img` FUNCTION WITH ACTUAL SPRITESHEET
-- [ ] ADD ANIMATION CODE (`update_player()`)
+- [x] MAKE THE GAME USE 32x32 SPRITES
+- [x] TEST `put_t_xpm_to_img` FUNCTION WITH ACTUAL SPRITESHEET
+- [x] ADD ANIMATION CODE (`update_player()`)
+- [x] MERGE ANIMATIONS IN SPRITESHEETS
+- [x] IMPLEMENT SPRITEHEETS
+- [x] ACTUALLY DRAW MAP
+- [x] IMPLEMENT COLLECTIBLES
+- [x] IMPLEMENT DRAWING OPTIMIZATIONS (not redrawing what doesn't need to be)
+- [ ] IMPLEMENT HITBOXES
+- [ ] IMPLEMENT WALL COLLISIONS
+- [ ] IMPLEMENT HITBOXES FOR COINS AND EXIT
 - [ ] USE MLX'S ORIGINAL XPM FUNCTION TO CATCH OTHER UNEXPECTED CASES
 - [ ] ADD TEXT TEXTURES
-- [ ] MERGE ANIMATIONS IN SPRITESHEETS
-- [ ] IMPLEMENT SPRITEHEETS
+- [ ] DISPLAY COIN AND MOVE COUNTER
 - [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
 - [ ] REMOVE MACROS FOR SHORTENED NAMES
 - [ ] CHECK NORM
