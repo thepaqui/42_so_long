@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 19:19:42 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/18 21:57:27 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,6 @@ static t_player	*player_init(int *err, char *file)
 	}
 	player->speed = PLAYER_SPEED;
 	return (player);
-}
-
-static t_camera	*camera_init(void)
-{
-	t_camera	*camera;
-
-	camera = ft_calloc(1, sizeof(t_camera));
-	return (camera);
 }
 
 static t_map	*map_init(int *err, char *filemap, char *filecoin)
@@ -84,8 +76,7 @@ t_game	*game_init(int *err)
 		return (NULL);
 	}
 	IMG = image_init();
-	CAM = camera_init();
-	if (!IMG || !CAM)
+	if (!IMG)
 	{
 		*err = MALLOCFAIL;
 		return (free_game(game));
@@ -93,8 +84,8 @@ t_game	*game_init(int *err)
 	MAP = map_init(err, MAP_SPRITE, COIN_SPRITE);
 	if (!MAP)
 		error_handling(*err, game, NULL);
-	PLAYER = player_init(err, PLAYER_SPRITE);
-	if (!PLAYER)
+	game->player = player_init(err, PLAYER_SPRITE);
+	if (!game->player)
 		error_handling(*err, game, PLAYER_SPRITE);
 	return (game);
 }

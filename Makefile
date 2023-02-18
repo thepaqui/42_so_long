@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/17 22:37:16 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/18 23:15:12 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS_M= utils/text.c \
 		utils/gnl/gnl_utils.c \
 		utils/error.c \
 		parsing/parse.c \
+		parsing/coins.c \
 		parsing/palette_info.c \
 		parsing/palette.c \
 		parsing/color_keyword.c \

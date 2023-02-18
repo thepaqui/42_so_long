@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 22:33:14 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:20:15 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct	s_img
 {
 	void	*img;
 	char	*add;
-	int		bits_per_pixel;
+	int		bpp;
 	int		line_len;
 	int		endian;
 }				t_img;
@@ -47,27 +47,20 @@ typedef struct	s_player
 {
 	t_vector	pos;
 	int			speed;
+	int			last_key;
 	int			up;
 	int			down;
 	int			left;
 	int			right;
 	int			state;
 	t_xpm		*sprite;
+	int			coin_anim_len;
 }				t_player;
 
 # define PLAYER_SPEED 3
 # define PLAYER_DIAG_SPEED 2
-# define PLAYER_HITBOX 16 //unused for now
-
-typedef struct	s_camera
-{
-	t_vector	pos;
-	t_vector	size;
-}				t_camera;
-
-# define MAP_SPRITE "./textures/32/map_full32.xpm"
-# define COIN_SPRITE "./textures/32/coin_full32.xpm"
-# define COIN_SPEED 7
+# define PLAYER_COIN_ANIM_LEN 20
+# define PLAYER_HITBOX 10
 
 typedef struct	s_map
 {
@@ -77,21 +70,27 @@ typedef struct	s_map
 	t_vector	start;
 	t_vector	exit;
 	int			nbcoins;
+	int			totalcoins;
 	t_xpm		*coin_spr;
+	t_vector	*coin_pos;
 	int			coin_speed;
 }				t_map;
+
+# define MAP_SPRITE "./textures/32/map_full32.xpm"
+# define COIN_SPRITE "./textures/32/coin_full32.xpm"
+# define COIN_SPEED 7
 
 typedef struct	s_game
 {
 	void		*mlx;
-	void		*window;
+	void		*win;
+	t_vector	win_size;
 	t_img		*image;
 	t_player	*player;
-	t_camera	*camera;
 	t_map		*map;
+	int			last_moves;
 	int			moves;
 	int			state;
-	int			scroll;
 }				t_game;
 
 /* GAME STATES */
@@ -102,40 +101,37 @@ typedef struct	s_game
 
 /* MLX AND WINDOW */
 # define MLX game->mlx
-# define WIN game->window
-# define WINWID game->camera->size.x
-# define WINHEI game->camera->size.y
+# define WIN game->win
+# define WINWID game->win_size.x
+# define WINHEI game->win_size.y
 # define WINNAME "thepaqui's so_long!"
 
 /* WINDOW IMAGE */
 # define IMG game->image
 # define IMGIMG IMG->img
 # define IMGADD IMG->add
-# define IMGBPP IMG->bits_per_pixel
+# define IMGBPP IMG->bpp
 # define IMGLLEN IMG->line_len
 # define IMGENDI IMG->endian
 
 /* PLAYER */
-# define PLAYER game->player
-# define XPLAYER PLAYER->pos.x
-# define YPLAYER PLAYER->pos.y
-# define PUP PLAYER->up
-# define PDO PLAYER->down
-# define PLE PLAYER->left
-# define PRI PLAYER->right
-# define PSTATE PLAYER->state
-# define PSPRITE PLAYER->sprite
+# define XPLAYER game->player->pos.x
+# define YPLAYER game->player->pos.y
+# define PUP game->player->up
+# define PDO game->player->down
+# define PLE game->player->left
+# define PRI game->player->right
+# define PSTATE game->player->state
+# define PSPRITE game->player->sprite
 
 /* PLAYER STATES */
 # define PIDLE 0
 # define PMOVE 1
+# define PCOIN 2
 
 /* CAMERA */
-# define CAM game->camera
-# define XCAM CAM->pos.x
-# define YCAM CAM->pos.y
-# define CAMWID CAM->size.x
-# define CAMHEI CAM->size.y
+# define CAMWID game->win_size.x
+# define CAMHEI game->win_size.y
 
 /* MAP */
 # define MAP game->map
@@ -147,5 +143,13 @@ typedef struct	s_game
 # define XEXIT MAP->exit.x
 # define YEXIT MAP->exit.y
 # define NBCOINS MAP->nbcoins
+
+/* MAP OBJECTS */
+# define EMPTY '0'
+# define WALL '1'
+# define PLAYER 'P'
+# define EXIT_CLOSE 'E'
+# define EXIT_OPEN 'G'
+# define COIN 'C'
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 22:22:14 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/18 21:57:50 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,26 @@
 
 /* GAME */
 char	get_obj_from_pos(t_vector pos, t_map *map);
+int		touch_obj(t_vector pos, t_map *map, char obj, int hitbox_size);
 void	update_player(t_game *game);
 void	update_map(t_map *map, t_game *game);
+void	collect_coin(t_map *map, t_game *game, t_vector pos, int coin);
 void	update_coins(t_map *map);
 void	launch_game(t_game *game);
+
+/* COLLISION CODES */
+# define NONE 0
+# define CENTER 1
+# define TOP_LEFT 2
+# define BOT_LEFT 3
+# define TOP_RIGHT 4
+# define BOT_RIGHT 5
 
 /* WINDOW */
 void	open_window(t_game *game);
 int		handle_cross(t_game *game);
 void	close_window(t_game *game, int code, char *file);
+void	get_window_size(t_game *game);
 
 /* INPUT */
 int		handle_key_press(int key, t_game *game);

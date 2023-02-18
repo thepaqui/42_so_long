@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 22:54:05 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/18 22:34:50 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static int	get_obj_spr(char **map, t_vector pos)
 	char	obj;
 
 	obj = map[pos.y / SPR_DIM][pos.x / SPR_DIM];
-	if (obj == '0' || obj == 'C' || obj == 'P')
+	if (obj == EMPTY || obj == COIN || obj == PLAYER)
 		return (0);
-	else if (obj == '1')
+	else if (obj == WALL)
 		return (1);
-	else if (obj == 'E')
+	else if (obj == EXIT_CLOSE)
 		return (2);
-	else if (obj == 'G')
+	else if (obj == EXIT_OPEN)
 		return (3);
 	else
 		return (1);
@@ -34,10 +34,10 @@ static void	draw_all_background(t_game *game, t_map *map)
 	t_vector	pos;
 
 	pos.y = 0;
-	while (pos.y < game->camera->size.y)
+	while (pos.y < game->win_size.y)
 	{
 		pos.x = 0;
-		while (pos.x < game->camera->size.x)
+		while (pos.x < game->win_size.x)
 		{
 			map->sprite->cur_spr = get_obj_spr(map->map, pos);
 			//printf("Drawing map tile at (%i,%i)\n", pos.x, pos.y); //-------------
@@ -78,6 +78,8 @@ void	draw_map(t_game *game)
 {
 	t_vector	exitpos;
 
+	if (game->player->state == PIDLE && game->player->sprite->cur_spr == 5)
+		game->player->state = PCOIN;
 	if (game->state == GAME_ERROR)
 		return ;
 	else if (game->state == GAME_STARTUP)
@@ -85,7 +87,7 @@ void	draw_map(t_game *game)
 		draw_all_background(game, game->map);
 		game->state = GAME_RUN;
 	}
-	else
+	else if (game->player->state != PIDLE)
 		draw_background_part(game);
 	if (!game->map->nbcoins)
 	{
@@ -97,25 +99,26 @@ void	draw_map(t_game *game)
 	}
 }
 
-void update_map(t_map *map, t_game *game)
+void	update_map(t_map *map, t_game *game)
 {
-    t_vector    pos;
+	t_vector	pos;
+	int			coin;
 
-    pos.x = (game->player->pos.x + SPR_DIM / 2) / SPR_DIM;
-    pos.y = (game->player->pos.y + SPR_DIM / 2) / SPR_DIM;
-    if (pos.x != map->start.x || pos.y != map->start.y)
-    {
-        map->start.x = pos.x;
-        map->start.y = pos.y;
-        if (map->map[map->start.y][map->start.x] == 'C')
-        {
-            map->map[map->start.y][map->start.x] = '0';
-            map->nbcoins--;
-        }
-		if (map->map[map->start.y][map->start.x] == 'G')
-            game->state = GAME_STOP;
-        game->moves++;
-    }
+	pos.x = (game->player->pos.x + SPR_DIM / 2) / SPR_DIM;
+	pos.y = (game->player->pos.y + SPR_DIM / 2) / SPR_DIM;
+	if (pos.x != map->start.x || pos.y != map->start.y)
+	{
+		map->start.x = pos.x;
+		map->start.y = pos.y;
+		game->moves++;
+	}
+	pos.x = game->player->pos.x + SPR_DIM / 2;
+	pos.y = game->player->pos.y + SPR_DIM / 2;
+	coin = touch_obj(pos, map, COIN, PLAYER_HITBOX);
+	if (coin != NONE)
+		collect_coin(map, game, pos, coin);
+	if (map->map[map->start.y][map->start.x] == EXIT_OPEN)
+		game->state = GAME_STOP;
 	if (!map->nbcoins)
-		map->map[map->exit.y][map->exit.x] = 'G';
+		map->map[map->exit.y][map->exit.x] = EXIT_OPEN;
 }

@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:19:58 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/09 14:48:28 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/18 22:49:05 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ int	check_shape(t_game *game)
 	int	i;
 	int	lines;
 
-	len = ft_strlen(MAPMAP[0]);
-	MAPWID = len;
+	len = ft_strlen(game->map->map[0]);
+	game->map->size.x = len;
 	i = 0;
-	while (MAPMAP[++i])
-		if (ft_strlen(MAPMAP[i]) != len)
+	while (game->map->map[++i])
+		if (ft_strlen(game->map->map[i]) != len)
 			return (NOTRECT);
-	MAPHEI = i;
+	game->map->size.y = i;
 	lines = 0;
-	while (MAPMAP[lines])
+	while (game->map->map[lines])
 		lines++;
-	return (check_walls(MAPMAP, lines, len - 1));
+	return (check_walls(game->map->map, lines, len - 1));
 }
 
 static char	**duplicate_map(char **map)

@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:24:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 23:00:23 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:14:46 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 /* MAP */
 void	get_map(char *file, t_game *game);
+int		get_coins_pos(t_map *map);
 
 /* XPM */
 int		get_tokens(char **tab, t_xpm *xpm);
