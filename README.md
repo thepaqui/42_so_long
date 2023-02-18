@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 12th 2023, at 20:58.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 18th 2023, at 16:26.
 
 ## Presentation
 
