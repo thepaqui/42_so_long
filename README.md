@@ -21,7 +21,7 @@ ADVICE: Maps shouldn't be any larger than 60 (width) by 30 (height) for playabil
 
 ## To-do list
 
-Implement hitboxes in `process/collisions.c`!
+Implement text spritesheet!
 
 - [x] MAKE THE GAME USE 32x32 SPRITES
 - [x] TEST `put_t_xpm_to_img` FUNCTION WITH ACTUAL SPRITESHEET
