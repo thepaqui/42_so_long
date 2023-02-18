@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 14:36:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 19:19:12 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:44:25 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static int	check_properties(char *is, int should, t_xpm *xpm)
 	tab = ft_split(is, " ,\"\n");
 	if (!tab)
 		return (MALLOCFAIL);
-	xpm->spr_per_line = ft_atoi(tab[0]) / SPRITE_DIM;
-	xpm->spr_per_column = ft_atoi(tab[1]) / SPRITE_DIM;
+	xpm->spr_per_line = ft_atoi(tab[0]) / SPR_DIM;
+	xpm->spr_per_column = ft_atoi(tab[1]) / SPR_DIM;
 	err = 0;
 	if (xpm->spr_per_line <= 0 || xpm->spr_per_column <= 0
 		|| ft_atoi(tab[0]) % should || ft_atoi(tab[1]) % should)
@@ -76,6 +76,6 @@ int	check_xpm(char **xpm, t_xpm *structure)
 		return (BADXPM);
 	if (ft_strncmp(xpm[4], "* pixels *", 10))
 		return (BADXPM);
-	err = check_properties(xpm[3], SPRITE_DIM, structure);
+	err = check_properties(xpm[3], SPR_DIM, structure);
 	return (err);
 }

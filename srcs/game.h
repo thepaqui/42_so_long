@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 15:46:28 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/17 22:33:14 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct	s_vector
 	int	y;
 }				t_vector;
 
-# define SPRITE_DIM 64
+# define SPR_DIM 32
 
 typedef struct  s_xpm
 {
@@ -27,6 +27,7 @@ typedef struct  s_xpm
     char    *token;
 	int		pal_size;
     char    **spritesheet;
+	int		cur_spr;
 	int		spr_per_line;
 	int		spr_per_column;
 }               t_xpm;
@@ -40,11 +41,12 @@ typedef struct	s_img
 	int		endian;
 }				t_img;
 
-# define PLAYER_SPRITE "./textures/ph/phid.xpm" // change
+# define PLAYER_SPRITE "./textures/32/ph_full32.xpm"
 
 typedef struct	s_player
 {
 	t_vector	pos;
+	int			speed;
 	int			up;
 	int			down;
 	int			left;
@@ -53,22 +55,30 @@ typedef struct	s_player
 	t_xpm		*sprite;
 }				t_player;
 
+# define PLAYER_SPEED 3
+# define PLAYER_DIAG_SPEED 2
+# define PLAYER_HITBOX 16 //unused for now
+
 typedef struct	s_camera
 {
 	t_vector	pos;
 	t_vector	size;
 }				t_camera;
 
-# define MAP_SPRITE "./textures/test.xpm" //"./textures/map/floor.xpm" // change
+# define MAP_SPRITE "./textures/32/map_full32.xpm"
+# define COIN_SPRITE "./textures/32/coin_full32.xpm"
+# define COIN_SPEED 7
 
 typedef struct	s_map
 {
 	char		**map;
+	t_xpm		*sprite;
 	t_vector	size;
 	t_vector	start;
 	t_vector	exit;
 	int			nbcoins;
-	t_xpm		*sprite;
+	t_xpm		*coin_spr;
+	int			coin_speed;
 }				t_map;
 
 typedef struct	s_game
@@ -79,7 +89,16 @@ typedef struct	s_game
 	t_player	*player;
 	t_camera	*camera;
 	t_map		*map;
+	int			moves;
+	int			state;
+	int			scroll;
 }				t_game;
+
+/* GAME STATES */
+# define GAME_ERROR 0
+# define GAME_STARTUP 1
+# define GAME_RUN 2
+# define GAME_STOP 3
 
 /* MLX AND WINDOW */
 # define MLX game->mlx
@@ -109,10 +128,7 @@ typedef struct	s_game
 
 /* PLAYER STATES */
 # define PIDLE 0
-# define PMOVUP 1
-# define PMOVDOWN 2
-# define PMOVLEFT 3
-# define PMOVRIGHT 4
+# define PMOVE 1
 
 /* CAMERA */
 # define CAM game->camera

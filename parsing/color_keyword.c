@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:56:32 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 15:58:35 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 22:51:36 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ int	get_argb_from_keyword(char *word, int *err)
 		if (!ft_strncmp(word, g_color_word[i], ft_strlen(word)))
 			return (g_color_word_value[i]);
 	*err = BADPALKEYWORD;
-	return (0x00FFFFFF);
+	return (WHITE);
 }

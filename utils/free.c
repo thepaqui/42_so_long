@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:23 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 15:42:42 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/17 19:26:57 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static t_map	*free_map(t_map *map)
 		map->map = ft_free_tab(map->map, -1);
 	if (map->sprite)
 		map->sprite = free_xpm(map->sprite);
+	if (map->coin_spr)
+		map->coin_spr = free_xpm(map->coin_spr);
 	free(map);
 	map = NULL;
 	return (NULL);

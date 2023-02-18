@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/12 16:56:40 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/17 22:37:16 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS_M= utils/text.c \
 		utils/free.c \
 		utils/free_other.c \
 		utils/str.c \
+		utils/numbers.c \
 		utils/ft_atoi_base.c \
 		utils/ft_split.c \
 		utils/gnl/gnl.c \
@@ -44,7 +45,12 @@ SRCS_M= utils/text.c \
 		checking/check_xpm.c \
 		process/process.c \
 		process/window.c \
+		process/background.c \
+		process/collection.c \
+		process/collisions.c \
 		process/player.c \
+		process/color.c \
+		process/xpm.c \
 		process/draw.c \
 		process/image.c \
 		process/key_handling.c \

@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:24:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 16:54:58 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/12 23:00:23 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,9 @@ int		get_spritesheet(t_xpm *xpm, char *sprites);
 t_xpm   *parse_xpm(char *file, int *err);
 
 /* COLOR */
-int		get_argb(int a, int r, int g, int b);
-int		get_alpha(int argb);
-int		get_red(int argb);
-int		get_green(int argb);
-int		get_blue(int argb);
 int		is_keyword_valid(char *word);
 int		get_argb_from_keyword(char *word, int *err);
 # define KEYWORD_NB 23
+# define WHITE 0x00FFFFFF
 
 #endif

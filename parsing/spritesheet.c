@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:36:59 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 20:48:12 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:44:25 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ static int	check_spritesheet(t_xpm *xpm)
 		while (xpm->spritesheet[i][++j])
 			if (!token_valid(xpm->spritesheet[i][j], xpm))
 				return (UNDEFTOKEN);
-		if (j != SPRITE_DIM * xpm->spr_per_line)
+		if (j != SPR_DIM * xpm->spr_per_line)
 			return (MISMATCHSPRDIM);
 	}
-	if (i != SPRITE_DIM * xpm->spr_per_column)
+	if (i != SPR_DIM * xpm->spr_per_column)
 		return (MISMATCHSPRDIM);
 	return (0);
 }

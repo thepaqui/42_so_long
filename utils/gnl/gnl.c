@@ -6,9 +6,10 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:08:51 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/03 15:21:20 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:26:52 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../utils.h"
 
 static int	ft_str_has_nl(char *s)

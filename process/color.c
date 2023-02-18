@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   text.c                                             :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 10:51:11 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 22:36:16 by thepaqui         ###   ########.fr       */
+/*   Created: 2023/02/11 16:14:04 by thepaqui          #+#    #+#             */
+/*   Updated: 2023/02/12 23:00:06 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "parse.h"
 
-void	ft_putchar_fd(const char c, int fd)
+int	get_argb(int a, int r, int g, int b)
 {
-	write(fd, &c, 1);
+	return (a << 24 | r << 16 | g << 8 | b);
 }
 
-void	ft_putstr_fd(const char *s, int fd)
+int	get_alpha(int argb)
 {
-	while (*s)
-		ft_putchar_fd(*s++, fd);
+	return ((argb >> 24) & 0xFF);
 }
 
-void	ft_putendl_fd(const char *s, int fd)
+int	get_red(int argb)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	return ((argb >> 16) & 0xFF);
 }
 
-int	isinset(char c, const char *set)
+int	get_green(int argb)
 {
-	if (!set)
-		return (0);
-	while (*set)
-		if (c == *set++)
-			return (1);
-	return (0);
+	return ((argb >> 8) & 0xFF);
+}
+
+int	get_blue(int argb)
+{
+	return (argb & 0xFF);
 }

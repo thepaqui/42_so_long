@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:46:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 18:14:47 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:44:25 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ const static char	*g_errmsg[LASTCODE] = {
 	"Invalid XPM file",
 	"Not enough XPM info",
 	"Too much XPM info ^^\'",
-	"Invalid sprite dimensions, see SPRITE_DIM in srcs/game.h",
+	"Invalid sprite dimensions, see SPR_DIM in srcs/game.h",
 	"Wrong chars-per-pixel value (should be 1)",
 	"Inconsistent palette size",
 	"Invalid palette color token",

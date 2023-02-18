@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 16:32:53 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/17 19:19:42 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static t_player	*player_init(int *err, char *file)
 		free(player);
 		return (NULL);
 	}
+	player->speed = PLAYER_SPEED;
 	return (player);
 }
 
@@ -46,7 +47,7 @@ static t_camera	*camera_init(void)
 	return (camera);
 }
 
-static t_map	*map_init(int *err, char *file)
+static t_map	*map_init(int *err, char *filemap, char *filecoin)
 {
 	t_map	*map;
 
@@ -56,11 +57,16 @@ static t_map	*map_init(int *err, char *file)
 		*err = MALLOCFAIL;
 		return (NULL);
 	}
-	map->sprite = parse_xpm(file, err);
-	if (!map->sprite || *err)
+	map->sprite = parse_xpm(filemap, err);
+	if (!map->sprite)
 	{
-		if (map->sprite)
-			map->sprite = free_xpm(map->sprite);
+		free(map);
+		return (NULL);
+	}
+	map->coin_spr = parse_xpm(filecoin, err);
+	if (!map->coin_spr)
+	{
+		map->sprite = free_xpm(map->sprite);
 		free(map);
 		return (NULL);
 	}
@@ -84,15 +90,11 @@ t_game	*game_init(int *err)
 		*err = MALLOCFAIL;
 		return (free_game(game));
 	}
-	MAP = map_init(err, MAP_SPRITE);
+	MAP = map_init(err, MAP_SPRITE, COIN_SPRITE);
 	if (!MAP)
-		error_handling(*err, game, MAP_SPRITE);
+		error_handling(*err, game, NULL);
 	PLAYER = player_init(err, PLAYER_SPRITE);
 	if (!PLAYER)
 		error_handling(*err, game, PLAYER_SPRITE);
-	// !-- Should probably move the 3 following lines to launch_game() --!
-	WINWID = SPRITE_DIM * 16; //should be CAMWID
-	WINHEI = SPRITE_DIM * 14; //should be CAMHEI
-	//add window size assignment and protection here!
 	return (game);
 }

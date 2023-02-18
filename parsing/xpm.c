@@ -6,12 +6,11 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:10:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 19:15:59 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/17 11:33:32 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
-#define XPMBUFFER 6000 //works for 64 x 64 textures only! should be replaced
 
 static t_xpm	*parse_xpm_text_to_struct(char *xpm, int *err)
 {
@@ -52,6 +51,8 @@ static char	*error_open_xpm(int *err, int errcode, int fd, char *text)
 	return (NULL);
 }
 
+#define XPMBUFFER 10000 //value to recheck
+
 static char	*open_xpm_file(char *file, int *err)
 {
 	int		fd;
@@ -85,7 +86,6 @@ t_xpm	*parse_xpm(char *file, int *err)
 	text = open_xpm_file(file, err);
 	if (!text)
 		return (NULL);
-	printf("\nparsing \"%s\" !\n", file); //-------------------------------
 	xpm = parse_xpm_text_to_struct(text, err);
 	free(text);
 	return (xpm);
