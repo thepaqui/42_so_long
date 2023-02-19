@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:10:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 11:33:32 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/19 17:19:31 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char	*error_open_xpm(int *err, int errcode, int fd, char *text)
 	return (NULL);
 }
 
-#define XPMBUFFER 10000 //value to recheck
+#define XPMBUFFER 60000 //value to recheck (this should be in parse.h!)
 
 static char	*open_xpm_file(char *file, int *err)
 {

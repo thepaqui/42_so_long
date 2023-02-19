@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 21:57:50 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/19 22:41:10 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ void	put_t_xpm_to_img(t_xpm *xpm, t_game *game, t_vector pos);
 void	draw_map(t_game *game);
 void	draw_coins(t_game *game);
 void	draw_player(t_game *game);
+void	put_char_to_img(char c, t_vector pos, t_game *game, int color);
+void	put_str_to_img(char *s, t_vector pos, t_game *game, int color);
+void	put_nbr_to_img(unsigned int n, t_vector pos, t_game *game, int color);
 void	prepare_new_frame(t_game *game);
 
 /* COLOR */

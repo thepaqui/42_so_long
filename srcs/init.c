@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 21:57:27 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/19 19:40:30 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,21 @@ t_game	*game_init(int *err)
 		*err = MALLOCFAIL;
 		return (NULL);
 	}
-	IMG = image_init();
-	if (!IMG)
+	game->image = image_init();
+	if (!game->image)
 	{
 		*err = MALLOCFAIL;
 		return (free_game(game));
 	}
-	MAP = map_init(err, MAP_SPRITE, COIN_SPRITE);
-	if (!MAP)
-		error_handling(*err, game, NULL);
+	game->map = map_init(err, MAP_SPRITE, COIN_SPRITE);
+	if (!game->map)
+		error_handling(*err, game, "Map structure");
 	game->player = player_init(err, PLAYER_SPRITE);
 	if (!game->player)
-		error_handling(*err, game, PLAYER_SPRITE);
+		error_handling(*err, game, "Player structure");
+	game->font = parse_xpm(FONT, err);
+	if (!game->font)
+		error_handling(*err, game, FONT);
+	game->last_moves = -1;
 	return (game);
 }

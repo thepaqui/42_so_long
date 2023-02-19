@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 23:20:15 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/19 22:51:05 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct	s_img
 	int		endian;
 }				t_img;
 
-# define PLAYER_SPRITE "./textures/32/ph_full32.xpm"
+# define PLAYER_SPRITE "./textures/32/ph32.xpm"
 
 typedef struct	s_player
 {
@@ -57,8 +57,8 @@ typedef struct	s_player
 	int			coin_anim_len;
 }				t_player;
 
-# define PLAYER_SPEED 3
-# define PLAYER_DIAG_SPEED 2
+# define PLAYER_SPEED 4
+# define PLAYER_DIAG_SPEED 3
 # define PLAYER_COIN_ANIM_LEN 20
 # define PLAYER_HITBOX 10
 
@@ -76,9 +76,9 @@ typedef struct	s_map
 	int			coin_speed;
 }				t_map;
 
-# define MAP_SPRITE "./textures/32/map_full32.xpm"
-# define COIN_SPRITE "./textures/32/coin_full32.xpm"
-# define COIN_SPEED 7
+# define MAP_SPRITE "./textures/32/map32.xpm"
+# define COIN_SPRITE "./textures/32/coin32.xpm"
+# define COIN_SPEED 6
 
 typedef struct	s_game
 {
@@ -88,10 +88,13 @@ typedef struct	s_game
 	t_img		*image;
 	t_player	*player;
 	t_map		*map;
+	t_xpm		*font;
 	int			last_moves;
 	int			moves;
 	int			state;
 }				t_game;
+
+# define FONT "./textures/32/vfont32.xpm"
 
 /* GAME STATES */
 # define GAME_ERROR 0

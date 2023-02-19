@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 19:33:28 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 23:38:45 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:11:18 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	draw_coins(t_game *game)
 {
 	t_vector	pos;
-	int	=		i;
+	int	i;
 
 	i = -1;
 	while (++i < game->map->totalcoins)
@@ -26,7 +26,6 @@ void	draw_coins(t_game *game)
 		{
 			game->map->sprite->cur_spr = 0;
 			put_t_xpm_to_img(game->map->sprite, game, pos);
-			//printf("Drawing coin at (%i,%i)\n", pos.x, pos.y); //-------------
 			put_t_xpm_to_img(game->map->coin_spr, game, pos);
 		}
 	}

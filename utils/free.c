@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:23 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 23:30:07 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/19 18:31:23 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,14 @@ t_game	*free_game(t_game *game)
 {
 	if (!game)
 		return (NULL);
-	if (IMG)
-		free_img(IMG);
+	if (game->image)
+		free_img(game->image);
 	if (game->player)
 		free_player(game->player);
-	if (MAP)
-		free_map(MAP);
+	if (game->map)
+		free_map(game->map);
+	if (game->font)
+		free_xpm(game->font);
 	free(game);
 	game = NULL;
 	return (NULL);

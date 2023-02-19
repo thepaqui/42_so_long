@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/18 23:15:12 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/19 22:40:29 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,8 @@ SRCS_M= utils/text.c \
 		process/collection.c \
 		process/collisions.c \
 		process/player.c \
+		process/text.c \
+		process/put_nbr.c \
 		process/color.c \
 		process/xpm.c \
 		process/draw.c \

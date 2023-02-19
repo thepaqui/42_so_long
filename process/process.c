@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 22:54:43 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/19 22:54:55 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,20 @@ static void	debug(t_game *game, int silent)
 		return ;
 	printf("Player position\t(%d,%d)\n", game->player->pos.x, game->player->pos.y);
 	printf("Player is on cell (%d,%d)\n", game->map->start.x, game->map->start.y);
-	//printf("Player speed\t%d\n", game->player->speed);
 	printf("\n");
 }
 
-static void	print_moves(int moves, int *last)
+static void	print_moves(t_game *game, int moves, int *last)
 {
-	if (moves != *last)
+	t_vector	pos;
+
+	if (game->player->pos.y < SPR_DIM || moves != *last)
 	{
-		ft_putnbr_fd(moves, 1);
-		if (moves > 1)
-			ft_putstr_fd(" moves\n", 1);
-		else
-			ft_putstr_fd(" move\n", 1);
+		pos.x = SPR_DIM * 0;
+		pos.y = SPR_DIM * 0;
+		put_str_to_img("MOVES: ", pos, game, BLACK);
+		pos.x = SPR_DIM * 7;
+		put_nbr_to_img(moves, pos, game, BLACK);
 		*last = moves;
 	}
 }
@@ -39,7 +40,6 @@ static void	print_moves(int moves, int *last)
 static int	main_loop(t_game *game)
 {
 	debug(game, 0); //-----------------------------------
-	print_moves(game->moves, &game->last_moves);
 	if (game->state == GAME_STOP)
 		close_window(game, 0, NULL);
 	else
@@ -48,6 +48,7 @@ static int	main_loop(t_game *game)
 		update_map(game->map, game);
 		update_coins(game->map);
 		prepare_new_frame(game);
+		print_moves(game, game->moves, &game->last_moves);
 		mlx_put_image_to_window(game->mlx, game->win, game->image->img, 0, 0);
 	}
 	return (0);
