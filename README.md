@@ -21,13 +21,7 @@ ADVICE: Maps shouldn't be any larger than 60 (width) by 30 (height) for playabil
 
 ## Notes
 
-Implement text spritesheet!  
-Text spritesheet should have:
-- 26 capital letters,
-- 10 numbers,
-- 13 extra characters: `.`, `,`, `:`, `'`, `"`, `!`, `?`, `(`, `)`, `&`, `$`, `-`, ` `.  
-
-So text spritesheet will have 7x7 sprites for 49 sprites!
+Make clean UI display to avoid display errors! (in `process.c`)
 
 ### To-do list
 
