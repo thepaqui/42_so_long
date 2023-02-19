@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 19th 2023, at 19:49.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 19th 2023, at 23:03.
 
 ## Presentation
 
@@ -47,10 +47,9 @@ So text spritesheet will have 7x7 sprites for 49 sprites!
 - [x] GET COIN LOCATIONS IN A `t_vector` ARRAY TO INCREASE PERFORMANCE IN HUGE MAPS
 - [x] ADD TEXT TEXTURES
 - [x] MAKE `put_str_to_img()` FUNCTION AND ALL ITS DEPENDENCIES
-- [ ] MAKE `put_nbr_to_img()` FUNCTION
+- [x] MAKE `put_nbr_to_img()` FUNCTION
 - [ ] PRINT CURRENT NUMBER OF MOVES AND COINS ON SCREEN
 - [ ] USE MLX'S ORIGINAL XPM FUNCTION TO CATCH OTHER UNEXPECTED CASES
-- [ ] DISPLAY COIN AND MOVE COUNTER
 - [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
 - [ ] REMOVE MACROS FOR SHORTENED NAMES
 - [ ] CHECK NORM
