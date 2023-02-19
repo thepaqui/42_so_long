@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 18th 2023, at 23:40.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 19th 2023, at 19:49.
 
 ## Presentation
 
@@ -19,9 +19,17 @@ Wish me luck as I embark on this journey!
 
 ADVICE: Maps shouldn't be any larger than 60 (width) by 30 (height) for playability. More than that works but isn't the best.
 
-## To-do list
+## Notes
 
-Implement text spritesheet!
+Implement text spritesheet!  
+Text spritesheet should have:
+- 26 capital letters,
+- 10 numbers,
+- 13 extra characters: `.`, `,`, `:`, `'`, `"`, `!`, `?`, `(`, `)`, `&`, `$`, `-`, ` `.  
+
+So text spritesheet will have 7x7 sprites for 49 sprites!
+
+### To-do list
 
 - [x] MAKE THE GAME USE 32x32 SPRITES
 - [x] TEST `put_t_xpm_to_img` FUNCTION WITH ACTUAL SPRITESHEET
@@ -37,8 +45,11 @@ Implement text spritesheet!
 - [x] IMPLEMENT WALL COLLISIONS
 - [x] IMPLEMENT HITBOXES FOR COINS
 - [x] GET COIN LOCATIONS IN A `t_vector` ARRAY TO INCREASE PERFORMANCE IN HUGE MAPS
+- [x] ADD TEXT TEXTURES
+- [x] MAKE `put_str_to_img()` FUNCTION AND ALL ITS DEPENDENCIES
+- [ ] MAKE `put_nbr_to_img()` FUNCTION
+- [ ] PRINT CURRENT NUMBER OF MOVES AND COINS ON SCREEN
 - [ ] USE MLX'S ORIGINAL XPM FUNCTION TO CATCH OTHER UNEXPECTED CASES
-- [ ] ADD TEXT TEXTURES
 - [ ] DISPLAY COIN AND MOVE COUNTER
 - [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
 - [ ] REMOVE MACROS FOR SHORTENED NAMES
