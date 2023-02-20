@@ -21,7 +21,7 @@ ADVICE: Maps shouldn't be any larger than 60 (width) by 30 (height) for playabil
 
 ## Notes
 
-Make clean UI display to avoid display errors! (in `process.c`)
+Make clean UI display to avoid display errors! (in `process.c`)  
 Finish wall linking! (in `wall_linking.c`)
 
 ### To-do list
