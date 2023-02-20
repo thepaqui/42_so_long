@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/19 22:41:10 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/20 22:38:10 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int		handle_key_release(int key, t_game *game);
 void	put_pixel_to_img(t_game *game, t_vector pos, int color);
 void	put_background_color_to_img(t_game *game, int color);
 void	put_t_xpm_to_img(t_xpm *xpm, t_game *game, t_vector pos);
+int		get_wall_texture(char **map, t_vector size, t_vector pos);
 void	draw_map(t_game *game);
 void	draw_coins(t_game *game);
 void	draw_player(t_game *game);

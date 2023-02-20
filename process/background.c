@@ -6,25 +6,27 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 22:34:50 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/20 23:07:13 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process.h"
 
-static int	get_obj_spr(char **map, t_vector pos)
+static int	get_obj_spr(char **map, t_vector map_size, t_vector pos)
 {
 	char	obj;
 
-	obj = map[pos.y / SPR_DIM][pos.x / SPR_DIM];
+	pos.x /= SPR_DIM;
+	pos.y /= SPR_DIM;
+	obj = map[pos.y][pos.x];
 	if (obj == EMPTY || obj == COIN || obj == PLAYER)
 		return (0);
 	else if (obj == WALL)
-		return (1);
+		return (get_wall_texture(map, map_size, pos));
 	else if (obj == EXIT_CLOSE)
-		return (2);
+		return (48);
 	else if (obj == EXIT_OPEN)
-		return (3);
+		return (49);
 	else
 		return (1);
 }
@@ -39,7 +41,7 @@ static void	draw_all_background(t_game *game, t_map *map)
 		pos.x = 0;
 		while (pos.x < game->win_size.x)
 		{
-			map->sprite->cur_spr = get_obj_spr(map->map, pos);
+			map->sprite->cur_spr = get_obj_spr(map->map, map->size, pos);
 			//printf("Drawing map tile at (%i,%i)\n", pos.x, pos.y); //-------------
 			put_t_xpm_to_img(map->sprite, game, pos);
 			pos.x += SPR_DIM;
@@ -48,7 +50,7 @@ static void	draw_all_background(t_game *game, t_map *map)
 	}
 }
 
-static void	draw_background_part(t_game *game)
+static void	draw_background_part(t_game *game, t_map *map)
 {
 	t_vector	pos;
 	int			lin;
@@ -62,10 +64,10 @@ static void	draw_background_part(t_game *game)
 		col = 0;
 		while (col < 2)
 		{
-			game->map->sprite->cur_spr = get_obj_spr(game->map->map, pos);
+			map->sprite->cur_spr = get_obj_spr(map->map, map->size, pos);
 			//printf("Drawing map tile at (%i,%i)\n", pos.x, pos.y); //-------------
-			if (get_obj_from_pos(pos, game->map) != 'C')
-				put_t_xpm_to_img(game->map->sprite, game, pos);
+			if (get_obj_from_pos(pos, map) != 'C')
+				put_t_xpm_to_img(map->sprite, game, pos);
 			col++;
 			pos.x += SPR_DIM;
 		}
@@ -88,10 +90,10 @@ void	draw_map(t_game *game)
 		game->state = GAME_RUN;
 	}
 	else if (game->player->state != PIDLE)
-		draw_background_part(game);
+		draw_background_part(game, game->map);
 	if (!game->map->nbcoins)
 	{
-		game->map->sprite->cur_spr = 3;
+		game->map->sprite->cur_spr = 49;
 		exitpos.x = game->map->exit.x * SPR_DIM;
 		exitpos.y = game->map->exit.y * SPR_DIM;
 		put_t_xpm_to_img(game->map->sprite, game, exitpos);

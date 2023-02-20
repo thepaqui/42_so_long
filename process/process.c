@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/19 22:54:55 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:38:48 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ static void	print_moves(t_game *game, int moves, int *last)
 	{
 		pos.x = SPR_DIM * 0;
 		pos.y = SPR_DIM * 0;
-		put_str_to_img("MOVES: ", pos, game, BLACK);
+		put_str_to_img("MOVES: ", pos, game, RED);
 		pos.x = SPR_DIM * 7;
-		put_nbr_to_img(moves, pos, game, BLACK);
+		put_nbr_to_img(moves, pos, game, BLUE);
 		*last = moves;
 	}
 }
 
 static int	main_loop(t_game *game)
 {
-	debug(game, 0); //-----------------------------------
+	debug(game, 1); //-----------------------------------
 	if (game->state == GAME_STOP)
 		close_window(game, 0, NULL);
 	else

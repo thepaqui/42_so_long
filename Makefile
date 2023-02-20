@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/19 22:40:29 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/20 22:38:25 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS_M= utils/text.c \
 		checking/check_xpm.c \
 		process/process.c \
 		process/window.c \
+		process/wall_linking.c \
 		process/background.c \
 		process/collection.c \
 		process/collisions.c \
