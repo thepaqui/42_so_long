@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 19th 2023, at 23:07.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 20th 2023, at 23:15.
 
 ## Presentation
 
@@ -22,6 +22,7 @@ ADVICE: Maps shouldn't be any larger than 60 (width) by 30 (height) for playabil
 ## Notes
 
 Make clean UI display to avoid display errors! (in `process.c`)
+Finish wall linking! (in `wall_linking.c`)
 
 ### To-do list
 
@@ -42,6 +43,8 @@ Make clean UI display to avoid display errors! (in `process.c`)
 - [x] ADD TEXT TEXTURES
 - [x] MAKE `put_str_to_img()` FUNCTION AND ALL ITS DEPENDENCIES
 - [x] MAKE `put_nbr_to_img()` FUNCTION
+- [x] MAKE WALL LINKING TILESET
+- [ ] IMPLEMENT WALL LINKING
 - [ ] PRINT CURRENT NUMBER OF MOVES AND COINS ON SCREEN
 - [ ] USE MLX'S ORIGINAL XPM FUNCTION TO CATCH OTHER UNEXPECTED CASES
 - [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
