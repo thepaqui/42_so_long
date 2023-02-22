@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:10:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/19 17:19:31 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:55:37 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ static char	*open_xpm_file(char *file, int *err)
 
 t_xpm	*parse_xpm(char *file, int *err)
 {
-	char	*text;
-	t_xpm	*xpm;
+	char		*text;
+	t_xpm		*xpm;
 
 	*err = is_file_type(file, "xpm");
 	if (*err)

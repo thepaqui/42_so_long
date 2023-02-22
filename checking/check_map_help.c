@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:19:58 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 22:49:05 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:01:41 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,18 +96,18 @@ int	check_path(t_game *game)
 	int		y;
 	int		requirements[2];
 
-	flood_map = duplicate_map(MAPMAP);
+	flood_map = duplicate_map(game->map->map);
 	if (!flood_map)
 		return (MALLOCFAIL);
-	x = XSTART;
-	y = YSTART;
+	x = game->map->start.x;
+	y = game->map->start.y;
 	requirements[0] = 0;
 	requirements[1] = 0;
 	flood_fill(flood_map, x, y, requirements);
 	ft_free_tab(flood_map, -1);
 	if (!requirements[0])
 		return (NOWAY);
-	if (requirements[1] != NBCOINS)
+	if (requirements[1] != game->map->totalcoins)
 		return (NOMONEY);
 	return (0);
 }

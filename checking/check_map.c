@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:30:40 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/09 14:48:33 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:01:57 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ static void	clean_map(char **map)
 	}
 }
 
-static void	obj_counter(int i, int j, int *io, t_game *game)
+static void	obj_counter(int i, int j, int *io, t_map *map)
 {
-	if (MAPMAP[i][j] == 'C')
-		NBCOINS++;
-	else if (MAPMAP[i][j] == 'P')
+	if (map->map[i][j] == 'C')
+		map->totalcoins++;
+	else if (map->map[i][j] == 'P')
 	{
 		io[0]++;
-		XSTART = j;
-		YSTART = i;
+		map->start.x = j;
+		map->start.y = i;
 	}
-	else if (MAPMAP[i][j] == 'E')
+	else if (map->map[i][j] == 'E')
 	{
 		io[1]++;
-		XEXIT = j;
-		YEXIT = i;
+		map->exit.x = j;
+		map->exit.y = i;
 	}
 }
 
@@ -72,27 +72,27 @@ static int	check_chars(t_game *game)
 	io[0] = 0;
 	io[1] = 0;
 	i = -1;
-	while (MAPMAP[++i])
+	while (game->map->map[++i])
 	{
 		j = -1;
-		while (MAPMAP[i][++j])
+		while (game->map->map[i][++j])
 		{
-			if (!isinset(MAPMAP[i][j], "01CEP"))
+			if (!isinset(game->map->map[i][j], "01CEP"))
 				return (WRONGCHAR);
-			obj_counter(i, j, io, game);
+			obj_counter(i, j, io, game->map);
 		}
 	}
-	return (obj_check(io[0], io[1], NBCOINS));
+	return (obj_check(io[0], io[1], game->map->totalcoins));
 }
 
 int	check_map(t_game *game)
 {
 	int	err;
 
-	if (!MAPMAP)
+	if (!game->map->map)
 		return (MALLOCFAIL);
-	clean_map(MAPMAP);
-	NBCOINS = 0;
+	clean_map(game->map->map);
+	game->map->nbcoins = 0;
 	err = check_chars(game);
 	if (err)
 		return (err);

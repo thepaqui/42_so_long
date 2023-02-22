@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/20 22:38:25 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/22 18:59:29 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRCS_M= utils/text.c \
 		checking/check_map.c \
 		checking/check_map_help.c \
 		checking/check_xpm.c \
+		process/end.c \
 		process/process.c \
 		process/window.c \
 		process/wall_linking.c \
@@ -73,6 +74,14 @@ else
 OBJS= $(OBJS_M)
 endif
 
+UP= "\033[A"
+
+GREEN= "\033[32m"
+
+PURPLE= "\033[35m"
+
+WHITE= "\033[0m"
+
 all: $(NAME)
 
 $(NAME): $(MLX) $(OBJS)
@@ -83,7 +92,9 @@ else
 	@echo 'Compiled so_long.'
 endif
 
-%.o: %.c
+%.o: %.c 
+	@printf $(UP)
+	@echo $(GREEN) "Compiling: " $@ "                        " $(WHITE)
 	@$(CCOBJ) -o $@ -c $<
 
 $(MLX): ./mlx/Makefile
@@ -97,10 +108,14 @@ clean:
 	@echo 'Deleted all temporary files.'
 
 fclean: clean
-	@rm -f $(MLX)
-	@echo 'Deleted mlx library.'
 	@rm -f $(NAME)
 	@echo 'Deleted so_long.'
+
+mlxclean:
+	@rm -f $(MLX)
+	@echo 'Deleted mlx library.'
+
+allclean: fclean mlxclean
 
 re: fclean all
 
@@ -109,4 +124,4 @@ bonus:
 
 rebonus: fclean bonus
 
-.PHONY: all clean fclean re bonus rebonus
+.PHONY: all clean fclean mlxclean allclean re bonus rebonus

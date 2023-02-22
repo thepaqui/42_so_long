@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/19 19:40:30 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:54:48 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static t_map	*map_init(int *err, char *filemap, char *filecoin)
 		free(map);
 		return (NULL);
 	}
+	map->last = -1;
 	return (map);
 }
 

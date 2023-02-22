@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 16:27:08 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 23:32:58 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 22:28:26 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	close_window(t_game *game, int code, char *file)
 int	handle_cross(t_game *game)
 {
 	game->state = GAME_STOP;
-	close_window(game, 0, NULL);
 	return (0);
 }
 

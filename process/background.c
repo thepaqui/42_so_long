@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/20 23:07:13 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:16:57 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,19 @@ static void	draw_all_background(t_game *game, t_map *map)
 	}
 }
 
-static void	draw_background_part(t_game *game, t_map *map)
+void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s)
 {
 	t_vector	pos;
 	int			lin;
 	int			col;
 
 	lin = 0;
-	pos.y = SPR_DIM * (game->player->pos.y / SPR_DIM);
-	while (lin < 2)
+	pos.y = SPR_DIM * (opos.y / SPR_DIM);
+	while (lin < s.y)
 	{
-		pos.x = SPR_DIM * (game->player->pos.x / SPR_DIM);
+		pos.x = SPR_DIM * (opos.x / SPR_DIM);
 		col = 0;
-		while (col < 2)
+		while (col < s.x)
 		{
 			map->sprite->cur_spr = get_obj_spr(map->map, map->size, pos);
 			//printf("Drawing map tile at (%i,%i)\n", pos.x, pos.y); //-------------
@@ -78,7 +78,7 @@ static void	draw_background_part(t_game *game, t_map *map)
 
 void	draw_map(t_game *game)
 {
-	t_vector	exitpos;
+	t_vector	tmp;
 
 	if (game->player->state == PIDLE && game->player->sprite->cur_spr == 5)
 		game->player->state = PCOIN;
@@ -90,14 +90,13 @@ void	draw_map(t_game *game)
 		game->state = GAME_RUN;
 	}
 	else if (game->player->state != PIDLE)
-		draw_background_part(game, game->map);
-	if (!game->map->nbcoins)
+		refresh_player_area(game);
+	if (game->map->nbcoins == game->map->totalcoins)
 	{
 		game->map->sprite->cur_spr = 49;
-		exitpos.x = game->map->exit.x * SPR_DIM;
-		exitpos.y = game->map->exit.y * SPR_DIM;
-		put_t_xpm_to_img(game->map->sprite, game, exitpos);
-		game->map->nbcoins--;
+		tmp.x = game->map->exit.x * SPR_DIM;
+		tmp.y = game->map->exit.y * SPR_DIM;
+		put_t_xpm_to_img(game->map->sprite, game, tmp);
 	}
 }
 
@@ -120,7 +119,7 @@ void	update_map(t_map *map, t_game *game)
 	if (coin != NONE)
 		collect_coin(map, game, pos, coin);
 	if (map->map[map->start.y][map->start.x] == EXIT_OPEN)
-		game->state = GAME_STOP;
-	if (!map->nbcoins)
+		game->state = GAME_WIN;
+	if (map->nbcoins == map->totalcoins)
 		map->map[map->exit.y][map->exit.x] = EXIT_OPEN;
 }

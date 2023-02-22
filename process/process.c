@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/20 17:38:48 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:28:27 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,35 +22,30 @@ static void	debug(t_game *game, int silent)
 	printf("\n");
 }
 
-static void	print_moves(t_game *game, int moves, int *last)
-{
-	t_vector	pos;
-
-	if (game->player->pos.y < SPR_DIM || moves != *last)
-	{
-		pos.x = SPR_DIM * 0;
-		pos.y = SPR_DIM * 0;
-		put_str_to_img("MOVES: ", pos, game, RED);
-		pos.x = SPR_DIM * 7;
-		put_nbr_to_img(moves, pos, game, BLUE);
-		*last = moves;
-	}
-}
-
 static int	main_loop(t_game *game)
 {
 	debug(game, 1); //-----------------------------------
 	if (game->state == GAME_STOP)
-		close_window(game, 0, NULL);
+		stop_sequence(game);
+	else if (game->state == GAME_WIN)
+	{
+		if (!game->end_frame)
+		{
+			put_background_color_to_img(game, BLACK);
+			game->end_color = 0x00FF0000;
+			game->end_frame++;
+		}
+		ending_sequence(game);
+	}
 	else
 	{
 		update_player(game);
 		update_map(game->map, game);
-		update_coins(game->map);
+		if (game->map->totalcoins - game->map->nbcoins < MAXCOINS)
+			update_coins(game->map);
 		prepare_new_frame(game);
-		print_moves(game, game->moves, &game->last_moves);
-		mlx_put_image_to_window(game->mlx, game->win, game->image->img, 0, 0);
 	}
+	mlx_put_image_to_window(game->mlx, game->win, game->image->img, 0, 0);
 	return (0);
 }
 

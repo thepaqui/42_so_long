@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/20 22:38:10 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 22:40:10 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ void	update_map(t_map *map, t_game *game);
 void	collect_coin(t_map *map, t_game *game, t_vector pos, int coin);
 void	update_coins(t_map *map);
 void	launch_game(t_game *game);
+void	ending_sequence(t_game *game);
+void	stop_sequence(t_game *game);
+
+/* END */
+# define END_MSG_XL "UN PETIT OUTSTANDING SVP ? ;3"
+# define END_MSG_L "CONGRATULATIONS!"
+# define END_MSG_M "BRAVO!"
+# define END_MSG_S "WOW"
+# define RAINBOWSPEED 10
+
+/* STOP */
+# define STOP_MSG_L "HAVE A NICE DAY!"
+# define STOP_MSG_M "GOODBYE"
+# define STOP_MSG_S "BYE"
 
 /* COLLISION CODES */
 # define NONE 0
@@ -71,6 +85,8 @@ void	put_pixel_to_img(t_game *game, t_vector pos, int color);
 void	put_background_color_to_img(t_game *game, int color);
 void	put_t_xpm_to_img(t_xpm *xpm, t_game *game, t_vector pos);
 int		get_wall_texture(char **map, t_vector size, t_vector pos);
+void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s);
+void	refresh_player_area(t_game *game);
 void	draw_map(t_game *game);
 void	draw_coins(t_game *game);
 void	draw_player(t_game *game);
@@ -79,9 +95,12 @@ void	put_str_to_img(char *s, t_vector pos, t_game *game, int color);
 void	put_nbr_to_img(unsigned int n, t_vector pos, t_game *game, int color);
 void	prepare_new_frame(t_game *game);
 
+# define MOV_MAX_DIGITS 5
+# define MOV_PREFIX "MOVES "
+
 /* COLOR */
 int		get_argb(int a, int r, int g, int b);
-int		get_alpha(int argb);
+int		get_alpha(int argb); //unused
 int		get_red(int argb);
 int		get_green(int argb);
 int		get_blue(int argb);

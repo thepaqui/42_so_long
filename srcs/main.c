@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:26:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 23:12:26 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:32:14 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 	printf("\nWidth %d\nHeight %d\n", MAPWID, MAPHEI); //---------------------
 	printf("Start at (%d,%d)\n", XSTART, YSTART); //--------------------------
 	printf("Exit at (%d,%d)\n", XEXIT, YEXIT); //-----------------------------
-	printf("%d coins\n", NBCOINS); //---------------------------------------*/
+	printf("%d coins\n", game->map->totalcoins); //---------------------------------------*/
 	launch_game(game);
 	free_game(game);
 	system("leaks so_long | grep leak"); //-----------------------------------

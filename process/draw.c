@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:47:55 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 21:41:33 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:58:37 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,4 @@ void	put_background_color_to_img(t_game *game, int color)
 		while (++pos.x < WINWID - 1)
 			put_pixel_to_img(game, pos, color);
 	}
-} //-------------------------------------------------- UNUSED
+}

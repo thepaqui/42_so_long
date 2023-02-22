@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 19:33:28 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/19 15:11:18 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:55:59 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void	collect_coin(t_map *map, t_game *game, t_vector pos, int coin)
 	map_pos.x = (pos.x + diff.x) / SPR_DIM;
 	map_pos.y = (pos.y + diff.y) / SPR_DIM;
 	map->map[map_pos.y][map_pos.x] = EMPTY;
-	map->nbcoins--;
+	map->nbcoins++;
 	game->player->coin_anim_len = PLAYER_COIN_ANIM_LEN;
 }

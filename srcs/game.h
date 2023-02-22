@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/19 22:51:05 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:27:50 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct	s_map
 	t_vector	start;
 	t_vector	exit;
 	int			nbcoins;
+	int			last;
 	int			totalcoins;
 	t_xpm		*coin_spr;
 	t_vector	*coin_pos;
@@ -79,6 +80,7 @@ typedef struct	s_map
 # define MAP_SPRITE "./textures/32/map32.xpm"
 # define COIN_SPRITE "./textures/32/coin32.xpm"
 # define COIN_SPEED 6
+# define MAXCOINS 150
 
 typedef struct	s_game
 {
@@ -91,6 +93,9 @@ typedef struct	s_game
 	t_xpm		*font;
 	int			last_moves;
 	int			moves;
+	int			end_frame;
+	int			end_color;
+	int			stop_frame;
 	int			state;
 }				t_game;
 
@@ -101,6 +106,7 @@ typedef struct	s_game
 # define GAME_STARTUP 1
 # define GAME_RUN 2
 # define GAME_STOP 3
+# define GAME_WIN 4
 
 /* MLX AND WINDOW */
 # define MLX game->mlx
