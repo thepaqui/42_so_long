@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 22nd 2023, at 17:26.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 22nd 2023, at 20:35.
 
 ## Presentation
 
@@ -20,7 +20,10 @@ Wish me luck as I embark on this journey!
 ### Advice
 
 Maps shouldn't be any larger than ~60 (width) by ~30 (height) for playability's sake.  
-The game will start lagging if you have ~150+ coins (only tested on the 42 Nice computers).
+  
+The game will start lagging if you have ~150+ coins (only tested on the 42 Nice computers).  
+So if you have 150 or more coins on screen, they won't be animated for performance's sake.  
+You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 
 ## Notes
 
@@ -33,9 +36,10 @@ The game will start lagging if you have ~150+ coins (only tested on the 42 Nice 
 - [x] IMPLEMENT WALL LINKING
 - [x] FIX MOVE COUNTER REFRESH
 - [x] PRINT CURRENT NUMBER OF COINS ON SCREEN
-- [ ] ADD ENDING (BLACK SCREEN WITH RAINBOW CONGRATULATIONS)
+- [x] TURN OFF COIN ANIMATION WHEN COIN COUNT IS OVER A THRESHOLD
+- [x] ADD ENDING (BLACK SCREEN WITH RAINBOW CONGRATULATIONS)
+- [x] ADD EXITING MESSAGE
 - [ ] CLEAN UP WALL LINKING CODE (NORM)
-- [ ] USE MLX'S ORIGINAL XPM FUNCTION TO CATCH OTHER UNEXPECTED CASES
 - [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
 - [ ] REMOVE MACROS FOR SHORTENED NAMES
 - [ ] CHECK NORM
