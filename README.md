@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 22nd 2023, at 22:45.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 24th 2023, at 17:20.
 
 ## Presentation
 
@@ -40,7 +40,7 @@ You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 - [x] ADD ENDING (BLACK SCREEN WITH RAINBOW CONGRATULATIONS)
 - [x] ADD EXITING MESSAGE
 - [x] ADD RAINBOW ANIMATION SPEED
-- [ ] CLEAN UP WALL LINKING CODE (NORM)
-- [ ] CHECK NORM FOR MACROS SHORTER THAN THEIR VALUES
-- [ ] REMOVE MACROS FOR SHORTENED NAMES
-- [ ] CHECK NORM
+- [x] CLEAN UP WALL LINKING CODE (NORM)
+- [x] REMOVE MACROS FOR SHORTENED NAMES
+- [x] CHECK NORM
+- [ ] START BONUSES
