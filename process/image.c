@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:37:30 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 17:14:41 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:58:28 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,6 @@ static void	print_coin_count(t_game *game, int movsize, int coins, int *last)
 	t_vector	pos;
 	t_vector	size;
 
-	//printf("Map width = %d\n", game->map->size.x); //------------
-	//printf("Move counter width = %d\n", movsize); //------------
-	//printf("Collected coins = %d\n", coins); //------------
 	if (game->map->size.x > movsize + 3
 		&& (game->player->pos.y < SPR_DIM * 2 || coins != *last))
 	{

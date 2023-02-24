@@ -6,11 +6,11 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 23:04:55 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 17:07:36 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:07:35 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parse.h"
+#include "parse.h"
 
 int	get_coins_pos(t_map *map)
 {

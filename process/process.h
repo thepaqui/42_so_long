@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 22:40:10 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:57:31 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ending_sequence(t_game *game);
 void	stop_sequence(t_game *game);
 
 /* END */
-# define END_MSG_XL "UN PETIT OUTSTANDING SVP ? ;3"
+# define END_MSG_XL "UN PETIT OUTSTANDING SVP ?"
 # define END_MSG_L "CONGRATULATIONS!"
 # define END_MSG_M "BRAVO!"
 # define END_MSG_S "WOW"
@@ -87,6 +87,7 @@ void	put_t_xpm_to_img(t_xpm *xpm, t_game *game, t_vector pos);
 int		get_wall_texture(char **map, t_vector size, t_vector pos);
 void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s);
 void	refresh_player_area(t_game *game);
+int		get_pos_walls_around(char **map, t_vector s, t_vector pos);
 void	draw_map(t_game *game);
 void	draw_coins(t_game *game);
 void	draw_player(t_game *game);
@@ -104,6 +105,8 @@ int		get_alpha(int argb); //unused
 int		get_red(int argb);
 int		get_green(int argb);
 int		get_blue(int argb);
+
+/* COLOR PRESETS */
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
 # define RED 0x00FF0000

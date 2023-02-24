@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 19:16:57 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:01:06 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static void	draw_all_background(t_game *game, t_map *map)
 		while (pos.x < game->win_size.x)
 		{
 			map->sprite->cur_spr = get_obj_spr(map->map, map->size, pos);
-			//printf("Drawing map tile at (%i,%i)\n", pos.x, pos.y); //-------------
 			put_t_xpm_to_img(map->sprite, game, pos);
 			pos.x += SPR_DIM;
 		}
@@ -65,7 +64,6 @@ void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s)
 		while (col < s.x)
 		{
 			map->sprite->cur_spr = get_obj_spr(map->map, map->size, pos);
-			//printf("Drawing map tile at (%i,%i)\n", pos.x, pos.y); //-------------
 			if (get_obj_from_pos(pos, map) != 'C')
 				put_t_xpm_to_img(map->sprite, game, pos);
 			col++;

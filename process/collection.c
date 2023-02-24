@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 19:33:28 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 16:55:59 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:00:42 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	draw_coins(t_game *game)
 {
 	t_vector	pos;
-	int	i;
+	int			i;
 
 	i = -1;
 	while (++i < game->map->totalcoins)
@@ -33,16 +33,16 @@ void	draw_coins(t_game *game)
 
 void	update_coins(t_map *map)
 {
-		if (!map->coin_speed)
-		{
-			if (map->coin_spr->cur_spr == 7)
-				map->coin_spr->cur_spr = 0;
-			else
-				map->coin_spr->cur_spr++;
-			map->coin_speed = COIN_SPEED;
-		}
+	if (!map->coin_speed)
+	{
+		if (map->coin_spr->cur_spr == 7)
+			map->coin_spr->cur_spr = 0;
 		else
-			map->coin_speed--;
+			map->coin_spr->cur_spr++;
+		map->coin_speed = COIN_SPEED;
+	}
+	else
+		map->coin_speed--;
 }
 
 void	collect_coin(t_map *map, t_game *game, t_vector pos, int coin)

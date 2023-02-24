@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:21:13 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/09 18:50:27 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:09:04 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	is_file_type(char *path, char *ext)
 		return (NOEXT);
 	i = -1;
 	while (ext[++i])
+	{
 		if (ext[i] != path[dot + 1 + i])
 		{
 			if (!ft_strncmp(ext, "ber", 3))
@@ -35,6 +36,7 @@ int	is_file_type(char *path, char *ext)
 			else
 				return (NOTXPM);
 		}
+	}
 	return (0);
 }
 

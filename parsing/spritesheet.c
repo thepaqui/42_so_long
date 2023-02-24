@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:36:59 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 18:44:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:08:02 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ static int	check_spritesheet(t_xpm *xpm)
 	int	i;
 	int	j;
 
-	/*printf("Checking this spritesheet:\n"); //-------------------------------
-	print_tab(xpm->spritesheet); //------------------------------------------*/
 	i = -1;
 	while (xpm->spritesheet[++i])
 	{

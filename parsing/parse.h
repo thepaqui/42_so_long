@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:24:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 17:57:19 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:05:20 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		get_tokens(char **tab, t_xpm *xpm);
 int		get_colors(char **tab, t_xpm *xpm);
 int		get_palette(t_xpm *xpm, char *raw_pal);
 int		get_spritesheet(t_xpm *xpm, char *sprites);
-t_xpm   *parse_xpm(char *file, int *err);
+t_xpm	*parse_xpm(char *file, int *err);
 
 /* COLOR */
 int		is_keyword_valid(char *word);

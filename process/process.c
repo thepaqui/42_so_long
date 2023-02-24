@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 20:28:27 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 23:10:29 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h> //--------------------------------------------------
 
 static void	debug(t_game *game, int silent)
-{
+{ // remove this before final push
 	if (silent)
 		return ;
 	printf("Player position\t(%d,%d)\n", game->player->pos.x, game->player->pos.y);

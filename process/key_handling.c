@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:44:50 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 17:28:48 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:58:10 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static void	key_move(int key, t_player *player)
 
 int	handle_key_press(int key, t_game *game)
 {
-	//printf("KEY %i IS PRESSED\n", key); //-----------------------------------
 	if (key == KEY_ESC)
 		game->state = GAME_STOP;
 	if (key >= KEY_ARRLE && key <= KEY_ARRUP)
@@ -58,13 +57,13 @@ static void	key_stop_move(int key, t_player *player)
 	if (key == KEY_ARRRI)
 		player->right = 0;
 	if (player->up)
-        player->last_key = KEY_ARRUP;
+		player->last_key = KEY_ARRUP;
 	else if (player->down)
-        player->last_key = KEY_ARRDO;
+		player->last_key = KEY_ARRDO;
 	else if (player->left)
-        player->last_key = KEY_ARRLE;
+		player->last_key = KEY_ARRLE;
 	else if (player->right)
-        player->last_key = KEY_ARRRI;
+		player->last_key = KEY_ARRRI;
 	else
 		player->state = PIDLE;
 	return ;
@@ -72,7 +71,6 @@ static void	key_stop_move(int key, t_player *player)
 
 int	handle_key_release(int key, t_game *game)
 {
-	//printf("KEY %i IS RELEASED\n", key); //------------------------------------
 	if (key >= KEY_ARRLE && key <= KEY_ARRUP)
 		key_stop_move(key, game->player);
 	return (0);

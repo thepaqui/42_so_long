@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:03:18 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 18:07:21 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:07:49 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	check_pal_format(char **tab)
 				return (check_hex_color(tab[i], 4, 11));
 		}
 		else if (!is_keyword_valid(&tab[i][4]))
-				return (BADPALKEYWORD);
+			return (BADPALKEYWORD);
 	}
 	return (0);
 }

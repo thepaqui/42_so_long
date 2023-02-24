@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/22 18:59:29 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/24 16:37:33 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS_M= utils/text.c \
 		process/end.c \
 		process/process.c \
 		process/window.c \
+		process/wall_detection.c \
 		process/wall_linking.c \
 		process/background.c \
 		process/collection.c \

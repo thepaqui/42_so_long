@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:53:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 22:24:24 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:58:57 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,18 @@ void	ending_sequence(t_game *game)
 	red = get_red(game->end_color);
 	blue = get_blue(game->end_color);
 	green = get_green(game->end_color);
-	//printf("RGB %d %d %d\n", red, green, blue); //---------------------------------
 	if (red == 255 && blue != 255 && green == 0)
-		game->end_color = get_argb(0, 255, 0, newcol(blue, '+')); //  red stays blue comes
+		game->end_color = get_argb(0, 255, 0, newcol(blue, '+'));
 	else if (blue == 255 && red != 0)
-		game->end_color = get_argb(0, newcol(red, '-'), 0, 255); //   blue stays red goes
+		game->end_color = get_argb(0, newcol(red, '-'), 0, 255);
 	else if (blue == 255 && green != 255)
-		game->end_color = get_argb(0, 0, newcol(green, '+'), 255); // blue stays green comes
+		game->end_color = get_argb(0, 0, newcol(green, '+'), 255);
 	else if (green == 255 && blue != 0)
-		game->end_color = get_argb(0, 0, 255, newcol(blue, '-')); //  green stays blue goes
+		game->end_color = get_argb(0, 0, 255, newcol(blue, '-'));
 	else if (green == 255 && red != 255)
-		game->end_color = get_argb(0, newcol(red, '+'), 255, 0); //   green stays red comes
+		game->end_color = get_argb(0, newcol(red, '+'), 255, 0);
 	else if (red == 255 && green != 0)
-		game->end_color = get_argb(0, 255, newcol(green, '-'), 0); // red stays green goes
+		game->end_color = get_argb(0, 255, newcol(green, '-'), 0);
 	print_end_message(game, game->end_color);
 }
 

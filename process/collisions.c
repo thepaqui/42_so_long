@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 21:50:32 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/18 18:35:30 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:00:11 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,22 @@ int	touch_obj(t_vector pos, t_map *map, char obj, int hitbox_size)
 {
 	t_vector	hitbox_point;
 
-	//printf("\n"); //---------------
 	hitbox_point.x = pos.x;
 	hitbox_point.y = pos.y;
-	if (get_obj_from_pos(hitbox_point, map) == obj) // x  y
+	if (get_obj_from_pos(hitbox_point, map) == obj)
 		return (CENTER);
-	//printf("Center is not on a \'%c\' cell.\n", obj); //-------------
 	hitbox_point.x = pos.x - hitbox_size / 2;
 	hitbox_point.y = pos.y - hitbox_size / 2;
-	if (get_obj_from_pos(hitbox_point, map) == obj) // x- y-
+	if (get_obj_from_pos(hitbox_point, map) == obj)
 		return (TOP_LEFT);
-	//printf("Top Left corner is not on a \'%c\' cell.\n", obj); //-------------
 	hitbox_point.y = pos.y + hitbox_size / 2;
-	if (get_obj_from_pos(hitbox_point, map) == obj) // x- y+
+	if (get_obj_from_pos(hitbox_point, map) == obj)
 		return (BOT_LEFT);
-	//printf("Bottom Left corner is not on a \'%c\' cell.\n", obj); //-------------
 	hitbox_point.x = pos.x + hitbox_size / 2;
-	if (get_obj_from_pos(hitbox_point, map) == obj) // x+ y+
+	if (get_obj_from_pos(hitbox_point, map) == obj)
 		return (BOT_RIGHT);
-	//printf("Bottom Right corner is not on a \'%c\' cell.\n", obj); //-------------
 	hitbox_point.y = pos.y - hitbox_size / 2;
-	if (get_obj_from_pos(hitbox_point, map) == obj) // x+ y-
+	if (get_obj_from_pos(hitbox_point, map) == obj)
 		return (TOP_RIGHT);
-	//printf("Top Right corner is not on a \'%c\' cell.\n", obj); //-------------
 	return (NONE);
 }

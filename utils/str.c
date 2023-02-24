@@ -6,11 +6,11 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 12:14:06 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/12 19:24:15 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:02:13 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "utils.h"
+#include "utils.h"
 
 int	ft_strlen(const char *s)
 {
@@ -65,22 +65,14 @@ int	ft_strlcpy(char *dst, const char *src, int dstsize)
 	i = ft_strlen(src);
 	if (!dst)
 		return (i);
-	j = 0;
+	j = -1;
 	if (i + 1 < dstsize)
-	{
-		while (j < i + 1)
-		{
+		while (++j < i + 1)
 			dst[j] = src[j];
-			j++;
-		}
-	}
 	else if (dstsize > 0)
 	{
-		while (j < dstsize - 1)
-		{
+		while (++j < dstsize - 1)
 			dst[j] = src[j];
-			j++;
-		}
 		dst[j] = '\0';
 	}
 	return (i);
@@ -102,9 +94,3 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 	}
 	return (0);
 }
-
-void	print_tab(char **tab)
-{ //--------------
-	for (int i = 0;tab[i];i++)
-		printf("tab[%i]\t=\t\"%s\"\n", i, tab[i]);
-} //--------------

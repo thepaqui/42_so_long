@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:18:41 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 18:30:08 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/22 23:00:19 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,16 @@ static void	take_map(int fd, int lines, t_game *game, char *file)
 	int	i;
 	int	gnlerr;
 
-	MAPMAP = ft_calloc(lines + 1, sizeof(char *));
-	if (!MAPMAP)
+	game->map->map = ft_calloc(lines + 1, sizeof(char *));
+	if (!game->map->map)
 		ft_error(MALLOCFAIL, game, NULL);
 	i = 0;
 	gnlerr = 0;
-	MAPMAP[i] = get_next_line(fd, &gnlerr);
-	while (MAPMAP[i] && ++i < lines)
+	game->map->map[i] = get_next_line(fd, &gnlerr);
+	while (game->map->map[i] && ++i < lines)
 	{
 		gnlerr = 0;
-		MAPMAP[i] = get_next_line(fd, &gnlerr);
+		game->map->map[i] = get_next_line(fd, &gnlerr);
 	}
 	if (gnlerr)
 		errno_error(gnlerr, game, file);
@@ -82,6 +82,6 @@ void	get_map(char *file, t_game *game)
 	close_mapfile(fd, game, file);
 	fd = open_mapfile(file, game);
 	take_map(fd, lines, game, file);
-	if (!MAPMAP)
+	if (!game->map->map)
 		ft_error(MALLOCFAIL, game, NULL);
 }

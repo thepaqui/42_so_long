@@ -6,14 +6,14 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 20:27:50 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:14:57 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-typedef struct	s_vector
+typedef struct s_vector
 {
 	int	x;
 	int	y;
@@ -21,18 +21,18 @@ typedef struct	s_vector
 
 # define SPR_DIM 32
 
-typedef struct  s_xpm
+typedef struct s_xpm
 {
-    int     *palette;
-    char    *token;
+	int		*palette;
+	char	*token;
 	int		pal_size;
-    char    **spritesheet;
+	char	**spritesheet;
 	int		cur_spr;
 	int		spr_per_line;
 	int		spr_per_column;
-}               t_xpm;
+}				t_xpm;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*add;
@@ -43,7 +43,7 @@ typedef struct	s_img
 
 # define PLAYER_SPRITE "./textures/32/ph32.xpm"
 
-typedef struct	s_player
+typedef struct s_player
 {
 	t_vector	pos;
 	int			speed;
@@ -62,7 +62,12 @@ typedef struct	s_player
 # define PLAYER_COIN_ANIM_LEN 20
 # define PLAYER_HITBOX 10
 
-typedef struct	s_map
+/* PLAYER STATES */
+# define PIDLE 0
+# define PMOVE 1
+# define PCOIN 2
+
+typedef struct s_map
 {
 	char		**map;
 	t_xpm		*sprite;
@@ -82,7 +87,7 @@ typedef struct	s_map
 # define COIN_SPEED 6
 # define MAXCOINS 150
 
-typedef struct	s_game
+typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
@@ -108,50 +113,8 @@ typedef struct	s_game
 # define GAME_STOP 3
 # define GAME_WIN 4
 
-/* MLX AND WINDOW */
-# define MLX game->mlx
-# define WIN game->win
-# define WINWID game->win_size.x
-# define WINHEI game->win_size.y
-# define WINNAME "thepaqui's so_long!"
-
-/* WINDOW IMAGE */
-# define IMG game->image
-# define IMGIMG IMG->img
-# define IMGADD IMG->add
-# define IMGBPP IMG->bpp
-# define IMGLLEN IMG->line_len
-# define IMGENDI IMG->endian
-
-/* PLAYER */
-# define XPLAYER game->player->pos.x
-# define YPLAYER game->player->pos.y
-# define PUP game->player->up
-# define PDO game->player->down
-# define PLE game->player->left
-# define PRI game->player->right
-# define PSTATE game->player->state
-# define PSPRITE game->player->sprite
-
-/* PLAYER STATES */
-# define PIDLE 0
-# define PMOVE 1
-# define PCOIN 2
-
-/* CAMERA */
-# define CAMWID game->win_size.x
-# define CAMHEI game->win_size.y
-
-/* MAP */
-# define MAP game->map
-# define MAPMAP MAP->map
-# define MAPWID MAP->size.x
-# define MAPHEI MAP->size.y
-# define XSTART MAP->start.x
-# define YSTART MAP->start.y
-# define XEXIT MAP->exit.x
-# define YEXIT MAP->exit.y
-# define NBCOINS MAP->nbcoins
+/* WINDOW */
+# define WINNAME "BIG BUCKS!!!"
 
 /* MAP OBJECTS */
 # define EMPTY '0'
