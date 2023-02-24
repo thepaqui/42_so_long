@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 24th 2023, at 17:20.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 24th 2023, at 23:00.
 
 ## Presentation
 
@@ -22,16 +22,13 @@ Wish me luck as I embark on this journey!
 Maps shouldn't be any larger than ~60 (width) by ~30 (height) for playability's sake.  
   
 The game will start lagging if you have ~150+ coins (only tested on the 42 Nice computers).  
-So if you have 150 or more coins on screen, they won't be animated for performance's sake.  
+So if you have 150 or more coins on screen (less with bonuses), they won't be animated for performance's sake.  
 You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 
 ## Notes
 
 ### To-do list
 
-- [x] ADD TEXT TEXTURES
-- [x] MAKE `put_str_to_img()` FUNCTION AND ALL ITS DEPENDENCIES
-- [x] MAKE `put_nbr_to_img()` FUNCTION
 - [x] MAKE WALL LINKING TILESET
 - [x] IMPLEMENT WALL LINKING
 - [x] FIX MOVE COUNTER REFRESH
@@ -43,4 +40,15 @@ You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 - [x] CLEAN UP WALL LINKING CODE (NORM)
 - [x] REMOVE MACROS FOR SHORTENED NAMES
 - [x] CHECK NORM
-- [ ] START BONUSES
+- [x] START BONUSES
+- [ ] FINISH `get_throwing_direction()` FUNCTION (in projectile_bonus.c) (inverse square root from Quake 3 maybe???)
+- [ ] IMPLEMENT THROWING PROJECTILES ACCORDING TO MOUSE POSITION RELATIVE TO PLAYER
+- [ ] MAKE PROJECTILE TEXTURE
+- [ ] HIDE CURSOR AND REPLACE BY CUSTOM CROSSHAIR
+- [ ] MAKE CURSOR CROSSHAIR TEXTURE
+- [ ] MAKE PROJECTILE BOUNCING
+- [ ] MAKE ENEMIES TEXTURES
+- [ ] MAKE ENEMIES MOVEMENT
+- [ ] MAKE ENEMIES KILLABLE WITH PROJECTILES
+- [ ] MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY
+- [ ] MAKE COINS COLLECTABLE WITH PROJECTILES
