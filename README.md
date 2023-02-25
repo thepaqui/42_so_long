@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 24th 2023, at 23:00.
+My still unfinished *so_long* project for **42 Nice**, last updated on February 25th 2023, at 19:26.
 
 ## Presentation
 
@@ -29,6 +29,8 @@ You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 
 ### To-do list
 
+Finish implementing throwing in `throw()` in `projectile_bonus.c`.
+
 - [x] MAKE WALL LINKING TILESET
 - [x] IMPLEMENT WALL LINKING
 - [x] FIX MOVE COUNTER REFRESH
@@ -41,14 +43,15 @@ You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 - [x] REMOVE MACROS FOR SHORTENED NAMES
 - [x] CHECK NORM
 - [x] START BONUSES
-- [ ] FINISH `get_throwing_direction()` FUNCTION (in projectile_bonus.c) (inverse square root from Quake 3 maybe???)
+- [x] CHANGE MOVEMENT CONTROLS TO `WASD` KEYS
+- [x] MAKE CURSOR CROSSHAIR TEXTURE
+- [x] CLEANLY DISPLAY CUSTOM CROSSHAIR AT CURSOR POSITION
+- [ ] FINISH `throw()` FUNCTION (in projectile_bonus.c) (inverse square root from Quake 3 maybe???)
 - [ ] IMPLEMENT THROWING PROJECTILES ACCORDING TO MOUSE POSITION RELATIVE TO PLAYER
 - [ ] MAKE PROJECTILE TEXTURE
-- [ ] HIDE CURSOR AND REPLACE BY CUSTOM CROSSHAIR
-- [ ] MAKE CURSOR CROSSHAIR TEXTURE
 - [ ] MAKE PROJECTILE BOUNCING
+- [ ] MAKE COINS COLLECTABLE WITH PROJECTILES
 - [ ] MAKE ENEMIES TEXTURES
 - [ ] MAKE ENEMIES MOVEMENT
-- [ ] MAKE ENEMIES KILLABLE WITH PROJECTILES
 - [ ] MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY
-- [ ] MAKE COINS COLLECTABLE WITH PROJECTILES
+- [ ] MAKE ENEMIES KILLABLE WITH PROJECTILES
