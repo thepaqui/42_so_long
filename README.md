@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on February 25th 2023, at 19:26.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 7th 2023, at 17:53.
 
 ## Presentation
 
@@ -55,3 +55,5 @@ Finish implementing throwing in `throw()` in `projectile_bonus.c`.
 - [ ] MAKE ENEMIES MOVEMENT
 - [ ] MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY
 - [ ] MAKE ENEMIES KILLABLE WITH PROJECTILES
+- [ ] MAKE BONUS TEXTURES
+- [ ] MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES
