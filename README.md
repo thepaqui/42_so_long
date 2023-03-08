@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 7th 2023, at 17:53.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 8th 2023, at 21:50.
 
 ## Presentation
 
@@ -29,7 +29,7 @@ You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 
 ### To-do list
 
-Finish implementing throwing in `throw()` in `projectile_bonus.c`.
+Implement projectile interactions in `update_projectile()` in `projectile_bonus.c`.
 
 - [x] CHECK NORM
 - [x] START BONUSES
