@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   check_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:14:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/25 16:41:15 by thepaqui         ###   ########.fr       */
+/*   Created: 2023/02/02 17:31:28 by thepaqui          #+#    #+#             */
+/*   Updated: 2023/02/24 18:07:11 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	get_argb(int a, int r, int g, int b)
-{
-	return (a << 24 | r << 16 | g << 8 | b);
-}
+#ifndef CHECK_BONUS_H
+# define CHECK_BONUS_H
+# include "../utils/utils_bonus.h"
+# include "../srcs/game_bonus.h"
 
-int	get_alpha(int argb)
-{
-	return ((argb >> 24) & 0xFF);
-}
+int		is_file_type(char *path, char *ext);
+void	check_input(int ac, char **av, int *err);
+int		check_map(t_game *game);
 
-int	get_red(int argb)
-{
-	return ((argb >> 16) & 0xFF);
-}
+int		check_shape(t_game *game);
+int		check_path(t_game *game);
 
-int	get_green(int argb)
-{
-	return ((argb >> 8) & 0xFF);
-}
+int		check_xpm(char **xpm, t_xpm *stru);
 
-int	get_blue(int argb)
-{
-	return (argb & 0xFF);
-}
+#endif

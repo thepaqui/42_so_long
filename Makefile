@@ -6,13 +6,22 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/02/24 16:37:33 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/02/25 16:58:11 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= so_long
 
-INCLUDES= -Isrcs -Iutils -Iparsing -Ichecking -Iprocess -Imlx
+INCLUDES_M= -Isrcs -Iutils -Iparsing -Ichecking -Iprocess
+
+INCLUDES_B= -Ibonus/srcs -Ibonus/utils -Ibonus/parsing \
+			-Ibonus/checking -Ibonus/process
+
+ifdef WITH_BONUS
+INCLUDES= $(INCLUDES_B) -Imlx
+else
+INCLUDES= $(INCLUDES_M) -Imlx
+endif
 
 CC= cc -Wall -Wextra -Werror
 
@@ -63,7 +72,49 @@ SRCS_M= utils/text.c \
 		srcs/init.c \
 		srcs/main.c
 
-SRCS_B=
+SRCS_B= bonus/utils/text_bonus.c \
+		bonus/utils/mem_bonus.c \
+		bonus/utils/free_bonus.c \
+		bonus/utils/free_other_bonus.c \
+		bonus/utils/str_bonus.c \
+		bonus/utils/numbers_bonus.c \
+		bonus/utils/ft_atoi_base_bonus.c \
+		bonus/utils/ft_split_bonus.c \
+		bonus/utils/gnl/gnl_bonus.c \
+		bonus/utils/gnl/gnl_utils_bonus.c \
+		bonus/utils/error_bonus.c \
+		bonus/parsing/parse_bonus.c \
+		bonus/parsing/coins_bonus.c \
+		bonus/parsing/palette_info_bonus.c \
+		bonus/parsing/palette_bonus.c \
+		bonus/parsing/color_keyword_bonus.c \
+		bonus/parsing/spritesheet_bonus.c \
+		bonus/parsing/xpm_bonus.c \
+		bonus/checking/check_input_bonus.c \
+		bonus/checking/check_map_bonus.c \
+		bonus/checking/check_map_help_bonus.c \
+		bonus/checking/check_xpm_bonus.c \
+		bonus/process/end_bonus.c \
+		bonus/process/process_bonus.c \
+		bonus/process/window_bonus.c \
+		bonus/process/wall_detection_bonus.c \
+		bonus/process/wall_linking_bonus.c \
+		bonus/process/background_bonus.c \
+		bonus/process/collection_bonus.c \
+		bonus/process/collisions_bonus.c \
+		bonus/process/projectile_bonus.c \
+		bonus/process/player_bonus.c \
+		bonus/process/ui_bonus.c \
+		bonus/process/mouse_bonus.c \
+		bonus/process/text_bonus.c \
+		bonus/process/put_nbr_bonus.c \
+		bonus/process/color_bonus.c \
+		bonus/process/xpm_bonus.c \
+		bonus/process/draw_bonus.c \
+		bonus/process/image_bonus.c \
+		bonus/process/key_handling_bonus.c \
+		bonus/srcs/init_bonus.c \
+		bonus/srcs/main_bonus.c
 
 OBJS_M= $(SRCS_M:.c=.o)
 
