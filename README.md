@@ -47,3 +47,4 @@ Implement projectile interactions in `update_projectile()` in `projectile_bonus.
 - [ ] MAKE ENEMIES KILLABLE WITH PROJECTILES
 - [ ] MAKE BONUS TEXTURES
 - [ ] MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES
+- [ ] ADD MUSIC AND SOUND EFFECTS
