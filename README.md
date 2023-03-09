@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 8th 2023, at 21:50.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 9th 2023, at 19:05.
 
 ## Presentation
 
@@ -19,7 +19,9 @@ Wish me luck as I embark on this journey!
 
 ### Advice
 
-Maps shouldn't be any larger than ~60 (width) by ~30 (height) for playability's sake.  
+Maps shouldn't be any larger than ~60 (width) by ~30 (height) for playability's sake (if the game uses 32x32 textures).
+
+You can change texture size by using your own textures and   
   
 The game will start lagging if you have ~150+ coins (only tested on the 42 Nice computers).  
 So if you have 150 or more coins on screen (less with bonuses), they won't be animated for performance's sake.  
@@ -30,6 +32,7 @@ You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 ### To-do list
 
 Implement projectile interactions in `update_projectile()` in `projectile_bonus.c`.
+Test `count2.ber` with projectile collecting coins and player not moving (watch counters for bugs).
 
 - [x] CHECK NORM
 - [x] START BONUSES
@@ -39,6 +42,7 @@ Implement projectile interactions in `update_projectile()` in `projectile_bonus.
 - [x] FINISH `throw()` FUNCTION (in projectile_bonus.c) (inverse square root from Quake 3 maybe???)
 - [x] IMPLEMENT THROWING PROJECTILES ACCORDING TO MOUSE POSITION RELATIVE TO PLAYER
 - [x] MAKE PROJECTILE TEXTURE
+- [x] FIX COIN AND MOVE COUNTERS
 - [ ] MAKE PROJECTILE BOUNCING
 - [ ] MAKE COINS COLLECTABLE WITH PROJECTILES
 - [ ] MAKE ENEMIES TEXTURES
