@@ -31,7 +31,7 @@ You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 
 ### To-do list
 
-Implement projectile interactions in `update_projectile()` in `projectile_bonus.c` (use `touch_obj()` of course).  
+Implement projectile interactions in `update_projectile()` in `projectile_bonus.c`.  
 Test `count2.ber` with projectile collecting coins and player not moving (watch counters for bugs).
 
 - [x] CHECK NORM
