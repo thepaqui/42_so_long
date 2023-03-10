@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 9th 2023, at 19:05.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 10th 2023, at 19:47.
 
 ## Presentation
 
@@ -43,7 +43,9 @@ Test `count2.ber` with projectile collecting coins and player not moving (watch 
 - [x] IMPLEMENT THROWING PROJECTILES ACCORDING TO MOUSE POSITION RELATIVE TO PLAYER
 - [x] MAKE PROJECTILE TEXTURE
 - [x] FIX COIN AND MOVE COUNTERS
-- [ ] MAKE PROJECTILE BOUNCING (MAKE IT OPTIONAL???)
+- [x] MAKE PROJECTILE BOUNCING (AND MADE IT OPTIONAL)
+- [x] MAKE MAX BOUNCES BEFORE BREAKING
+- [x] SECRET ;)
 - [ ] MAKE COINS COLLECTABLE WITH PROJECTILES
 - [ ] MAKE ENEMIES TEXTURES
 - [ ] MAKE ENEMIES MOVEMENT
