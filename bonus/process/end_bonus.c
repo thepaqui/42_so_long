@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:53:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/25 18:17:31 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:44:50 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ static void	print_end_message(t_game *game, int color)
 		offset = SPR_DIM / 2;
 	pos.y = ((game->map->size.y / 2) * SPR_DIM) - offset;
 	pos.x = (game->map->size.x * SPR_DIM) / 2 - (len * SPR_DIM / 2);
-	if (len == ft_strlen(END_MSG_M))
+	if (game->map->ft)
+		ft_end(game, color);
+	else if (len == ft_strlen(END_MSG_M))
 		put_str_to_img(END_MSG_M, pos, game, color);
 	else if (len == ft_strlen(END_MSG_S))
 		put_str_to_img(END_MSG_S, pos, game, color);
@@ -87,7 +89,9 @@ static void	print_stop_message(t_game *game)
 	int			offset;
 	int			len;
 
-	if (game->map->size.x > ft_strlen(STOP_MSG_L) + 2)
+	if (game->map->ft)
+		len = ft_strlen(STOP_MSG_FT);
+	else if (game->map->size.x > ft_strlen(STOP_MSG_L) + 2)
 		len = ft_strlen(STOP_MSG_L);
 	else if (game->map->size.x > ft_strlen(STOP_MSG_M) + 2)
 		len = ft_strlen(STOP_MSG_M);
@@ -98,7 +102,9 @@ static void	print_stop_message(t_game *game)
 		offset = SPR_DIM / 2;
 	pos.y = ((game->map->size.y / 2) * SPR_DIM) - offset;
 	pos.x = (game->map->size.x * SPR_DIM) / 2 - (len * SPR_DIM / 2);
-	if (len == ft_strlen(STOP_MSG_M))
+	if (game->map->ft)
+		put_str_to_img(STOP_MSG_FT, pos, game, BLACK);
+	else if (len == ft_strlen(STOP_MSG_M))
 		put_str_to_img(STOP_MSG_M, pos, game, BLACK);
 	else if (len == ft_strlen(STOP_MSG_S))
 		put_str_to_img(STOP_MSG_S, pos, game, BLACK);

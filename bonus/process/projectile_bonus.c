@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:37:13 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/08 21:24:44 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/11 15:45:06 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,60 @@ static void	update_projectile_anim(t_player *player)
 	}
 }
 
-void	update_projectile(t_game *game, t_player *player, t_map *map)
+static void	destroy_projectile(t_game *game, t_vector pos) // add index if multiple projectiles
 {
-	t_vector	approx_pro_pos;
+	t_vector	rpos;
+
+	rpos.x = pos.x;
+	rpos.y = pos.y;
+	if (rpos.x < 0)
+		rpos.x = 0;
+	if (rpos.y < 0)
+		rpos.y = 0;
+	if (rpos.x + (SPR_DIM * 2) > game->win_size.x - 1)
+		rpos.x = game->win_size.x - 1 - (SPR_DIM * 2);
+	if (rpos.y + (SPR_DIM * 2) > game->win_size.y - 1)
+		rpos.y = game->win_size.y - 1 - (SPR_DIM * 2);
+	refresh_area(game, rpos, 2, 2);
+	game->player->pro_pos.x = -1;
+	game->player->pro_pos.y = -1;
+	game->player->pro_dir.x = -1;
+	game->player->pro_dir.y = -1;
+	game->player->pro_here = 0;
+	game->player->pro_bounces = 0;
+}
+
+void	update_projectile(t_game *game, t_player *player, t_map *map) // add index if multiple projectiles
+{
+	t_vector	snap_pos;
+	t_vector	center_pos;
+	int			coin;
 
 	(void)map;
-	if (!player->pro_here)
-		return ;
 	player->pro_pos.x += player->pro_dir.x;
 	player->pro_pos.y += player->pro_dir.y;
-	approx_pro_pos.x = nearbyint(player->pro_pos.x);
-	approx_pro_pos.y = nearbyint(player->pro_pos.y);
-	// hitbox (bounce / destroy / collect / kill)
-	//printf("Projectile is at pos (%f,%f)\n", player->pro_pos.x, player->pro_pos.y); //---------------
-	if (approx_pro_pos.x < 0 || approx_pro_pos.y < 0
-		|| approx_pro_pos.x + SPR_DIM > game->win_size.x - 1
-		|| approx_pro_pos.y + SPR_DIM > game->win_size.y - 1)
+	snap_pos.x = nearbyint(player->pro_pos.x);
+	snap_pos.y = nearbyint(player->pro_pos.y);
+	if (!PRO_SPECTRAL)
+		bounce(game, snap_pos);
+	if (PRO_BOUNCE_BREAK && player->pro_bounces >= PRO_BOUNCE_LIMIT)
+		destroy_projectile(game, snap_pos);
+	if (PRO_COLLECT)
 	{
-		player->pro_here--;
-		return ;
+		center_pos.x = snap_pos.x + (SPR_DIM / 2);
+		center_pos.y = snap_pos.y + (SPR_DIM / 2);
+		coin = touch_obj(center_pos, map, COIN, PRO_HITBOX);
+		if (coin != NONE)
+			pro_collect_coin(map, center_pos, coin);
 	}
+	// hitbox (destroy / kill)
+	//printf("Projectile is at pos (%f,%f)\n", player->pro_pos.x, player->pro_pos.y); //-------
+	if (snap_pos.x < 0 || snap_pos.x + SPR_DIM > game->win_size.x - 1
+		|| snap_pos.y < 0 || snap_pos.y + SPR_DIM > game->win_size.y - 1)
+		destroy_projectile(game, snap_pos);
 	update_projectile_anim(player);
-	put_t_xpm_to_img(player->pro, game, approx_pro_pos);
+	if (player->pro_here)
+		put_t_xpm_to_img(player->pro, game, snap_pos);
 }
 
 void	throw(t_game *game)

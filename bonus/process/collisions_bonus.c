@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 21:50:32 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:08:52 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:10:44 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,33 @@ int	touch_obj(t_vector pos, t_map *map, char obj, int hitbox_size)
 	hitbox_point.y = pos.y - hitbox_size / 2;
 	if (get_obj_from_pos(hitbox_point, map) == obj)
 		return (TOP_RIGHT);
+	return (NONE);
+}
+
+int	touch_obj_lr(t_vector pos, t_map *map, char obj, int hitbox_size)
+{
+	t_vector	hitbox_point;
+
+	hitbox_point.x = pos.x - hitbox_size / 2;
+	hitbox_point.y = pos.y;
+	if (get_obj_from_pos(hitbox_point, map) == obj)
+		return (LEFT);
+	hitbox_point.x = pos.x + hitbox_size / 2;
+	if (get_obj_from_pos(hitbox_point, map) == obj)
+		return (RIGHT);
+	return (NONE);
+}
+
+int	touch_obj_tb(t_vector pos, t_map *map, char obj, int hitbox_size)
+{
+	t_vector	hitbox_point;
+
+	hitbox_point.x = pos.x;
+	hitbox_point.y = pos.y - hitbox_size / 2;
+	if (get_obj_from_pos(hitbox_point, map) == obj)
+		return (TOP);
+	hitbox_point.y = pos.y + hitbox_size / 2;
+	if (get_obj_from_pos(hitbox_point, map) == obj)
+		return (BOT);
 	return (NONE);
 }

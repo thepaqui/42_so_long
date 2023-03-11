@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:18:41 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:03:27 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:10:20 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	get_map(char *file, t_game *game)
 	int	fd;
 	int	lines;
 
+	if (!ft_strncmp(file, "maps/42.ber", 12))
+		game->map->ft = 1;
 	fd = open_mapfile(file, game);
 	lines = count_lines(fd, game, file);
 	close_mapfile(fd, game, file);

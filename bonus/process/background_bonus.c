@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/25 16:19:49 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:58:47 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	get_obj_spr(char **map, t_vector map_size, t_vector pos)
 	else if (obj == EXIT_OPEN)
 		return (49);
 	else
-		return (1);
+		return (1); // should be 1
 }
 
 static void	draw_all_background(t_game *game, t_map *map)

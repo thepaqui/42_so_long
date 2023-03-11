@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/08 18:58:31 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:38:51 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ typedef struct t_dblvector
 	double	y;
 }				t_dblvector;
 
+// Dimensions of game's textures
 # define SPR_DIM 32
+// Dimensions of detection box for counter refresh (keep bigger than SPR_DIM)
+# define CNT_COL 64
 
 typedef struct s_xpm
 {
@@ -47,8 +50,8 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
-# define PLAYER_SPRITE "./textures/32/ph32.xpm"
-# define PRO_SPRITE "./textures/bonus/pro_ph.xpm"
+# define PLAYER_SPRITE "./textures/basic/player.xpm"
+# define PRO_SPRITE "./textures/basic/projectile.xpm"
 
 typedef struct s_player
 {
@@ -69,15 +72,21 @@ typedef struct s_player
 	int			pro_anim_speed;
 	int			pro_here;
 	int			pro_bounces;
-}				t_player; // Add projectile animation
+}				t_player;
 
+/* --- PLAYER --- */
+// Player speed (in pixels)
 # define PLAYER_SPEED 4
+// Player diagonal speed (in pixels)
 # define PLAYER_DIAG_SPEED 3
-# define PLAYER_COIN_ANIM_LEN 20 // number of frames between each coin animation frame
-# define PLAYER_HITBOX 10 // size of square player hitbox
-# define PLAYER_THROW_COOLDOWN 80 // cooldown between each projectile throw (in frames)
+// Number of frames the coin collection animation plays for
+# define PLAYER_COIN_ANIM_LEN 20
+// Size of square player hitbox
+# define PLAYER_HITBOX 10
+// Cooldown between each projectile throw (in frames)
+# define PLAYER_THROW_COOLDOWN 80
 
-/* PLAYER STATES */
+/* --- PLAYER STATES --- */
 # define PIDLE 0
 # define PMOVE 1
 # define PCOIN 2
@@ -85,11 +94,23 @@ typedef struct s_player
 # define PTHROWEND 4 // might be superfluous
 # define PDEATH 5
 
-/* PROJECTILE */
+/* --- PROJECTILE --- */
+// Projectile speed (in pixels) (should be kept lower than 10)
 # define PRO_SPEED 5
-# define PRO_ANIM_LEN 3 // number of frames between each projectile animation frame
-# define PRO_LIMIT 1 // Maximum number of projectiles on screen (anything other than 1 or 0 will glitch)
-# define PRO_HITBOX 7 // size of square projectile hitbox
+// Number of frames between each projectile animation frame
+# define PRO_ANIM_LEN 3
+// Max number of projectiles on screen (anything other than 1 or 0 will bug)
+# define PRO_LIMIT 1
+// Size of square projectile hitbox
+# define PRO_HITBOX 16
+// Defines if projectiles can go through walls or not (0 NO, 1 YES)
+# define PRO_SPECTRAL 0 // !!! ------------- THIS SHOULD ABSOLUTELY BE 0 FOR FINAL PUSH -------------------
+// Defines if projectiles can collect coins or not (0 NO, 1 YES)
+# define PRO_COLLECT 1
+// Defines if projectiles break after PRO_BOUNCE_LIMIT bounces (0 NO, 1 YES)
+# define PRO_BOUNCE_BREAK 1
+// Defines how many bounces it takes to break a projectile
+# define PRO_BOUNCE_LIMIT 15
 
 typedef struct s_map
 {
@@ -104,14 +125,18 @@ typedef struct s_map
 	t_xpm		*coin_spr;
 	t_vector	*coin_pos;
 	int			coin_speed;
+	int			ft;
 }				t_map;
 
-# define MAP_SPRITE "./textures/32/map32.xpm"
-# define COIN_SPRITE "./textures/32/coin32.xpm"
+/* --- MAP --- */
+# define MAP_SPRITE "./textures/basic/map.xpm"
+# define COIN_SPRITE "./textures/basic/coin.xpm"
+// Number of frames between each animation frame of the coins
 # define COIN_SPEED 6
+// Threshold over which coins stop being animated (for performance)
 # define MAXCOINS 120
 
-/* MAP OBJECTS */
+/* --- MAP OBJECTS --- */
 # define EMPTY '0'
 # define WALL '1'
 # define PLAYER 'P'
@@ -133,17 +158,21 @@ typedef struct s_game
 	t_xpm		*font;
 	int			last_moves;
 	int			moves;
+	int			movesize;
+	int			last_movesize;
 	int			end_frame;
 	int			end_color;
 	int			stop_frame;
 	int			state;
 }				t_game;
 
-# define FONT "./textures/32/vfont32.xpm"
-# define CURSOR "./textures/bonus/cursor.xpm"
+# define FONT "./textures/basic/font.xpm"
+# define CURSOR "./textures/basic/cursor.xpm"
 
-/* GAME STATES */
-# define WINNAME "BONUS~~~<3"
+// Name of the game window
+# define WINNAME "thepaqui's amazingly wasteful so_long"
+
+/* --- GAME STATES --- */
 # define GAME_ERROR 0
 # define GAME_STARTUP 1
 # define GAME_RUN 2
