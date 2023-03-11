@@ -1,8 +1,8 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 11th 2023, at 16:42.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 11th 2023, at 17:55.
 
-## Presentation
+## Presentation 👾
 
 I'm doing this project for **42 Nice**, just after finishing *pipex* with bonuses.
 
@@ -17,37 +17,63 @@ I already have a good idea of what I'll be doing, I want to make a *Yoshi's Isla
 I'll first make the mandatory part to become familiar with the **MLX**, and then I'll move on to the serious stuff.  
 Wish me luck as I embark on this journey!
 
-### Advice
+## How to use ❓
 
-Maps shouldn't be any larger than ~60 (width) by ~30 (height) for playability's sake (if the game uses 32x32 textures).
+### General advice 🧰
 
-You can change texture size by using your own textures and   
+Maps shouldn't be any larger than ~60 (width) by ~30 (height) for playability's sake (if the game uses 32x32 textures).  
   
 The game will start lagging if you have ~150+ coins (only tested on the 42 Nice computers).  
 So if you have 150 or more coins on screen (less with bonuses), they won't be animated for performance's sake.  
-You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
+You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.  
+  
+You can modify a lot of things in this game.  
+Check out my comments in `bonus/srcs/game_bonus.h` and in `bonus/process/process_bonus.h` to know what to change.  
+Fiddle around with some stuff and have fun!  
 
-## Notes
+### Texture packs 🎨
 
-### To-do list
+You can change texture size by changing the `SPR_DIM` macro in `srcs/game.h` and in `bonus/srcs/game_bonus.h`.  
+You can then use your own textures by creating a new folder in the `textures` folder.  
+In it, you'll need spritesheets with these names:
+- `map.xpm`,
+- `coin.xpm`,
+- `player.xpm`,
+- `font.xpm`.  
 
-Implement enemies!
+If you're doing this to the bonuses, also add:
+- `cursor.xpm`,
+- `projectile.xpm`,
+- `enemy.xpm`.  
 
-- [x] IMPLEMENT THROWING PROJECTILES ACCORDING TO MOUSE POSITION RELATIVE TO PLAYER
-- [x] MAKE PROJECTILE TEXTURE
-- [x] FIX COIN AND MOVE COUNTERS
-- [x] MAKE PROJECTILE BOUNCING (AND MADE IT OPTIONAL)
-- [x] MAKE MAX BOUNCES BEFORE BREAKING
-- [x] SECRET ;)
-- [x] MAKE COINS COLLECTABLE WITH PROJECTILES
-- [x] MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES
-- [ ] MAKE ENEMIES TEXTURES
-- [ ] MAKE ENEMIES MOVEMENT
-- [ ] MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY
-- [ ] MAKE ENEMIES KILLABLE WITH PROJECTILES
-- [ ] MAKE BONUS TEXTURES
-- [ ] TURN CANVAS TEXTURE INTO A SPRITESHEET
-- [ ] USE CANVAS SPRITESHEET FOR ENDING
-- [ ] ADD MUSIC AND SOUND EFFECTS
-- [ ] TEST ALL MAPS WITH NON-BONUS VERSION (COIN AND MOVE COUNTER ESPECIALLY)
-- [ ] MEGA NORM CLEANUP
+Then, you'll just have to change the macros to use your folder's name instead of *basic* or *bonus*.  
+
+If you're unsure of how to do this, check out the two included texture packs (`textures/basic` and `textures/bonus`).  
+All sprites in the basic pack were created by myself with *Aseprite*.  
+All sprites in the bonus pack were ripped from the original *Yoshi's Island* on SNES and uploaded to *[The Spriters Resource]* by various rippers. I then edited them myself to be usable with my game with *Aseprite*.  
+  
+[The Spriters Resource]: https://www.spriters-resource.com/snes/yoshiisland/
+
+## To-do list 🗒️
+
+🔜 Implement enemies!  
+
+✅ IMPLEMENT THROWING PROJECTILES ACCORDING TO MOUSE POSITION RELATIVE TO PLAYER  
+✅ MAKE PROJECTILE TEXTURE  
+✅ FIX COIN AND MOVE COUNTERS  
+✅ MAKE PROJECTILE BOUNCING (AND MADE IT OPTIONAL)  
+✅ MAKE MAX BOUNCES BEFORE BREAKING  
+✅ SECRET 😉  
+✅ MAKE COINS COLLECTABLE WITH PROJECTILES  
+✅ MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES  
+✅ MAKE A BETTER README 😜  
+⏳ MAKE BONUS TEXTURES  
+⏳ MAKE ENEMIES TEXTURES  
+❌ MAKE ENEMIES MOVEMENT  
+❌ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
+❌ MAKE ENEMIES KILLABLE WITH PROJECTILES  
+❌ TURN CANVAS TEXTURE INTO A SPRITESHEET  
+❌ USE CANVAS SPRITESHEET FOR ENDING  
+❌ ADD MUSIC AND SOUND EFFECTS  
+❌ TEST ALL MAPS WITH NON-BONUS VERSION (COIN AND MOVE COUNTER ESPECIALLY)  
+❌ MEGA NORM CLEANUP  
