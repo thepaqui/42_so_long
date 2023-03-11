@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 10th 2023, at 19:47.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 11th 2023, at 16:42.
 
 ## Presentation
 
@@ -31,8 +31,7 @@ You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 
 ### To-do list
 
-Implement projectile interactions in `update_projectile()` in `projectile_bonus.c`.  
-Test `count2.ber` with projectile collecting coins and player not moving (watch counters for bugs).
+Implement projectile interactions in `update_projectile()` in `projectile_bonus.c`.
 
 - [x] CHECK NORM
 - [x] START BONUSES
@@ -46,7 +45,9 @@ Test `count2.ber` with projectile collecting coins and player not moving (watch 
 - [x] MAKE PROJECTILE BOUNCING (AND MADE IT OPTIONAL)
 - [x] MAKE MAX BOUNCES BEFORE BREAKING
 - [x] SECRET ;)
-- [ ] MAKE COINS COLLECTABLE WITH PROJECTILES
+- [x] MAKE COINS COLLECTABLE WITH PROJECTILES
+- [x] MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES
+- [ ] FIX COUNTER BUGS IN BASE VERSION ALSO!!!
 - [ ] MAKE ENEMIES TEXTURES
 - [ ] MAKE ENEMIES MOVEMENT
 - [ ] MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY
@@ -54,5 +55,4 @@ Test `count2.ber` with projectile collecting coins and player not moving (watch 
 - [ ] MAKE BONUS TEXTURES
 - [ ] TURN CANVAS TEXTURE INTO A SPRITESHEET
 - [ ] USE CANVAS SPRITESHEET FOR ENDING
-- [ ] MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES
 - [ ] ADD MUSIC AND SOUND EFFECTS
