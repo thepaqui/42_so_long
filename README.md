@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 11th 2023, at 18:01.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 11th 2023, at 21:12.
 
 ## Presentation 👾
 
@@ -44,7 +44,9 @@ In it, you'll need spritesheets with these names:
 If you're doing this to the bonuses, also add:
 - `cursor.xpm`,
 - `projectile.xpm`,
-- `enemy.xpm`.  
+- `enemy_fly_h.xpm`,
+- `enemy_fly_v.xpm`,
+- `enemy_ground.xpm`.  
 
 Then, you'll just have to change the macros to use your folder's name instead of *basic* or *bonus*.  
 
@@ -69,10 +71,12 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 ✅ MAKE A BETTER README 😜  
 ⏳ MAKE BONUS TEXTURES  
 ⏳ MAKE ENEMIES TEXTURES  
+❌ IMPLEMENT BACKGROUND (AND CHECK IF EMPTY TO OPTIMIZE)  
+❌ MAKE BASIC_BONUS TEXTURE PACK FOR COMPATIBILITY
 ❌ MAKE ENEMIES MOVEMENT  
 ❌ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
 ❌ MAKE ENEMIES KILLABLE WITH PROJECTILES  
-❌ TURN CANVAS TEXTURE INTO A SPRITESHEET  
+❌ TURN CANVAS TEXTURE INTO A SPRITESHEET (?)  
 ❌ USE CANVAS SPRITESHEET FOR ENDING  
 ❌ ADD MUSIC AND SOUND EFFECTS  
 ❌ TEST ALL MAPS WITH NON-BONUS VERSION (COIN AND MOVE COUNTER ESPECIALLY)  
