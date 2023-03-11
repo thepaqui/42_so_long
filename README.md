@@ -31,14 +31,8 @@ You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.
 
 ### To-do list
 
-Implement projectile interactions in `update_projectile()` in `projectile_bonus.c`.
+Implement enemies!
 
-- [x] CHECK NORM
-- [x] START BONUSES
-- [x] CHANGE MOVEMENT CONTROLS TO `WASD` KEYS
-- [x] MAKE CURSOR CROSSHAIR TEXTURE
-- [x] CLEANLY DISPLAY CUSTOM CROSSHAIR AT CURSOR POSITION
-- [x] FINISH `throw()` FUNCTION (in projectile_bonus.c) (inverse square root from Quake 3 maybe???)
 - [x] IMPLEMENT THROWING PROJECTILES ACCORDING TO MOUSE POSITION RELATIVE TO PLAYER
 - [x] MAKE PROJECTILE TEXTURE
 - [x] FIX COIN AND MOVE COUNTERS
@@ -47,7 +41,6 @@ Implement projectile interactions in `update_projectile()` in `projectile_bonus.
 - [x] SECRET ;)
 - [x] MAKE COINS COLLECTABLE WITH PROJECTILES
 - [x] MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES
-- [ ] FIX COUNTER BUGS IN BASE VERSION ALSO!!!
 - [ ] MAKE ENEMIES TEXTURES
 - [ ] MAKE ENEMIES MOVEMENT
 - [ ] MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY
@@ -56,3 +49,5 @@ Implement projectile interactions in `update_projectile()` in `projectile_bonus.
 - [ ] TURN CANVAS TEXTURE INTO A SPRITESHEET
 - [ ] USE CANVAS SPRITESHEET FOR ENDING
 - [ ] ADD MUSIC AND SOUND EFFECTS
+- [ ] TEST ALL MAPS WITH NON-BONUS VERSION (COIN AND MOVE COUNTER ESPECIALLY)
+- [ ] MEGA NORM CLEANUP
