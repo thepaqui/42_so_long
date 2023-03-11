@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 17:14:57 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:40:00 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
-# define PLAYER_SPRITE "./textures/32/ph32.xpm"
+# define PLAYER_SPRITE "./textures/basic/player.xpm"
 
 typedef struct s_player
 {
@@ -82,8 +82,8 @@ typedef struct s_map
 	int			coin_speed;
 }				t_map;
 
-# define MAP_SPRITE "./textures/32/map32.xpm"
-# define COIN_SPRITE "./textures/32/coin32.xpm"
+# define MAP_SPRITE "./textures/basic/map.xpm"
+# define COIN_SPRITE "./textures/basic/coin.xpm"
 # define COIN_SPEED 6
 # define MAXCOINS 150
 
@@ -104,7 +104,7 @@ typedef struct s_game
 	int			state;
 }				t_game;
 
-# define FONT "./textures/32/vfont32.xpm"
+# define FONT "./textures/basic/font.xpm"
 
 /* GAME STATES */
 # define GAME_ERROR 0
