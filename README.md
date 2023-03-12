@@ -42,6 +42,7 @@ In it, you'll need spritesheets with these names:
 - `font.xpm`.  
 
 If you're doing this to the bonuses, also add:
+- `bg.xpm` (this will display starting from the window's top-left corner and will tile to fill the window if needed),
 - `cursor.xpm`,
 - `projectile.xpm`,
 - `enemy_fly_h.xpm`,
@@ -56,9 +57,7 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
   
 [The Spriters Resource]: https://www.spriters-resource.com/snes/yoshiisland/
 
-## To-do list 🗒️
-
-🔜 Implement enemies!  
+## To-do list 🗒️ 
 
 ✅ IMPLEMENT THROWING PROJECTILES ACCORDING TO MOUSE POSITION RELATIVE TO PLAYER  
 ✅ MAKE PROJECTILE TEXTURE  
@@ -69,15 +68,21 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 ✅ MAKE COINS COLLECTABLE WITH PROJECTILES  
 ✅ MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES  
 ✅ MAKE A BETTER README 😜  
+✅ UPDATE BASIC PROJECTILE TEXTURE TO HAVE DESTROY ANIMATION  
+✅ MAKE BASIC AND BONUS BACKGROUND TEXTURES  
+✅ IMPLEMENT BACKGROUND TEXTURE TILING  
+⏳ IMPLEMENT BACKGROUND IN NON-BONUS (SEE LAST PUSH)  
 ⏳ MAKE BONUS TEXTURES  
 ⏳ MAKE ENEMIES TEXTURES  
-❌ IMPLEMENT BACKGROUND (AND CHECK IF EMPTY TO OPTIMIZE)  
+❌ IMPLEMENT PROJECTILE DESTROYING ANIMATION  
 ❌ MAKE PLAYER SPRITESHEET COMPATIBLE WITH BOTH BONUS AND NON BONUS GAME  
 ❌ MAKE ENEMIES MOVEMENT  
 ❌ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
 ❌ MAKE ENEMIES KILLABLE WITH PROJECTILES  
 ❌ TURN CANVAS TEXTURE INTO A SPRITESHEET (?)  
+❌ IMPLEMENT MULTIPLE PROJECTILES (?)  
 ❌ USE CANVAS SPRITESHEET FOR ENDING  
+❌ USE BLACK BOARD SPRITE FROM SMW2:YI FOR ENDING IN BONUS  
 ❌ ADD MUSIC AND SOUND EFFECTS  
 ❌ TEST ALL MAPS WITH NON-BONUS VERSION (COIN AND MOVE COUNTER ESPECIALLY)  
 ❌ MEGA NORM CLEANUP  
