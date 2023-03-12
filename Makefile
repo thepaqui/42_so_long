@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/03/10 19:18:18 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/03/12 15:58:19 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRCS_M= utils/text.c \
 		process/window.c \
 		process/wall_detection.c \
 		process/wall_linking.c \
+		process/scenery.c \
 		process/background.c \
 		process/collection.c \
 		process/collisions.c \
@@ -100,6 +101,7 @@ SRCS_B= bonus/utils/text_bonus.c \
 		bonus/process/window_bonus.c \
 		bonus/process/wall_detection_bonus.c \
 		bonus/process/wall_linking_bonus.c \
+		bonus/process/scenery_bonus.c \
 		bonus/process/background_bonus.c \
 		bonus/process/collection_bonus.c \
 		bonus/process/collisions_bonus.c \
