@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:10:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:03:33 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:10:18 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,45 @@ static char	*error_open_xpm(int *err, int errcode, int fd, char *text)
 	return (NULL);
 }
 
-#define XPMBUFFER 60000 //value to recheck (this should be in parse.h!)
+#define BUFSIZE 1000
+
+static int	get_xpm_buffer_size(char *file)
+{
+	int		fd;
+	int		ret;
+	int		res;
+	char	buf[BUFSIZE];
+
+	errno = 0;
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		return (-1);
+	errno = 0;
+	res = 0;
+	ret = read(fd, buf, BUFSIZE);
+	while (ret > 0)
+	{
+		res += ret;
+		ret = read(fd, buf, BUFSIZE);
+	}
+	close(fd);
+	if (!res || ret == -1)
+		return (-1);
+	else
+		return (res + 5);
+}
 
 static char	*open_xpm_file(char *file, int *err)
 {
 	int		fd;
 	int		read_ret;
 	char	*text;
+	int		size;
 
-	text = ft_calloc(XPMBUFFER, sizeof(char));
+	size = get_xpm_buffer_size(file);
+	if (size == -1)
+		return (error_open_xpm(err, errno, -1, NULL));
+	text = ft_calloc(size, sizeof(char));
 	if (!text)
 		return (error_open_xpm(err, MALLOCFAIL, -1, NULL));
 	errno = 0;
@@ -67,7 +97,7 @@ static char	*open_xpm_file(char *file, int *err)
 	if (fd == -1)
 		return (error_open_xpm(err, errno, -1, text));
 	errno = 0;
-	read_ret = read(fd, text, XPMBUFFER - 1);
+	read_ret = read(fd, text, size);
 	if (read_ret <= 0)
 		return (error_open_xpm(err, errno, fd, text));
 	text[read_ret] = '\0';

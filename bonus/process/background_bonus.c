@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/09 18:58:47 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:44:31 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	get_obj_spr(char **map, t_vector map_size, t_vector pos)
 		return (1); // should be 1
 }
 
-static void	draw_all_background(t_game *game, t_map *map)
+/*static void	draw_all_background(t_game *game, t_map *map)
 {
 	t_vector	pos;
 
@@ -47,7 +47,7 @@ static void	draw_all_background(t_game *game, t_map *map)
 		}
 		pos.y += SPR_DIM;
 	}
-}
+}*/
 
 void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s)
 {
@@ -76,7 +76,7 @@ void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s)
 
 void	draw_map(t_game *game)
 {
-	t_vector	tmp;
+	t_vector	pos;
 
 	if (game->player->state == PIDLE && game->player->sprite->cur_spr == 5)
 		game->player->state = PCOIN;
@@ -84,7 +84,9 @@ void	draw_map(t_game *game)
 		return ;
 	else if (game->state == GAME_STARTUP)
 	{
-		draw_all_background(game, game->map);
+		pos.x = 0;
+		pos.y = 0;
+		refresh_area(game, pos, game->win_size.x / SPR_DIM, game->win_size.y / SPR_DIM);
 		game->state = GAME_RUN;
 	}
 	else if (game->player->state != PIDLE)
@@ -92,9 +94,10 @@ void	draw_map(t_game *game)
 	if (game->map->nbcoins == game->map->totalcoins)
 	{
 		game->map->sprite->cur_spr = 49;
-		tmp.x = game->map->exit.x * SPR_DIM;
-		tmp.y = game->map->exit.y * SPR_DIM;
-		put_t_xpm_to_img(game->map->sprite, game, tmp);
+		pos.x = game->map->exit.x * SPR_DIM;
+		pos.y = game->map->exit.y * SPR_DIM;
+		refresh_area(game, pos, 1, 1);
+		put_t_xpm_to_img(game->map->sprite, game, pos);
 	}
 }
 

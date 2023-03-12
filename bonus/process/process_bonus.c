@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/08 18:49:21 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:27:36 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static int	main_loop(t_game *game)
 	else
 	{
 		update_player(game);
+		update_cursor(game);
 		update_map(game->map, game);
 		if (game->map->totalcoins - game->map->nbcoins < MAXCOINS)
 			update_coins(game->map);

@@ -6,11 +6,27 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:37:30 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/09 18:59:08 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:27:14 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
+
+/*void	draw_objects(t_game *game)
+{
+	t_vector	pos;
+
+	if (game->player->state != PIDLE)
+		refresh_area(game, game->player->pos, 3, 3);
+	if (game->map->nbcoins == game->map->totalcoins)
+	{
+		game->map->sprite->cur_spr = 49;
+		pos.x = game->map->exit.x * SPR_DIM;
+		pos.y = game->map->exit.y * SPR_DIM;
+		refresh_area(game, pos, 1, 1);
+		put_t_xpm_to_img(game->map->sprite, game, pos);
+	}
+}*/
 
 void	prepare_new_frame(t_game *game)
 {
@@ -19,12 +35,12 @@ void	prepare_new_frame(t_game *game)
 
 	draw_map(game);
 	draw_coins(game);
-	update_cursor(game);
 	movsize = &game->movesize;
 	coins = game->map->nbcoins;
 	*movsize = print_move_count(game, game->moves, &game->last_moves, coins);
 	print_coin_count(game, *movsize, coins, &game->map->last);
 	game->last_movesize = *movsize;
+	draw_cursor(game);
 	put_t_xpm_to_img(game->player->sprite, game, game->player->pos);
 }
 
@@ -57,5 +73,6 @@ void	refresh_area(t_game *game, t_vector pos, int width, int height)
 	snap_to_grid(&rpos);
 	size.x = width;
 	size.y = height;
+	refresh_scenery(game, game->map, rpos, size);
 	draw_bg_part(game, game->map, rpos, size);
 }

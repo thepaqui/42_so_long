@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/25 18:01:30 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/12 15:55:51 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static t_player	*player_init(int *err, char *file, char *filepro)
 	return (player);
 }
 
-static t_map	*map_init(int *err, char *filemap, char *filecoin)
+static t_map	*map_init(int *err, char *fmap, char *fcoin, char *fbg)
 {
 	t_map	*map;
 
@@ -58,16 +58,24 @@ static t_map	*map_init(int *err, char *filemap, char *filecoin)
 		*err = MALLOCFAIL;
 		return (NULL);
 	}
-	map->sprite = parse_xpm(filemap, err);
+	map->sprite = parse_xpm(fmap, err);
 	if (!map->sprite)
 	{
 		free(map);
 		return (NULL);
 	}
-	map->coin_spr = parse_xpm(filecoin, err);
+	map->coin_spr = parse_xpm(fcoin, err);
 	if (!map->coin_spr)
 	{
 		map->sprite = free_xpm(map->sprite);
+		free(map);
+		return (NULL);
+	}
+	map->bg = parse_xpm(fbg, err);
+	if (!map->bg)
+	{
+		map->sprite = free_xpm(map->sprite);
+		map->coin_spr = free_xpm(map->coin_spr);
 		free(map);
 		return (NULL);
 	}
@@ -91,7 +99,7 @@ t_game	*game_init(int *err)
 		*err = MALLOCFAIL;
 		return (free_game(game));
 	}
-	game->map = map_init(err, MAP_SPRITE, COIN_SPRITE);
+	game->map = map_init(err, MAP_SPRITE, COIN_SPRITE, BG_SPRITE);
 	if (!game->map)
 		error_handling(*err, game, "Map structure");
 	game->player = player_init(err, PLAYER_SPRITE, PRO_SPRITE);

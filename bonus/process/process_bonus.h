@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/11 15:27:19 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:17:24 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ void	put_pixel_to_img(t_game *game, t_vector pos, int color);
 void	put_background_color_to_img(t_game *game, int color);
 void	put_t_xpm_to_img(t_xpm *xpm, t_game *game, t_vector pos);
 int		get_wall_texture(char **map, t_vector size, t_vector pos);
+void	refresh_scenery(t_game *game, t_map *map, t_vector opos, t_vector s);
+void	draw_scenery(t_game *game);
 void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s);
 void	refresh_area(t_game *game, t_vector pos, int width, int height);
 int		get_pos_walls_around(char **map, t_vector s, t_vector pos);
@@ -114,6 +116,7 @@ void	draw_map(t_game *game);
 void	draw_coins(t_game *game);
 void	update_cursor(t_game *game);
 void	update_projectile(t_game *game, t_player *player, t_map *map);
+void	draw_cursor(t_game *game);
 void	put_char_to_img(char c, t_vector pos, t_game *game, int color);
 void	put_str_to_img(char *s, t_vector pos, t_game *game, int color);
 void	put_nbr_to_img(unsigned int n, t_vector pos, t_game *game, int color);

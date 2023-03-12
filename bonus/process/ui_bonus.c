@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:45:30 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/11 15:52:16 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:55:01 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	print_move_count(t_game *game, int mov, int *last, int coins)
 		}
 		else {
 			//printf("moves case 2\n"); //---
-			draw_bg_part(game, game->map, pos, size);
+			refresh_area(game, pos, size.x, size.y);
 		}
 		if (size.x == ft_strlen(MOV_PREFIX) + get_magnitude(mov))
 		{
@@ -80,7 +80,7 @@ void	print_coin_count(t_game *game, int movsize, int coins, int *last)
 			|| game->player->pro_pos.y < CNT_COL))
 	{
 		size.x--;
-		draw_bg_part(game, game->map, pos, size);
+		refresh_area(game, pos, size.x, size.y);
 		put_nbr_to_img(coins, pos, game, 0x00FFD700);
 		pos.x += SPR_DIM * (size.x - 1);
 		put_str_to_img("$", pos, game, 0x00FFD700);

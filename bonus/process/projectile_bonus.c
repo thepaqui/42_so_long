@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:37:13 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/11 15:45:06 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:36:56 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ void	update_projectile(t_game *game, t_player *player, t_map *map) // add index 
 	t_vector	center_pos;
 	int			coin;
 
-	(void)map;
-	player->pro_pos.x += player->pro_dir.x;
-	player->pro_pos.y += player->pro_dir.y;
 	snap_pos.x = nearbyint(player->pro_pos.x);
 	snap_pos.y = nearbyint(player->pro_pos.y);
+	refresh_area(game, snap_pos, 2, 2);
+	player->pro_pos.x += player->pro_dir.x;
+	player->pro_pos.y += player->pro_dir.y;
 	if (!PRO_SPECTRAL)
 		bounce(game, snap_pos);
 	if (PRO_BOUNCE_BREAK && player->pro_bounces >= PRO_BOUNCE_LIMIT)
@@ -80,14 +80,12 @@ void	update_projectile(t_game *game, t_player *player, t_map *map) // add index 
 		if (coin != NONE)
 			pro_collect_coin(map, center_pos, coin);
 	}
-	// hitbox (destroy / kill)
+	// hitbox kill enemies
 	//printf("Projectile is at pos (%f,%f)\n", player->pro_pos.x, player->pro_pos.y); //-------
 	if (snap_pos.x < 0 || snap_pos.x + SPR_DIM > game->win_size.x - 1
 		|| snap_pos.y < 0 || snap_pos.y + SPR_DIM > game->win_size.y - 1)
 		destroy_projectile(game, snap_pos);
 	update_projectile_anim(player);
-	if (player->pro_here)
-		put_t_xpm_to_img(player->pro, game, snap_pos);
 }
 
 void	throw(t_game *game)

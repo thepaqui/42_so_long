@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/11 16:38:51 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:47:48 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_img
 }				t_img;
 
 # define PLAYER_SPRITE "./textures/basic/player.xpm"
-# define PRO_SPRITE "./textures/basic/projectile.xpm"
+# define PRO_SPRITE "./textures/bonus/projectile.xpm"
 
 typedef struct s_player
 {
@@ -116,6 +116,7 @@ typedef struct s_map
 {
 	char		**map;
 	t_xpm		*sprite;
+	t_xpm		*bg;
 	t_vector	size;
 	t_vector	start;
 	t_vector	exit;
@@ -129,12 +130,13 @@ typedef struct s_map
 }				t_map;
 
 /* --- MAP --- */
-# define MAP_SPRITE "./textures/basic/map.xpm"
-# define COIN_SPRITE "./textures/basic/coin.xpm"
+# define MAP_SPRITE "./textures/bonus/map.xpm"
+# define BG_SPRITE "./textures/bonus/bg.xpm"
+# define COIN_SPRITE "./textures/bonus/coin.xpm"
 // Number of frames between each animation frame of the coins
 # define COIN_SPEED 6
 // Threshold over which coins stop being animated (for performance)
-# define MAXCOINS 120
+# define MAXCOINS 60
 
 /* --- MAP OBJECTS --- */
 # define EMPTY '0'
@@ -167,7 +169,7 @@ typedef struct s_game
 }				t_game;
 
 # define FONT "./textures/basic/font.xpm"
-# define CURSOR "./textures/basic/cursor.xpm"
+# define CURSOR "./textures/bonus/cursor.xpm"
 
 // Name of the game window
 # define WINNAME "thepaqui's amazingly wasteful so_long"
