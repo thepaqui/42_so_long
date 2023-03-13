@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 19:33:28 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 17:00:42 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 01:13:08 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	draw_coins(t_game *game)
 	{
 		pos.x = game->map->coin_pos[i].x * SPR_DIM;
 		pos.y = game->map->coin_pos[i].y * SPR_DIM;
+		refresh_area(game, pos, 1, 1);
 		if (game->map->map[pos.y / SPR_DIM][pos.x / SPR_DIM] == 'C')
 		{
 			game->map->sprite->cur_spr = 0;

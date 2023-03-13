@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/08 18:03:06 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 01:31:13 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	stop_sequence(t_game *game);
 void	open_window(t_game *game);
 int		handle_cross(t_game *game);
 void	close_window(t_game *game, int code, char *file);
-void	get_window_size(t_game *game);
 
 /* INPUT */
 int		handle_key_press(int key, t_game *game);
@@ -84,12 +83,15 @@ int		handle_key_release(int key, t_game *game);
 void	put_pixel_to_img(t_game *game, t_vector pos, int color);
 void	put_background_color_to_img(t_game *game, int color);
 void	put_t_xpm_to_img(t_xpm *xpm, t_game *game, t_vector pos);
+void	refresh_scenery(t_game *game, t_map *map, t_vector opos, t_vector s);
 int		get_wall_texture(char **map, t_vector size, t_vector pos);
 void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s);
-void	refresh_player_area(t_game *game);
+void	refresh_area(t_game *game, t_vector pos, int width, int height);
 int		get_pos_walls_around(char **map, t_vector s, t_vector pos);
 void	draw_map(t_game *game);
 void	draw_coins(t_game *game);
+int		print_move_count(t_game *game, int mov, int *last, int coins);
+void	print_coin_count(t_game *game, int movsize, int coins, int *last);
 void	put_char_to_img(char c, t_vector pos, t_game *game, int color);
 void	put_str_to_img(char *s, t_vector pos, t_game *game, int color);
 void	put_nbr_to_img(unsigned int n, t_vector pos, t_game *game, int color);

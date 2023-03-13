@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/11 16:40:00 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 01:29:27 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ typedef struct s_vector
 	int	y;
 }				t_vector;
 
+// Dimensions of game's textures
 # define SPR_DIM 32
+// Dimensions of detection box for counter refresh (keep bigger than SPR_DIM)
+# define CNT_COL 64
 
 typedef struct s_xpm
 {
@@ -71,6 +74,7 @@ typedef struct s_map
 {
 	char		**map;
 	t_xpm		*sprite;
+	t_xpm		*bg;
 	t_vector	size;
 	t_vector	start;
 	t_vector	exit;
@@ -83,9 +87,10 @@ typedef struct s_map
 }				t_map;
 
 # define MAP_SPRITE "./textures/basic/map.xpm"
+# define BG_SPRITE "./textures/basic/bg.xpm"
 # define COIN_SPRITE "./textures/basic/coin.xpm"
 # define COIN_SPEED 6
-# define MAXCOINS 150
+# define MAXCOINS 70
 
 typedef struct s_game
 {
@@ -98,6 +103,8 @@ typedef struct s_game
 	t_xpm		*font;
 	int			last_moves;
 	int			moves;
+	int			movesize;
+	int			last_movesize;
 	int			end_frame;
 	int			end_color;
 	int			stop_frame;
