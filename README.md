@@ -42,7 +42,7 @@ In it, you'll need spritesheets with these names:
 - `font.xpm`.  
 
 If you're doing this to the bonuses, also add:
-- `bg.xpm` -> will display starting from the window's bottom, tiles horizontally only ,fills the window vertically with the first sprite,
+- `bg.xpm` -> will display starting from the window's bottom, tiles horizontally only, fills the window vertically with the first sprite,
 - `cursor.xpm`,
 - `projectile.xpm`,
 - `enemy_fly_h.xpm`,
