@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 20:44:31 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 01:09:03 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,8 @@ static int	get_obj_spr(char **map, t_vector map_size, t_vector pos)
 	else if (obj == EXIT_OPEN)
 		return (49);
 	else
-		return (1); // should be 1
+		return (1);
 }
-
-/*static void	draw_all_background(t_game *game, t_map *map)
-{
-	t_vector	pos;
-
-	pos.y = 0;
-	while (pos.y < game->win_size.y)
-	{
-		pos.x = 0;
-		while (pos.x < game->win_size.x)
-		{
-			map->sprite->cur_spr = get_obj_spr(map->map, map->size, pos);
-			put_t_xpm_to_img(map->sprite, game, pos);
-			pos.x += SPR_DIM;
-		}
-		pos.y += SPR_DIM;
-	}
-}*/
 
 void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s)
 {

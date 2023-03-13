@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 19:33:28 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 20:39:18 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 01:12:40 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	draw_coins(t_game *game)
 {
 	t_vector	pos;
-	t_vector	size;
 	int			i;
 
 	i = -1;
@@ -27,9 +26,6 @@ void	draw_coins(t_game *game)
 		if (game->map->map[pos.y / SPR_DIM][pos.x / SPR_DIM] == 'C')
 		{
 			game->map->sprite->cur_spr = 0;
-			size.x = 1;
-			size.y = 1;
-			//refresh_area(game, pos, size.x, size.y);
 			put_t_xpm_to_img(game->map->sprite, game, pos);
 			put_t_xpm_to_img(game->map->coin_spr, game, pos);
 		}

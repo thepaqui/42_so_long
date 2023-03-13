@@ -1,49 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collisions_bonus.c                                 :+:      :+:    :+:   */
+/*   collisions_edges_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 21:50:32 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 02:23:35 by thepaqui         ###   ########.fr       */
+/*   Created: 2023/03/13 02:23:29 by thepaqui          #+#    #+#             */
+/*   Updated: 2023/03/13 02:25:53 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
 
-char	get_obj_from_pos(t_vector pos, t_map *map)
+int	touch_obj_l(t_vector pos, t_map *map, char obj, int hitbox_size)
 {
-	t_vector	mpos;
+	t_vector	hitbox_point;
 
-	mpos.x = pos.x / SPR_DIM;
-	mpos.y = pos.y / SPR_DIM;
-	if (mpos.x >= map->size.x || mpos.y >= map->size.y)
-		return ('1');
-	else
-		return (map->map[mpos.y][mpos.x]);
+	hitbox_point.x = pos.x - hitbox_size / 2;
+	hitbox_point.y = pos.y;
+	if (get_obj_from_pos(hitbox_point, map) == obj)
+		return (LEFT);
+	return (NONE);
 }
 
-int	touch_obj(t_vector pos, t_map *map, char obj, int hitbox_size)
+int	touch_obj_r(t_vector pos, t_map *map, char obj, int hitbox_size)
+{
+	t_vector	hitbox_point;
+
+	hitbox_point.x = pos.x + hitbox_size / 2;
+	hitbox_point.y = pos.y;
+	if (get_obj_from_pos(hitbox_point, map) == obj)
+		return (RIGHT);
+	return (NONE);
+}
+
+int	touch_obj_t(t_vector pos, t_map *map, char obj, int hitbox_size)
 {
 	t_vector	hitbox_point;
 
 	hitbox_point.x = pos.x;
-	hitbox_point.y = pos.y;
-	if (get_obj_from_pos(hitbox_point, map) == obj)
-		return (CENTER);
-	hitbox_point.x = pos.x - hitbox_size / 2;
 	hitbox_point.y = pos.y - hitbox_size / 2;
 	if (get_obj_from_pos(hitbox_point, map) == obj)
-		return (TOP_LEFT);
+		return (TOP);
+	return (NONE);
+}
+
+int	touch_obj_b(t_vector pos, t_map *map, char obj, int hitbox_size)
+{
+	t_vector	hitbox_point;
+
+	hitbox_point.x = pos.x;
 	hitbox_point.y = pos.y + hitbox_size / 2;
 	if (get_obj_from_pos(hitbox_point, map) == obj)
-		return (BOT_LEFT);
-	hitbox_point.x = pos.x + hitbox_size / 2;
-	if (get_obj_from_pos(hitbox_point, map) == obj)
-		return (BOT_RIGHT);
-	hitbox_point.y = pos.y - hitbox_size / 2;
-	if (get_obj_from_pos(hitbox_point, map) == obj)
-		return (TOP_RIGHT);
+		return (BOT);
 	return (NONE);
 }

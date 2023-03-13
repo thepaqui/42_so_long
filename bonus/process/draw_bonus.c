@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:47:55 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 19:24:17 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 01:03:14 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ void	put_pixel_to_img(t_game *game, t_vector pos, int color)
 	if ((get_alpha(color) & 0xFF) != 0 && (get_alpha(color) & 0xFF) != 0xFF)
 		color = get_opacity(ogcolor, color);
 	if (pos.x > game->win_size.x - 1 || pos.y > game->win_size.y - 1
-		|| get_alpha(color) == 0xFF)
-		return ;
-	else if (color == ogcolor)
+		|| get_alpha(color) == 0xFF || color == ogcolor)
 		return ;
 	else
 		put_pixel_to_img_help(game->image, pos, color);

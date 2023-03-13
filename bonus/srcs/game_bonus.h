@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 20:47:48 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 02:36:28 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_player
 	t_dblvector	pro_pos;
 	t_dblvector	pro_dir;
 	int			pro_anim_speed;
+	int			pro_break_anim;
 	int			pro_here;
 	int			pro_bounces;
 }				t_player;
@@ -83,8 +84,6 @@ typedef struct s_player
 # define PLAYER_COIN_ANIM_LEN 20
 // Size of square player hitbox
 # define PLAYER_HITBOX 10
-// Cooldown between each projectile throw (in frames)
-# define PLAYER_THROW_COOLDOWN 80
 
 /* --- PLAYER STATES --- */
 # define PIDLE 0
@@ -111,6 +110,10 @@ typedef struct s_player
 # define PRO_BOUNCE_BREAK 1
 // Defines how many bounces it takes to break a projectile
 # define PRO_BOUNCE_LIMIT 15
+// Defines how many frames the breaking animation will play for (/4)
+// So if you input 2, the break animation will play for 8 frames
+// Do not input negative numbers here
+# define PRO_BREAK_ANIM_LEN 3
 
 typedef struct s_map
 {

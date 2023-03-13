@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 20:17:24 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 02:25:36 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@
 /* GAME */
 char	get_obj_from_pos(t_vector pos, t_map *map);
 int		touch_obj(t_vector pos, t_map *map, char obj, int hitbox_size);
-int		touch_obj_lr(t_vector pos, t_map *map, char obj, int hitbox_size);
-int		touch_obj_tb(t_vector pos, t_map *map, char obj, int hitbox_size);
+int		touch_obj_l(t_vector pos, t_map *map, char obj, int hitbox_size);
+int		touch_obj_r(t_vector pos, t_map *map, char obj, int hitbox_size);
+int		touch_obj_t(t_vector pos, t_map *map, char obj, int hitbox_size);
+int		touch_obj_b(t_vector pos, t_map *map, char obj, int hitbox_size);
 void	snap_to_grid(t_vector *pos);
 void	get_cursor_pos(t_game *game);
 void	get_player_to_cursor_dir(t_game *game, t_player *player);
@@ -108,7 +110,6 @@ void	put_background_color_to_img(t_game *game, int color);
 void	put_t_xpm_to_img(t_xpm *xpm, t_game *game, t_vector pos);
 int		get_wall_texture(char **map, t_vector size, t_vector pos);
 void	refresh_scenery(t_game *game, t_map *map, t_vector opos, t_vector s);
-void	draw_scenery(t_game *game);
 void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s);
 void	refresh_area(t_game *game, t_vector pos, int width, int height);
 int		get_pos_walls_around(char **map, t_vector s, t_vector pos);

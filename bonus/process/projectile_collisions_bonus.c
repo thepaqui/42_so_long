@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:56:54 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/11 15:27:07 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 02:32:51 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 void	bounce(t_game *game, t_vector pos)
 {
-	int			lr;
-	int			tb;
+	int			hb[4];
 	t_vector	rpos;
 
 	rpos.x = pos.x + (SPR_DIM / 2);
 	rpos.y = pos.y + (SPR_DIM / 2);
-	lr = touch_obj_lr(rpos, game->map, WALL, PRO_HITBOX);
-	tb = touch_obj_tb(rpos, game->map, WALL, PRO_HITBOX);
-	if ((lr == LEFT && game->player->pro_dir.x < 0)
-		|| (lr == RIGHT && game->player->pro_dir.x >= 0))
+	hb[0] = touch_obj_l(rpos, game->map, WALL, PRO_HITBOX);
+	hb[1] = touch_obj_r(rpos, game->map, WALL, PRO_HITBOX);
+	hb[2] = touch_obj_t(rpos, game->map, WALL, PRO_HITBOX);
+	hb[3] = touch_obj_b(rpos, game->map, WALL, PRO_HITBOX);
+	if ((!hb[2] || !hb[3]) && ((hb[0] && !hb[1] && game->player->pro_dir.x < 0)
+		|| (hb[1] && !hb[0] && game->player->pro_dir.x >= 0)))
 	{
 		game->player->pro_dir.x *= -1;
 		game->player->pro_bounces++;
 	}
-	if ((tb == TOP && game->player->pro_dir.y < 0)
-		|| (tb == BOT && game->player->pro_dir.y >= 0))
+	if ((!hb[0] || !hb[1]) && ((hb[2] && !hb[3] && game->player->pro_dir.y < 0)
+		|| (hb[3] && !hb[2] && game->player->pro_dir.y >= 0)))
 	{
 		game->player->pro_dir.y *= -1;
 		game->player->pro_bounces++;

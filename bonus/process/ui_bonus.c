@@ -6,13 +6,13 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:45:30 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 19:55:01 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 01:22:26 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
 
-int	get_magnitude(int n)
+static int	get_magnitude(int n)
 {
 	int	res;
 

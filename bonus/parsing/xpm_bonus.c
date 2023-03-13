@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:10:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 18:10:18 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 01:06:32 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char	*error_open_xpm(int *err, int errcode, int fd, char *text)
 	return (NULL);
 }
 
-#define BUFSIZE 1000
+#define BUFSIZE 1000 //should move this
 
 static int	get_xpm_buffer_size(char *file)
 {

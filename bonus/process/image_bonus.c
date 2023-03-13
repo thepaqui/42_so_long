@@ -6,27 +6,11 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:37:30 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 20:27:14 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/13 01:13:50 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
-
-/*void	draw_objects(t_game *game)
-{
-	t_vector	pos;
-
-	if (game->player->state != PIDLE)
-		refresh_area(game, game->player->pos, 3, 3);
-	if (game->map->nbcoins == game->map->totalcoins)
-	{
-		game->map->sprite->cur_spr = 49;
-		pos.x = game->map->exit.x * SPR_DIM;
-		pos.y = game->map->exit.y * SPR_DIM;
-		refresh_area(game, pos, 1, 1);
-		put_t_xpm_to_img(game->map->sprite, game, pos);
-	}
-}*/
 
 void	prepare_new_frame(t_game *game)
 {
