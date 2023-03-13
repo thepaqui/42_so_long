@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 13th 2023, at 01:36.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 13th 2023, at 04:28.
 
 ## Presentation 👾
 
@@ -23,9 +23,9 @@ Wish me luck as I embark on this journey!
 
 Maps shouldn't be any larger than ~60 (width) by ~30 (height) for playability's sake (if the game uses 32x32 textures).  
   
-The game will start lagging if you have ~150+ coins (only tested on the 42 Nice computers).  
-So if you have 150 or more coins on screen (less with bonuses), they won't be animated for performance's sake.  
-You can modify this threshold in `srcs/game.h` with the `MAXCOINS` macro.  
+The game will start lagging if you have too many collectibles,  
+so the `MAXCOINS` macro sets the number over which collectibles won't be animated anymore.  
+You can modify this threshold in `srcs/game.h` or `bonus/srcs/game_bonus.h` with the `MAXCOINS` macro.  
   
 You can modify a lot of things in this game.  
 Check out my comments in `bonus/srcs/game_bonus.h` and in `bonus/process/process_bonus.h` to know what to change.  
@@ -42,7 +42,7 @@ In it, you'll need spritesheets with these names:
 - `font.xpm`.  
 
 If you're doing this to the bonuses, also add:
-- `bg.xpm` (this will display starting from the window's top-left corner and will tile to fill the window if needed),
+- `bg.xpm` -> will display starting from the window's bottom, tiles horizontally only ,fills the window vertically with the first sprite,
 - `cursor.xpm`,
 - `projectile.xpm`,
 - `enemy_fly_h.xpm`,
@@ -59,12 +59,6 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 
 ## To-do list 🗒️ 
 
-✅ IMPLEMENT THROWING PROJECTILES ACCORDING TO MOUSE POSITION RELATIVE TO PLAYER  
-✅ MAKE PROJECTILE TEXTURE  
-✅ FIX COIN AND MOVE COUNTERS  
-✅ MAKE PROJECTILE BOUNCING (AND MADE IT OPTIONAL)  
-✅ MAKE MAX BOUNCES BEFORE BREAKING  
-✅ SECRET 😉  
 ✅ MAKE COINS COLLECTABLE WITH PROJECTILES  
 ✅ MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES  
 ✅ MAKE A BETTER README 😜  
@@ -73,9 +67,11 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 ✅ IMPLEMENT BACKGROUND TEXTURE TILING  
 ✅ IMPLEMENT BACKGROUND IN NON-BONUS VERSION  
 ✅ IMPLEMENT COUNTER BUG FIXES IN NON-BONUS VERSION  
+✅ FIX PROJECTILE HIT DETECTION TO AVOID WEIRD BOUNCES  
+✅ MAKE BACKGROUND TEXTURE TILING START FROM BOTTOM OF SPRITESHEET  
+✅ IMPLEMENT PROJECTILE DESTROYING ANIMATION  
 ⏳ MAKE BONUS TEXTURES  
 ⏳ MAKE ENEMIES TEXTURES  
-❌ IMPLEMENT PROJECTILE DESTROYING ANIMATION  
 ❌ MAKE PLAYER SPRITESHEET COMPATIBLE WITH BOTH BONUS AND NON BONUS GAME  
 ❌ MAKE ENEMIES MOVEMENT  
 ❌ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
