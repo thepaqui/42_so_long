@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 13th 2023, at 04:28.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 14th 2023, at 22:19.
 
 ## Presentation 👾
 
@@ -70,7 +70,9 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 ✅ FIX PROJECTILE HIT DETECTION TO AVOID WEIRD BOUNCES  
 ✅ MAKE BACKGROUND TEXTURE TILING START FROM BOTTOM OF SPRITESHEET  
 ✅ IMPLEMENT PROJECTILE DESTROYING ANIMATION  
-⏳ MAKE BONUS TEXTURES  
+✅ MAKE BONUS TEXTURES  
+⏳ MAKE GROUNDED DETECTION  
+⏳ IMPLEMENT PLAYER ANIMATIONS  
 ⏳ MAKE ENEMIES TEXTURES  
 ❌ MAKE PLAYER SPRITESHEET COMPATIBLE WITH BOTH BONUS AND NON BONUS GAME  
 ❌ MAKE ENEMIES MOVEMENT  
