@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 14th 2023, at 22:19.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 15th 2023, at 00:55.
 
 ## Presentation 👾
 
@@ -58,6 +58,8 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 [The Spriters Resource]: https://www.spriters-resource.com/snes/yoshiisland/
 
 ## To-do list 🗒️ 
+
+Finish player cheer animation.  
 
 ✅ MAKE COINS COLLECTABLE WITH PROJECTILES  
 ✅ MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES  
