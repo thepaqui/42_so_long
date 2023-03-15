@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 15th 2023, at 00:55.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 15th 2023, at 05:14.
 
 ## Presentation 👾
 
@@ -37,12 +37,13 @@ You can change texture size by changing the `SPR_DIM` macro in `srcs/game.h` and
 You can then use your own textures by creating a new folder in the `textures` folder.  
 In it, you'll need spritesheets with these names:
 - `map.xpm`,
+- `bg.xpm` -> will display starting from the window's bottom, tiles horizontally only, fills the window vertically with the first sprite,
 - `coin.xpm`,
 - `player.xpm`,
+- `end_bg.xpm`,
 - `font.xpm`.  
 
 If you're doing this to the bonuses, also add:
-- `bg.xpm` -> will display starting from the window's bottom, tiles horizontally only, fills the window vertically with the first sprite,
 - `cursor.xpm`,
 - `projectile.xpm`,
 - `enemy_fly_h.xpm`,
@@ -74,6 +75,8 @@ Finish player cheer animation.
 ✅ IMPLEMENT PROJECTILE DESTROYING ANIMATION  
 ✅ MAKE BONUS TEXTURES  
 ✅ MAKE GROUNDED DETECTION  
+✅ USE CANVAS SPRITESHEET FOR ENDING  
+⏳ USE BLACK BOARD SPRITE FROM SMW2:YI FOR ENDING IN BONUS  
 ⏳ IMPLEMENT PLAYER ANIMATIONS  
 ⏳ MAKE ENEMIES TEXTURES  
 ❌ MAKE PLAYER SPRITESHEET COMPATIBLE WITH BOTH BONUS AND NON BONUS GAME  
@@ -81,8 +84,6 @@ Finish player cheer animation.
 ❌ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
 ❌ MAKE ENEMIES KILLABLE WITH PROJECTILES  
 ❌ TURN CANVAS TEXTURE INTO A SPRITESHEET  
-❌ USE CANVAS SPRITESHEET FOR ENDING  
-❌ USE BLACK BOARD SPRITE FROM SMW2:YI FOR ENDING IN BONUS  
 ❌ ADD MUSIC AND SOUND EFFECTS  
 ❌ TEST ALL MAPS WITH NON-BONUS VERSION (COIN AND MOVE COUNTER ESPECIALLY)  
 ❌ MEGA NORM CLEANUP  
