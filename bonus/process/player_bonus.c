@@ -6,14 +6,16 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:31:14 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/25 17:47:46 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:12:35 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
 
-static void	adjust_player_pos(t_player *player, t_vector win_size)
+static void	adjust_player_pos(t_player *player, t_vector win_size, t_map *map)
 {
+	t_vector	tpos;
+
 	if (player->pos.y < 0)
 		player->pos.y = 0;
 	if (player->pos.x < 0)
@@ -22,6 +24,17 @@ static void	adjust_player_pos(t_player *player, t_vector win_size)
 		player->pos.x = win_size.x - SPR_DIM - 1;
 	if (player->pos.y > win_size.y - SPR_DIM - 1)
 		player->pos.y = win_size.y - SPR_DIM - 1;
+	tpos.x = player->pos.x;
+	tpos.y = player->pos.y + SPR_DIM;
+	snap_to_grid(&tpos);
+	tpos.x = player->pos.x + SPR_DIM / 2;
+	if (get_obj_from_pos(tpos, map) == WALL)
+	{
+		player->pos.y = tpos.y - SPR_DIM;
+		player->grounded = 1;
+	}
+	else
+		player->grounded = 0;
 }
 
 static void	update_player_pos(t_player *player, t_map *map)
@@ -49,26 +62,18 @@ static void	update_player_pos(t_player *player, t_map *map)
 
 static void	set_player_animations(t_player *player)
 {
+	//printf("Player state = %d\n", player->state); //-----
 	if (player->state == PTHROW)
-		player->sprite->cur_spr = 0; // Replace by throwing sprite later
-	else if (player->state == PMOVE)
+		player_anim_throw(player);
+	if (player->state == PTHROWEND)
 	{
-		if (player->last_key == KEY_W)
-			player->sprite->cur_spr = 1;
-		if (player->last_key == KEY_S)
-			player->sprite->cur_spr = 2;
-		if (player->last_key == KEY_A)
-			player->sprite->cur_spr = 3;
-		if (player->last_key == KEY_D)
-			player->sprite->cur_spr = 4;
+		if (player->up || player->down || player->left || player->right)
+			player->state = PMOVE;
+		else
+			player->state = PIDLE;
 	}
-	else
-		player->sprite->cur_spr = 0;
-	if (player->coin_anim_len)
-	{
-		player->coin_anim_len--;
-		player->sprite->cur_spr = 5;
-	}
+	if (player->state == PMOVE || player->state == PIDLE)
+		player_anim_move(player);
 }
 
 static void	set_player_speed(t_player *player)
@@ -79,10 +84,17 @@ static void	set_player_speed(t_player *player)
 		player->speed = PLAYER_SPEED;
 }
 
-void	update_player(t_game *game)
+void	update_player(t_game *game, t_player *player)
 {
+	if (game->player->state == PMOVE && !player->up && !player->down
+		&& !player->left && !player->right)
+		game->player->state = PIDLE;
+	if (game->player->state == PIDLE)
+		refresh_area(game, game->player->pos, 2, 2);
+	else
+		refresh_area(game, game->player->pos, 3, 3);
 	set_player_animations(game->player);
 	set_player_speed(game->player);
 	update_player_pos(game->player, game->map);
-	adjust_player_pos(game->player, game->win_size);
+	adjust_player_pos(game->player, game->win_size, game->map);
 }

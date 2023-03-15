@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 20:27:36 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/15 05:55:19 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ static int	main_loop(t_game *game)
 	{
 		if (!game->end_frame)
 		{
-			put_background_color_to_img(game, BLACK);
+			player_anim_end_init(game, game->player);
+			draw_all_canvas(game);
 			game->end_color = 0x00FF0000;
 			game->end_frame++;
 		}
@@ -51,7 +52,7 @@ static int	main_loop(t_game *game)
 	}
 	else
 	{
-		update_player(game);
+		update_player(game, game->player);
 		update_cursor(game);
 		update_map(game->map, game);
 		if (game->map->totalcoins - game->map->nbcoins < MAXCOINS)

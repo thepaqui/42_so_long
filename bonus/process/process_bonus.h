@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 02:25:36 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/15 05:55:07 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ void	get_cursor_pos(t_game *game);
 void	get_player_to_cursor_dir(t_game *game, t_player *player);
 void	throw(t_game *game);
 void	bounce(t_game *game, t_vector pos);
-void	update_player(t_game *game);
+void	destroy_projectile(t_game *game, t_vector pos);
+void	update_player(t_game *game, t_player *player);
 void	update_map(t_map *map, t_game *game);
-void	collect_coin(t_map *map, t_game *game, t_vector pos, int coin);
+void	collect_coin(t_map *map, t_vector pos, int coin);
 void	pro_collect_coin(t_map *map, t_vector pos, int coin);
 void	update_coins(t_map *map);
 void	launch_game(t_game *game);
@@ -42,7 +43,7 @@ void	ft_end(t_game *game, int color);
 void	stop_sequence(t_game *game);
 
 /* --- END --- */
-# define END_MSG_XL "UN PETIT OUTSTANDING SVP ?"
+# define END_MSG_XL "T'AURAIS PAS 5 EUROS STP ?"
 # define END_MSG_L "CONGRATULATIONS!"
 # define END_MSG_M "BRAVO!"
 # define END_MSG_S "WOW"
@@ -71,7 +72,7 @@ void	stop_sequence(t_game *game);
 void	open_window(t_game *game);
 int		handle_cross(t_game *game);
 void	close_window(t_game *game, int code, char *file);
-void	get_window_size(t_game *game);
+//void	get_window_size(t_game *game);
 
 /* --- INPUT --- */
 int		handle_key_press(int key, t_game *game);
@@ -124,9 +125,69 @@ void	put_nbr_to_img(unsigned int n, t_vector pos, t_game *game, int color);
 int		print_move_count(t_game *game, int moves, int *last, int coins);
 void	print_coin_count(t_game *game, int movsize, int coins, int *last);
 void	prepare_new_frame(t_game *game);
+void	draw_all_canvas(t_game *game);
+void	draw_canvas_part(t_game *game, t_vector opos, int width, int height);
 
 // Text that goes before the move counter
 # define MOV_PREFIX "MOVES "
+
+/* --- PLAYER ANIMATIONS --- */
+void	player_anim_move(t_player *player);
+void	player_anim_move_help(t_player *p, int ls, int le, int rs, int re);
+void	player_anim_throw(t_player *player);
+void	player_anim_end_init(t_game *game, t_player *player);
+void	player_anim_end(t_game *game, t_player *player);
+void	player_anim_cheer(t_game *game, t_player *player);
+
+/* --- PLAYER ANIMATIONS --- */
+// Starting sprite of the flying left animation
+# define PA_FL_S 0
+// Ending sprite of the flying left animation
+# define PA_FL_E 1
+// Starting sprite of the flying right animation
+# define PA_FR_S 5
+// Ending sprite of the flying right animation
+# define PA_FR_E 6
+// Number of frames each frame of the flying animation plays for
+// Should be more than 0
+# define PA_FLY_LEN 7
+
+// Sprite of the grounded left idle animation
+# define PA_GIL 12
+// Sprite of the grounded right idle animation
+# define PA_GIR 25
+// Starting sprite of the left walking animation
+# define PA_GL_S 10
+// Ending sprite of the left walking animation
+# define PA_GL_E 19
+// Starting sprite of the right walking animation
+# define PA_GR_S 23
+// Ending sprite of the right walking animation
+# define PA_GR_E 32
+// Number of frames each frame of the grounded animation plays for
+// Should be more than 0
+# define PA_GROUND_LEN 4
+
+// The 4 throwing animations all have 3 frames of animation
+// Starting sprite of the flying left throwing animation
+# define PA_THROW_FL 2
+// Starting sprite of the flying right throwing animation
+# define PA_THROW_FR 7
+// Starting sprite of the grounded left throwing animation
+# define PA_THROW_GL 20
+// Starting sprite of the grounded right throwing animation
+# define PA_THROW_GR 33
+// Number of frames the throwing animation plays for
+// Should be more than 10
+# define PA_THROW_LEN 20
+
+// Starting sprite of the cheering animation
+# define PA_CHEER_S 55
+// Ending sprite of the cheering animation
+# define PA_CHEER_E 77
+// Number of frames each frame of the cheering animation plays for
+// Should be more than 0
+# define PA_CHEER_LEN 6
 
 /* --- COLOR --- */
 int		get_argb(int a, int r, int g, int b);

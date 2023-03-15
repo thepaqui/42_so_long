@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:44:50 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/25 18:22:22 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/15 06:01:06 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,9 @@ static void	key_move(int key, t_player *player)
 	if (player->state != PTHROW)
 		player->state = PMOVE;
 	if (key == KEY_W && !player->down)
-	{
-		player->last_key = key;
 		player->up = 1;
-	}
 	if (key == KEY_S && !player->up)
-	{
-		player->last_key = key;
 		player->down = 1;
-	}
 	if (key == KEY_A && !player->right)
 	{
 		player->last_key = key;
@@ -40,11 +34,9 @@ static void	key_move(int key, t_player *player)
 
 int	handle_key_press(int key, t_game *game)
 {
-	if (game->state == GAME_STOP)
-		return (0);
-	else if (key == KEY_ESC)
+	if (key == KEY_ESC)
 		game->state = GAME_STOP;
-	else if (game->state == GAME_WIN)
+	else if (game->state != GAME_RUN)
 		return (0);
 	else if ((key >= KEY_A && key <= KEY_D) || key == KEY_W)
 		key_move(key, game->player);
@@ -61,10 +53,6 @@ static void	key_stop_move(int key, t_player *player)
 		player->left = 0;
 	if (key == KEY_D)
 		player->right = 0;
-	if (player->up)
-		player->last_key = KEY_W;
-	else if (player->down)
-		player->last_key = KEY_S;
 	else if (player->left)
 		player->last_key = KEY_A;
 	else if (player->right)
@@ -76,6 +64,8 @@ static void	key_stop_move(int key, t_player *player)
 
 int	handle_key_release(int key, t_game *game)
 {
+	if (game->state != GAME_RUN)
+		return (0);
 	if ((key >= KEY_A && key <= KEY_D) || key == KEY_W)
 		key_stop_move(key, game->player);
 	return (0);

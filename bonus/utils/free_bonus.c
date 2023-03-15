@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:23 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 15:56:30 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/15 05:38:15 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ t_game	*free_game(t_game *game)
 		free_xpm(game->font);
 	if (game->cursor)
 		free_xpm(game->cursor);
+	if (game->canvas)
+		free_xpm(game->canvas);
 	free(game);
 	game = NULL;
 	return (NULL);

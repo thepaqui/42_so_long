@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:09:03 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:34:01 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	draw_map(t_game *game)
 {
 	t_vector	pos;
 
-	if (game->player->state == PIDLE && game->player->sprite->cur_spr == 5)
-		game->player->state = PCOIN;
 	if (game->state == GAME_ERROR)
 		return ;
 	else if (game->state == GAME_STARTUP)
@@ -71,8 +69,6 @@ void	draw_map(t_game *game)
 		refresh_area(game, pos, game->win_size.x / SPR_DIM, game->win_size.y / SPR_DIM);
 		game->state = GAME_RUN;
 	}
-	else if (game->player->state != PIDLE)
-		refresh_area(game, game->player->pos, 3, 3);
 	if (game->map->nbcoins == game->map->totalcoins)
 	{
 		game->map->sprite->cur_spr = 49;
@@ -100,7 +96,7 @@ void	update_map(t_map *map, t_game *game)
 	pos.y = game->player->pos.y + SPR_DIM / 2;
 	coin = touch_obj(pos, map, COIN, PLAYER_HITBOX);
 	if (coin != NONE)
-		collect_coin(map, game, pos, coin);
+		collect_coin(map, pos, coin);
 	if (map->map[map->start.y][map->start.x] == EXIT_OPEN)
 		game->state = GAME_WIN;
 	if (map->nbcoins == map->totalcoins)

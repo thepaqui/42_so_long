@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 02:36:28 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/15 06:03:28 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
-# define PLAYER_SPRITE "./textures/basic/player.xpm"
+# define PLAYER_SPRITE "./textures/bonus/player.xpm"
 # define PRO_SPRITE "./textures/bonus/projectile.xpm"
 
 typedef struct s_player
@@ -63,8 +63,9 @@ typedef struct s_player
 	int			left;
 	int			right;
 	int			state;
+	int			grounded;
 	t_xpm		*sprite;
-	int			coin_anim_len;
+	int			anim_len;
 	int			throw;
 	t_xpm		*pro;
 	t_dblvector	pro_pos;
@@ -73,6 +74,7 @@ typedef struct s_player
 	int			pro_break_anim;
 	int			pro_here;
 	int			pro_bounces;
+	int			pro_rethrow;
 }				t_player;
 
 /* --- PLAYER --- */
@@ -80,8 +82,6 @@ typedef struct s_player
 # define PLAYER_SPEED 4
 // Player diagonal speed (in pixels)
 # define PLAYER_DIAG_SPEED 3
-// Number of frames the coin collection animation plays for
-# define PLAYER_COIN_ANIM_LEN 20
 // Size of square player hitbox
 # define PLAYER_HITBOX 10
 
@@ -90,8 +90,10 @@ typedef struct s_player
 # define PMOVE 1
 # define PCOIN 2
 # define PTHROW 3
-# define PTHROWEND 4 // might be superfluous
-# define PDEATH 5
+# define PTHROWEND 4
+# define PWIN 5
+# define PCHEER 6
+# define PDEATH 7
 
 /* --- PROJECTILE --- */
 // Projectile speed (in pixels) (should be kept lower than 10)
@@ -160,6 +162,7 @@ typedef struct s_game
 	t_xpm		*cursor;
 	t_vector	last_cpos;
 	t_vector	curs_pos;
+	t_xpm		*canvas;
 	t_xpm		*font;
 	int			last_moves;
 	int			moves;
@@ -171,8 +174,9 @@ typedef struct s_game
 	int			state;
 }				t_game;
 
-# define FONT "./textures/basic/font.xpm"
+# define FONT "./textures/bonus/font.xpm"
 # define CURSOR "./textures/bonus/cursor.xpm"
+# define CANVAS "./textures/bonus/end_bg.xpm"
 
 // Name of the game window
 # define WINNAME "thepaqui's amazingly wasteful so_long"

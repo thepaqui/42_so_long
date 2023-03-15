@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:45:10 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 20:41:59 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:09:40 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,21 @@ void	update_cursor(t_game *game)
 
 int	handle_click(int key, int x, int y, t_game *game)
 {
-	(void)x; (void)y; //-----------------
-	//printf("%d is clicked at (%d,%d)\n", key, x, y); //---------------
-	if (key != LEFT_CLICK)
+	t_vector	snap_pos;
+
+	(void)x;
+	(void)y;
+	if (game->state != GAME_RUN || key != LEFT_CLICK)
 		return (0);
-	else
+	snap_pos.x = nearbyint(game->player->pro_pos.x);
+	snap_pos.y = nearbyint(game->player->pro_pos.y);
+	//printf("%d is clicked at (%d,%d)\n", key, x, y); //---------------
+	if (!game->player->pro_here)
 		throw(game);
+	else
+	{
+		game->player->pro_rethrow = 5;
+		destroy_projectile(game, snap_pos);
+	}
 	return (0);
 }

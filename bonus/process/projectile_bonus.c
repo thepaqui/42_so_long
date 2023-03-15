@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:37:13 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:58:24 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/14 22:54:50 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	update_projectile_anim(t_player *player)
 	}
 }
 
-static void	destroy_projectile(t_game *game, t_vector pos)
+void	destroy_projectile(t_game *game, t_vector pos)
 {
 	t_vector	rpos;
 
@@ -57,15 +57,7 @@ static void	destroy_projectile(t_game *game, t_vector pos)
 		game->player->pro_dir.y = 0;
 		game->player->pro_break_anim = PRO_BREAK_ANIM_LEN * 4;
 	}
-	if (game->player->pro_break_anim < 0)
-	{
-		game->player->pro_pos.x = -1;
-		game->player->pro_pos.y = -1;
-		game->player->pro_here = 0;
-		game->player->pro_bounces = 0;
-		game->player->pro_break_anim = 0;
-	}
-	else if (game->player->pro_break_anim > 0)
+	if (game->player->pro_break_anim > 0)
 	{
 		if (game->player->pro_break_anim > PRO_BREAK_ANIM_LEN * 3)
 			game->player->pro->cur_spr = 8;
@@ -78,6 +70,18 @@ static void	destroy_projectile(t_game *game, t_vector pos)
 		game->player->pro_break_anim--;
 		if (!game->player->pro_break_anim)
 			game->player->pro_break_anim--;
+		if (game->player->pro_rethrow > 1)
+			game->player->pro_rethrow--;
+	}
+	if (game->player->pro_break_anim < 0 || game->player->pro_rethrow == 1)
+	{
+		game->player->pro_pos.x = -1;
+		game->player->pro_pos.y = -1;
+		game->player->pro_here = 0;
+		game->player->pro_bounces = 0;
+		game->player->pro_break_anim = 0;
+		if (game->player->pro_rethrow)
+			throw(game);
 	}
 }
 
@@ -117,12 +121,17 @@ void	throw(t_game *game)
 {
 	if (game->player->pro_here >= PRO_LIMIT)
 		return ;
+	game->player->pro_rethrow = 0;
 	game->player->pro_pos.x = (double)game->player->pos.x;
 	game->player->pro_pos.y = (double)game->player->pos.y;
 	get_player_to_cursor_dir(game, game->player);
+	if (game->player->pro_dir.x < 0)
+		game->player->last_key = KEY_A;
+	else if (game->player->pro_dir.x > 0)
+		game->player->last_key = KEY_D;
 	game->player->pro->cur_spr = 0;
 	game->player->pro_anim_speed = PRO_ANIM_LEN;
 	game->player->pro_here++;
 	game->player->pro_bounces = 0;
-	game->player->state = PTHROWEND;
+	game->player->state = PTHROW;
 }

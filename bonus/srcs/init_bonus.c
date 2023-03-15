@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/12 15:55:51 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/15 05:37:59 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,9 @@ t_game	*game_init(int *err)
 	game->cursor = parse_xpm(CURSOR, err);
 	if (!game->cursor)
 		error_handling(*err, game, CURSOR);
+	game->canvas = parse_xpm(CANVAS, err);
+	if (!game->canvas)
+		error_handling(*err, game, CANVAS);
 	game->last_moves = -1;
 	return (game);
 }

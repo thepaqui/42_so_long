@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:45:30 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:22:26 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:56:14 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,16 @@ int	print_move_count(t_game *game, int mov, int *last, int coins)
 		size.y = 1;
 		pos.y = 0;
 		pos.x = 0;
-		if (size.x != game->last_movesize) {
-			//printf("moves case 1\n"); //---
-			//printf("\nRefreshing a %d by %d rectangle at (%d,%d)\n\n", game->last_movesize, size.y, pos.x, pos.y); //----------
+		if (size.x != game->last_movesize)
 			refresh_area(game, pos, game->last_movesize, size.y);
-		}
-		else {
-			//printf("moves case 2\n"); //---
+		else
 			refresh_area(game, pos, size.x, size.y);
-		}
 		if (size.x == ft_strlen(MOV_PREFIX) + get_magnitude(mov))
 		{
-			put_str_to_img(MOV_PREFIX, pos, game, RED);
+			put_str_to_img(MOV_PREFIX, pos, game, 0x002ba295);
 			pos.x = ft_strlen(MOV_PREFIX) * SPR_DIM;
 		}
-		put_nbr_to_img(mov, pos, game, BLUE);
+		put_nbr_to_img(mov, pos, game, 0x00d45d6a);
 		*last = mov;
 	}
 	return (size.x);
@@ -71,19 +66,17 @@ void	print_coin_count(t_game *game, int movsize, int coins, int *last)
 	size.y = 1;
 	pos.x = SPR_DIM * (game->map->size.x - size.x + 1);
 	pos.y = 0;
-	if (movsize != game->last_movesize) {
-		//printf("\nRefreshing a %d by %d rectangle at x = %d\n\n", size.x - 1, size.y, pos.x/SPR_DIM); //----------
+	if (movsize != game->last_movesize)
 		refresh_area(game, pos, size.x - 1, size.y);
-	}
 	if (game->map->size.x >= movsize + size.x && (coins != *last
 			|| game->player->pos.y < CNT_COL || game->last_cpos.y < CNT_COL
 			|| game->player->pro_pos.y < CNT_COL))
 	{
 		size.x--;
 		refresh_area(game, pos, size.x, size.y);
-		put_nbr_to_img(coins, pos, game, 0x00FFD700);
+		put_nbr_to_img(coins, pos, game, 0x006db93f);
 		pos.x += SPR_DIM * (size.x - 1);
-		put_str_to_img("$", pos, game, 0x00FFD700);
+		put_str_to_img("$", pos, game, 0x006db93f);
 		*last = coins;
 	}
 }

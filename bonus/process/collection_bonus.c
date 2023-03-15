@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 19:33:28 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:12:40 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:49:27 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	update_coins(t_map *map)
 		map->coin_speed--;
 }
 
-void	collect_coin(t_map *map, t_game *game, t_vector pos, int coin)
+void	collect_coin(t_map *map, t_vector pos, int coin)
 {
 	t_vector	map_pos;
 	t_vector	diff;
@@ -71,5 +71,4 @@ void	collect_coin(t_map *map, t_game *game, t_vector pos, int coin)
 	map_pos.y = (pos.y + diff.y) / SPR_DIM;
 	map->map[map_pos.y][map_pos.x] = EMPTY;
 	map->nbcoins++;
-	game->player->coin_anim_len = PLAYER_COIN_ANIM_LEN;
 }

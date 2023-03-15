@@ -6,12 +6,11 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:47:55 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:03:14 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/15 04:19:45 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
-#include <stdio.h>//--------------------------------------
 
 static void	put_pixel_to_img_help(t_img *img, t_vector pos, int color)
 {

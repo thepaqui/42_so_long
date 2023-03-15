@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:53:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/10 20:44:50 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/15 04:50:27 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ void	ending_sequence(t_game *game)
 	int	blue;
 	int	green;
 
+	if (game->player->state != PCHEER)
+	{
+		player_anim_end(game, game->player);
+		return ;
+	}
 	red = get_red(game->end_color);
 	blue = get_blue(game->end_color);
 	green = get_green(game->end_color);
@@ -80,6 +85,7 @@ void	ending_sequence(t_game *game)
 		game->end_color = get_argb(0, newcol(red, '+'), 255, 0);
 	else if (red == 255 && green != 0)
 		game->end_color = get_argb(0, 255, newcol(green, '-'), 0);
+	player_anim_cheer(game, game->player);
 	print_end_message(game, game->end_color);
 }
 
