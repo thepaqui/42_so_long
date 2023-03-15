@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 15th 2023, at 06:05.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 15th 2023, at 18:46.
 
 ## Presentation 👾
 
@@ -78,8 +78,9 @@ Finish player cheer animation.
 ✅ TURN CANVAS TEXTURE INTO A SPRITESHEET  
 ✅ USE BLACK BOARD SPRITE FROM SMW2:YI FOR ENDING IN BONUS  
 ✅ USE CANVAS SPRITESHEET FOR ENDING  
+✅ MAKE ENEMIES TEXTURES  
 ⏳ IMPLEMENT PLAYER ANIMATIONS  
-⏳ MAKE ENEMIES TEXTURES  
+❌ MAKE NEW BASIC PLAYER SPRITESHEET  
 ❌ MAKE PLAYER SPRITESHEET COMPATIBLE WITH BOTH BONUS AND NON BONUS GAME  
 ❌ MAKE ENEMIES MOVEMENT  
 ❌ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
