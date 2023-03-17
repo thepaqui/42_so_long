@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/03/15 05:52:21 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/03/17 01:19:20 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,6 +110,7 @@ SRCS_B= bonus/utils/text_bonus.c \
 		bonus/process/collisions_edges_bonus.c \
 		bonus/process/projectile_bonus.c \
 		bonus/process/projectile_collisions_bonus.c \
+		bonus/process/enemy_bonus.c \
 		bonus/process/player_bonus.c \
 		bonus/process/player_anim_bonus.c \
 		bonus/process/player_end_anim_bonus.c \

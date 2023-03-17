@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:23 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/15 05:38:15 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/17 00:05:25 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,21 @@ static t_map	*free_map(t_map *map)
 	return (NULL);
 }
 
+t_enemy	*free_enemies(t_enemy *enemies)
+{
+	t_enemy	*t;
+
+	while (enemies->next)
+		enemies = enemies->next;
+	while (enemies)
+	{
+		t = enemies->prev;
+		free(enemies);
+		enemies = t;
+	}
+	return (NULL);
+}
+
 t_game	*free_game(t_game *game)
 {
 	if (!game)
@@ -76,6 +91,8 @@ t_game	*free_game(t_game *game)
 		free_player(game->player);
 	if (game->map)
 		free_map(game->map);
+	if (game->enemies)
+		free_enemies(game->enemies);
 	if (game->font)
 		free_xpm(game->font);
 	if (game->cursor)

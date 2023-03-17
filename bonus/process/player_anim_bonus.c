@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:33:55 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/14 23:57:51 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/17 19:18:06 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	player_anim_throw_help(t_player *player, int left, int right)
 {
-	if (player->anim_len <= 0)
+	if (player->anim_len <= 0 || player->anim_len > PA_THROW_LEN)
 		player->anim_len = PA_THROW_LEN;
 	if (player->last_key == KEY_A)
 	{
@@ -70,16 +70,57 @@ void	player_anim_move_help(t_player *p, int ls, int le, int rs, int re)
 	p->anim_len--;
 }
 
+void	player_anim_ground_idle(t_player *p, int ls, int le, int rs, int re)
+{
+	if (p->last_key == KEY_A)
+	{
+		if (p->sprite->cur_spr < ls || p->sprite->cur_spr > le)
+		{
+			p->sprite->cur_spr = ls;
+			p->anim_len = PA_GI_CD;
+		}
+		else if (!p->anim_len && !p->anim_state)
+			p->sprite->cur_spr++;
+		else if (!p->anim_len && p->anim_state)
+			p->sprite->cur_spr--;
+		if (p->sprite->cur_spr == le)
+			p->anim_state = 1;
+		else if (p->sprite->cur_spr == ls)
+			p->anim_state = 0;
+	}
+	else if (p->last_key == KEY_D)
+	{
+		if (p->sprite->cur_spr < rs || p->sprite->cur_spr > re)
+		{
+			p->sprite->cur_spr = rs;
+			p->anim_len = PA_GI_CD;
+		}
+		else if (!p->anim_len && !p->anim_state)
+			p->sprite->cur_spr++;
+		else if (!p->anim_len && p->anim_state)
+			p->sprite->cur_spr--;
+		if (p->sprite->cur_spr == re)
+			p->anim_state = 1;
+		else if (p->sprite->cur_spr == rs)
+			p->anim_state = 0;
+	}
+	p->anim_len--;
+}
+
 void	player_anim_move(t_player *player)
 {
 	if (player->grounded && (player->state == PIDLE
 		|| (player->down == 1 && !player->left && !player->right)))
 	{
-		player->anim_len = 0;
-		if (player->last_key == KEY_A)
-			player->sprite->cur_spr = PA_GIL;
-		else if (player->last_key == KEY_D)
-			player->sprite->cur_spr = PA_GIR;
+		if (player->sprite->cur_spr != PA_GIL_S && player->sprite->cur_spr != PA_GIR_S
+			&& player->sprite->cur_spr != PA_GIL_E && player->sprite->cur_spr != PA_GIR_E
+			&& (player->anim_len < 0 || player->anim_len > PA_GI_LEN))
+			player->anim_len = PA_GI_LEN;
+		else if ((player->sprite->cur_spr == PA_GIL_S || player->sprite->cur_spr == PA_GIR_S
+				|| player->sprite->cur_spr == PA_GIL_E || player->sprite->cur_spr == PA_GIR_E)
+			&& (player->anim_len < 0 || player->anim_len > PA_GI_CD))
+			player->anim_len = PA_GI_CD;
+		player_anim_ground_idle(player, PA_GIL_S, PA_GIL_E, PA_GIR_S, PA_GIR_E);
 	}
 	else if (player->grounded)
 	{

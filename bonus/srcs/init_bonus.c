@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/15 05:37:59 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:45:03 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,39 @@ static t_map	*map_init(int *err, char *fmap, char *fcoin, char *fbg)
 	return (map);
 }
 
+t_enemy	*enemy_init(int nb, void *n, int i)
+{
+	t_enemy	*enemy;
+
+	enemy = ft_calloc(1, sizeof(t_enemy));
+	if (!enemy)
+		return (NULL);
+	enemy->prev = n;
+	if (i < nb)
+	{
+		enemy->next = enemy_init(nb, enemy, i + 1);
+		if (!enemy->next)
+			return (free_enemies(enemy));
+	}
+	else
+		enemy->next = NULL;
+	return (enemy);
+}
+
+static t_enemy	*enemy_init_help(t_game *game, int *err)
+{
+	t_enemy	*enemy;
+
+	game->nbenemies = get_enemy_number(game->map->size);
+	enemy = enemy_init(game->nbenemies, NULL, 1);
+	if (!enemy)
+	{
+		*err = MALLOCFAIL;
+		return (NULL);
+	}
+	return (enemy);
+}
+
 t_game	*game_init(int *err)
 {
 	t_game	*game;
@@ -105,6 +138,9 @@ t_game	*game_init(int *err)
 	game->player = player_init(err, PLAYER_SPRITE, PRO_SPRITE);
 	if (!game->player)
 		error_handling(*err, game, "Player structure");
+	game->enemies = enemy_init_help(game, err);
+	if (!game->enemies)
+		error_handling(*err, game, "Enemies structure");
 	game->font = parse_xpm(FONT, err);
 	if (!game->font)
 		error_handling(*err, game, FONT);

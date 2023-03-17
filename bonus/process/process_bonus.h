@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/15 05:55:07 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:15:30 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	get_player_to_cursor_dir(t_game *game, t_player *player);
 void	throw(t_game *game);
 void	bounce(t_game *game, t_vector pos);
 void	destroy_projectile(t_game *game, t_vector pos);
+int		get_enemy_number(t_vector mapsize);
 void	update_player(t_game *game, t_player *player);
 void	update_map(t_map *map, t_game *game);
 void	collect_coin(t_map *map, t_vector pos, int coin);
@@ -43,7 +44,7 @@ void	ft_end(t_game *game, int color);
 void	stop_sequence(t_game *game);
 
 /* --- END --- */
-# define END_MSG_XL "T'AURAIS PAS 5 EUROS STP ?"
+# define END_MSG_XL "NINTENDO PLEASE DON'T SEND YOUR LAWYERS..."
 # define END_MSG_L "CONGRATULATIONS!"
 # define END_MSG_M "BRAVO!"
 # define END_MSG_S "WOW"
@@ -152,10 +153,19 @@ void	player_anim_cheer(t_game *game, t_player *player);
 // Should be more than 0
 # define PA_FLY_LEN 7
 
-// Sprite of the grounded left idle animation
-# define PA_GIL 12
-// Sprite of the grounded right idle animation
-# define PA_GIR 25
+// Starting sprite of the grounded left idle animation
+# define PA_GIL_S 84
+// Ending sprite of the grounded left idle animation
+# define PA_GIL_E 88
+// Starting sprite of the grounded right idle animation
+# define PA_GIR_S 91
+// Ending sprite of the grounded right idle animation
+# define PA_GIR_E 95
+// Number of frames each frame of the grounded idle animation plays for
+// Should be more than 0
+# define PA_GI_LEN 5
+// Cooldown (in frames) between each play of the grounded idle animation
+# define PA_GI_CD 100
 // Starting sprite of the left walking animation
 # define PA_GL_S 10
 // Ending sprite of the left walking animation
@@ -187,7 +197,7 @@ void	player_anim_cheer(t_game *game, t_player *player);
 # define PA_CHEER_E 77
 // Number of frames each frame of the cheering animation plays for
 // Should be more than 0
-# define PA_CHEER_LEN 6
+# define PA_CHEER_LEN 5
 
 /* --- COLOR --- */
 int		get_argb(int a, int r, int g, int b);

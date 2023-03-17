@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:45:30 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/14 15:56:14 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:24:00 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	print_coin_count(t_game *game, int movsize, int coins, int *last)
 	if (movsize != game->last_movesize)
 		refresh_area(game, pos, size.x - 1, size.y);
 	if (game->map->size.x >= movsize + size.x && (coins != *last
-			|| game->player->pos.y < CNT_COL || game->last_cpos.y < CNT_COL
-			|| game->player->pro_pos.y < CNT_COL))
+			|| game->player->pos.y < CNT_COL || movsize != game->last_movesize
+			|| game->player->pro_pos.y < CNT_COL || game->last_cpos.y < CNT_COL))
 	{
 		size.x--;
 		refresh_area(game, pos, size.x, size.y);

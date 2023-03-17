@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 23:26:31 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/15 05:59:57 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:09:23 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static void	player_anim_cheer_help(t_player *p, int s, int e)
 void	player_anim_cheer(t_game *game, t_player *player)
 {
 	player->pos.y -= SPR_DIM;
-	draw_canvas_part(game, player->pos, 1, 2);
+	draw_canvas_part(game, player->pos, 2, 3);
 	player->pos.y += SPR_DIM;
 	if (player->anim_len < 0)
 		player->anim_len = PA_CHEER_LEN;

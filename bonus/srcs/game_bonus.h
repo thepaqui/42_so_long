@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/15 06:03:28 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/17 19:05:57 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,28 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
+# define ENEMY_G_SPRITE "./textures/bonus/enemy_ground.xpm"
+# define ENEMY_FH_SPRITE "./textures/bonus/enemy_fly_h.xpm"
+# define ENEMY_FV_SPRITE "./textures/bonus/enemy_fly_v.xpm"
+
+typedef struct s_enemy
+{
+	int				type;
+	int				alive;
+	t_vector		pos;
+	int				speed;
+	int				anim_len;
+	struct s_enemy	*prev;
+	struct s_enemy	*next;
+}				t_enemy;
+
+// Enemy density = 100 means there will be 1 enemy for every 100 tiles on the map
+// In short, higher density means less enemies (weird i know)
+# define ENEMY_DENSITY 100
+# define GROUND 1
+# define FLY_H 2
+# define FLY_V 3
+
 # define PLAYER_SPRITE "./textures/bonus/player.xpm"
 # define PRO_SPRITE "./textures/bonus/projectile.xpm"
 
@@ -66,6 +88,7 @@ typedef struct s_player
 	int			grounded;
 	t_xpm		*sprite;
 	int			anim_len;
+	int			anim_state;
 	int			throw;
 	t_xpm		*pro;
 	t_dblvector	pro_pos;
@@ -159,6 +182,11 @@ typedef struct s_game
 	t_img		*image;
 	t_player	*player;
 	t_map		*map;
+	int			nbenemies;
+	t_enemy		*enemies;
+	t_xpm		*spr_eg;
+	t_xpm		*spr_efh;
+	t_xpm		*spr_efv;
 	t_xpm		*cursor;
 	t_vector	last_cpos;
 	t_vector	curs_pos;
