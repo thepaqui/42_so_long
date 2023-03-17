@@ -3,6 +3,7 @@ static char *_a8160beb1fe42bab46c231f2dc833e1Whz3nlWPZXG9VEzv[] = {
 /* columns rows colors chars-per-pixel */
 "192 64 9 1 ",
 "  c None",
+"$ c white",
 ". c #FF0404",
 "X c #FF0071",
 "o c #FF48C6",
@@ -10,7 +11,6 @@ static char *_a8160beb1fe42bab46c231f2dc833e1Whz3nlWPZXG9VEzv[] = {
 "+ c #00C5FF",
 "@ c #04D7FF",
 "# c #C982FF",
-"$ c white",
 /* pixels */
 "                                                                                                                                                                                                ",
 "                                                                                                                                                                                                ",
