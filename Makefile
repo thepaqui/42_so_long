@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/03/17 01:19:20 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/03/18 20:45:47 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,6 +124,8 @@ SRCS_B= bonus/utils/text_bonus.c \
 		bonus/process/image_bonus.c \
 		bonus/process/key_handling_bonus.c \
 		bonus/srcs/init_bonus.c \
+		bonus/srcs/init_enemies_bonus.c \
+		bonus/srcs/init_enemies_pos_bonus.c \
 		bonus/srcs/main_bonus.c
 
 OBJS_M= $(SRCS_M:.c=.o)
