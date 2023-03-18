@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:31:28 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:07:11 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:14:16 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CHECK_BONUS_H
 # include "../utils/utils_bonus.h"
 # include "../srcs/game_bonus.h"
+# include "../srcs/sprites_bonus.h"
 
 int		is_file_type(char *path, char *ext);
 void	check_input(int ac, char **av, int *err);

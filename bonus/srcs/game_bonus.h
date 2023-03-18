@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/17 19:05:57 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/18 19:58:30 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ typedef struct t_dblvector
 	double	x;
 	double	y;
 }				t_dblvector;
-
-// Dimensions of game's textures
-# define SPR_DIM 32
-// Dimensions of detection box for counter refresh (keep bigger than SPR_DIM)
-# define CNT_COL 64
 
 typedef struct s_xpm
 {
@@ -50,10 +45,6 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
-# define ENEMY_G_SPRITE "./textures/bonus/enemy_ground.xpm"
-# define ENEMY_FH_SPRITE "./textures/bonus/enemy_fly_h.xpm"
-# define ENEMY_FV_SPRITE "./textures/bonus/enemy_fly_v.xpm"
-
 typedef struct s_enemy
 {
 	int				type;
@@ -65,15 +56,19 @@ typedef struct s_enemy
 	struct s_enemy	*next;
 }				t_enemy;
 
-// Enemy density = 100 means there will be 1 enemy for every 100 tiles on the map
+// Enemy density = 100 means there will be 1 enemy for every 100 FLOOR tiles
 // In short, higher density means less enemies (weird i know)
-# define ENEMY_DENSITY 100
-# define GROUND 1
-# define FLY_H 2
-# define FLY_V 3
-
-# define PLAYER_SPRITE "./textures/bonus/player.xpm"
-# define PRO_SPRITE "./textures/bonus/projectile.xpm"
+# define ENEMY_DENSITY 80
+# define E_DEAD 0
+# define E_GROUND 1
+# define E_FLY_H 2
+# define E_FLY_V 3
+// Enemy speed for each enemy type (in pixels)
+# define EG_SPEED 3
+# define EFH_SPEED 5
+# define EFV_SPEED 6
+// Size of square enemy hitbox
+# define ENEMY_HITBOX 16
 
 typedef struct s_player
 {
@@ -121,8 +116,6 @@ typedef struct s_player
 /* --- PROJECTILE --- */
 // Projectile speed (in pixels) (should be kept lower than 10)
 # define PRO_SPEED 5
-// Number of frames between each projectile animation frame
-# define PRO_ANIM_LEN 3
 // Max number of projectiles on screen (anything other than 1 or 0 will bug)
 # define PRO_LIMIT 1
 // Size of square projectile hitbox
@@ -135,10 +128,6 @@ typedef struct s_player
 # define PRO_BOUNCE_BREAK 1
 // Defines how many bounces it takes to break a projectile
 # define PRO_BOUNCE_LIMIT 15
-// Defines how many frames the breaking animation will play for (/4)
-// So if you input 2, the break animation will play for 8 frames
-// Do not input negative numbers here
-# define PRO_BREAK_ANIM_LEN 3
 
 typedef struct s_map
 {
@@ -146,6 +135,7 @@ typedef struct s_map
 	t_xpm		*sprite;
 	t_xpm		*bg;
 	t_vector	size;
+	int			floorsize;
 	t_vector	start;
 	t_vector	exit;
 	int			nbcoins;
@@ -156,15 +146,6 @@ typedef struct s_map
 	int			coin_speed;
 	int			ft;
 }				t_map;
-
-/* --- MAP --- */
-# define MAP_SPRITE "./textures/bonus/map.xpm"
-# define BG_SPRITE "./textures/bonus/bg.xpm"
-# define COIN_SPRITE "./textures/bonus/coin.xpm"
-// Number of frames between each animation frame of the coins
-# define COIN_SPEED 6
-// Threshold over which coins stop being animated (for performance)
-# define MAXCOINS 60
 
 /* --- MAP OBJECTS --- */
 # define EMPTY '0'
@@ -201,10 +182,6 @@ typedef struct s_game
 	int			stop_frame;
 	int			state;
 }				t_game;
-
-# define FONT "./textures/bonus/font.xpm"
-# define CURSOR "./textures/bonus/cursor.xpm"
-# define CANVAS "./textures/bonus/end_bg.xpm"
 
 // Name of the game window
 # define WINNAME "thepaqui's amazingly wasteful so_long"

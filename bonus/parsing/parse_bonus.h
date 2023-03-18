@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:24:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:07:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:14:06 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../utils/utils_bonus.h"
 # include "../checking/check_bonus.h"
 # include "../srcs/game_bonus.h"
+# include "../srcs/sprites_bonus.h"
 
 /* MAP */
 void	get_map(char *file, t_game *game);

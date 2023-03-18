@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/15 05:55:19 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:50:29 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	launch_game(t_game *game)
 	game->mlx = mlx_init();
 	game->win_size.x = game->map->size.x * SPR_DIM;
 	game->win_size.y = game->map->size.y * SPR_DIM;
-	//printf("Window is %d wide and %d high\n", game->win_size.x, game->win_size.y); //---------------
+	//printf("Window is %d pixels wide and %d pixels high\n", game->win_size.x, game->win_size.y); //---------------
 	open_window(game);
 	t = game->image;
 	t->img = mlx_new_image(game->mlx, game->win_size.x, game->win_size.y);

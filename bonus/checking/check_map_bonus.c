@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:30:40 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/16 23:41:14 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:54:58 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ static void	clean_map(char **map)
 static void	obj_counter(int i, int j, int *io, t_map *map)
 {
 	if (map->map[i][j] == 'C')
+	{
 		map->totalcoins++;
+		map->floorsize++;
+	}
 	else if (map->map[i][j] == 'P')
 	{
 		io[0]++;
@@ -46,6 +49,8 @@ static void	obj_counter(int i, int j, int *io, t_map *map)
 		map->exit.x = j;
 		map->exit.y = i;
 	}
+	else if (map->map[i][j] == '0')
+		map->floorsize++;
 }
 
 static int	obj_check(int start, int end, int collect)

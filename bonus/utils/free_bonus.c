@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:23 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/17 00:05:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:17:34 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,12 @@ t_game	*free_game(t_game *game)
 		free_xpm(game->cursor);
 	if (game->canvas)
 		free_xpm(game->canvas);
+	if (game->spr_eg)
+		free_xpm(game->spr_eg);
+	if (game->spr_efh)
+		free_xpm(game->spr_efh);
+	if (game->spr_efv)
+		free_xpm(game->spr_efv);
 	free(game);
 	game = NULL;
 	return (NULL);

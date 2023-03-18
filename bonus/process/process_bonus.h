@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/17 20:15:30 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:05:44 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "../parsing/parse_bonus.h"
 
 /* GAME */
+int		get_manhattan_dist(t_vector pos1, t_vector pos2);
 char	get_obj_from_pos(t_vector pos, t_map *map);
 int		touch_obj(t_vector pos, t_map *map, char obj, int hitbox_size);
 int		touch_obj_l(t_vector pos, t_map *map, char obj, int hitbox_size);
@@ -32,7 +33,6 @@ void	get_player_to_cursor_dir(t_game *game, t_player *player);
 void	throw(t_game *game);
 void	bounce(t_game *game, t_vector pos);
 void	destroy_projectile(t_game *game, t_vector pos);
-int		get_enemy_number(t_vector mapsize);
 void	update_player(t_game *game, t_player *player);
 void	update_map(t_map *map, t_game *game);
 void	collect_coin(t_map *map, t_vector pos, int coin);
@@ -48,8 +48,6 @@ void	stop_sequence(t_game *game);
 # define END_MSG_L "CONGRATULATIONS!"
 # define END_MSG_M "BRAVO!"
 # define END_MSG_S "WOW"
-// Speed of the rainbow text effect (higher = faster)
-# define RAINBOWSPEED 10
 
 /* --- STOP --- */
 # define STOP_MSG_FT "DON'T PANIC"
@@ -131,73 +129,6 @@ void	draw_canvas_part(t_game *game, t_vector opos, int width, int height);
 
 // Text that goes before the move counter
 # define MOV_PREFIX "MOVES "
-
-/* --- PLAYER ANIMATIONS --- */
-void	player_anim_move(t_player *player);
-void	player_anim_move_help(t_player *p, int ls, int le, int rs, int re);
-void	player_anim_throw(t_player *player);
-void	player_anim_end_init(t_game *game, t_player *player);
-void	player_anim_end(t_game *game, t_player *player);
-void	player_anim_cheer(t_game *game, t_player *player);
-
-/* --- PLAYER ANIMATIONS --- */
-// Starting sprite of the flying left animation
-# define PA_FL_S 0
-// Ending sprite of the flying left animation
-# define PA_FL_E 1
-// Starting sprite of the flying right animation
-# define PA_FR_S 5
-// Ending sprite of the flying right animation
-# define PA_FR_E 6
-// Number of frames each frame of the flying animation plays for
-// Should be more than 0
-# define PA_FLY_LEN 7
-
-// Starting sprite of the grounded left idle animation
-# define PA_GIL_S 84
-// Ending sprite of the grounded left idle animation
-# define PA_GIL_E 88
-// Starting sprite of the grounded right idle animation
-# define PA_GIR_S 91
-// Ending sprite of the grounded right idle animation
-# define PA_GIR_E 95
-// Number of frames each frame of the grounded idle animation plays for
-// Should be more than 0
-# define PA_GI_LEN 5
-// Cooldown (in frames) between each play of the grounded idle animation
-# define PA_GI_CD 100
-// Starting sprite of the left walking animation
-# define PA_GL_S 10
-// Ending sprite of the left walking animation
-# define PA_GL_E 19
-// Starting sprite of the right walking animation
-# define PA_GR_S 23
-// Ending sprite of the right walking animation
-# define PA_GR_E 32
-// Number of frames each frame of the grounded animation plays for
-// Should be more than 0
-# define PA_GROUND_LEN 4
-
-// The 4 throwing animations all have 3 frames of animation
-// Starting sprite of the flying left throwing animation
-# define PA_THROW_FL 2
-// Starting sprite of the flying right throwing animation
-# define PA_THROW_FR 7
-// Starting sprite of the grounded left throwing animation
-# define PA_THROW_GL 20
-// Starting sprite of the grounded right throwing animation
-# define PA_THROW_GR 33
-// Number of frames the throwing animation plays for
-// Should be more than 10
-# define PA_THROW_LEN 20
-
-// Starting sprite of the cheering animation
-# define PA_CHEER_S 55
-// Ending sprite of the cheering animation
-# define PA_CHEER_E 77
-// Number of frames each frame of the cheering animation plays for
-// Should be more than 0
-# define PA_CHEER_LEN 5
 
 /* --- COLOR --- */
 int		get_argb(int a, int r, int g, int b);
