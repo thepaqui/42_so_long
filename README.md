@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 17th 2023, at 19:37.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 18th 2023, at 20:50.
 
 ## Presentation 👾
 
@@ -60,7 +60,7 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 
 ## To-do list 🗒️ 
 
-Make basic enemy code.  
+Make enemy movements and display.  
 
 ✅ MAKE COINS COLLECTABLE WITH PROJECTILES  
 ✅ MAKE TEXTURE PACK SYSTEM WITH BASIC REUSABLE NAMES  
@@ -80,11 +80,13 @@ Make basic enemy code.
 ✅ USE CANVAS SPRITESHEET FOR ENDING  
 ✅ MAKE ENEMIES TEXTURES  
 ✅ MAKE PLAYER GROUNDED IDLE ANIMATION  
-⏳ IMPLEMENT BASIC ENEMIES CODE  
-⏳ IMPLEMENT PLAYER ANIMATIONS  
+✅ IMPLEMENT BASIC ENEMIES CODE  
+⏳ MAKE ENEMIES DISPLAY  
+⏳ MAKE ENEMIES MOVEMENT  
+⏳ MAKE ENEMIES ANIMATIONS  
+⏳ IMPLEMENT ALL PLAYER ANIMATIONS  
 ❌ MAKE NEW BASIC PLAYER SPRITESHEET  
 ❌ MAKE PLAYER SPRITESHEET COMPATIBLE WITH BOTH BONUS AND NON BONUS GAME  
-❌ MAKE ENEMIES MOVEMENT  
 ❌ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
 ❌ MAKE ENEMIES KILLABLE WITH PROJECTILES  
 ❌ ADD MUSIC AND SOUND EFFECTS  
