@@ -17,6 +17,20 @@ I already have a good idea of what I'll be doing, I want to make a *Yoshi's Isla
 I'll first make the mandatory part to become familiar with the **MLX**, and then I'll move on to the serious stuff.  
 Wish me luck as I embark on this journey!
 
+## Legal disclaimer 🔨
+
+All sprites in the basic texture pack were created by myself with *Aseprite*.  
+All sprites in the bonus texture pack were ripped from the original *Super Mario World 2: Yoshi's Island* game on SNES and uploaded to *[The Spriters Resource]* by various rippers. I then edited them myself to be usable in my game with *Aseprite*.  
+  
+*Super Mario World 2: Yoshi's Island* and all of its assets belong to Nintendo.  
+I am using these assets in a learning project for 42 Nice and in no way do I plan on releasing this game comercially, even as a free game.  
+This repository only exists to privately share my project to friends, family and fellow 42 Network students.  
+If the content of this repository infringes on your or your company's rights, please contact me through [my email address].  
+Please note that the 42 Nice project *so_long* does not explicitly ask to reuse other video game's assets. Their use was a decision on my part.  
+
+[The Spriters Resource]: https://www.spriters-resource.com/snes/yoshiisland/
+[my email address]: theopaquier2@gmail.com
+
 ## How to use ❓
 
 ### General advice 🧰
@@ -55,10 +69,6 @@ If you're doing this to the bonuses, also add:
 Then, you'll just have to change the macros to use your folder's name instead of *basic* or *bonus*.  
 
 If you're unsure of how to do this, check out the two included texture packs (`textures/basic` and `textures/bonus`).  
-All sprites in the basic pack were created by myself with *Aseprite*.  
-All sprites in the bonus pack were ripped from the original *Yoshi's Island* on SNES and uploaded to *[The Spriters Resource]* by various rippers. I then edited them myself to be usable with my game with *Aseprite*.  
-  
-[The Spriters Resource]: https://www.spriters-resource.com/snes/yoshiisland/
 
 ## To-do list 🗒️ 
 
