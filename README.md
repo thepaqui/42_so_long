@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 21st 2023, at 15:15.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 21st 2023, at 17:09.
 
 ## Presentation 👾
 
@@ -44,8 +44,10 @@ In it, you'll need spritesheets with these names:
 - `font.xpm`.  
 
 If you're doing this to the bonuses, also add:
+- `player_bonus.xpm`,
 - `cursor.xpm`,
 - `projectile.xpm`,
+- `canvas.xpm`,
 - `enemy_fly_h.xpm`,
 - `enemy_fly_v.xpm`,
 - `enemy_ground.xpm`.  
@@ -60,7 +62,7 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 
 ## To-do list 🗒️ 
 
-Make game over collision and animation.
+Make game over animation.
 
 ✅ MAKE BASIC AND BONUS BACKGROUND TEXTURES  
 ✅ IMPLEMENT BACKGROUND TEXTURE TILING  
@@ -80,13 +82,17 @@ Make game over collision and animation.
 ✅ MAKE ENEMIES DISPLAY  
 ✅ MAKE ENEMIES MOVEMENT  
 ✅ MAKE ENEMIES KILLABLE WITH PROJECTILES  
-⏳ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
+✅ CLEAN UP ENEMY LIST WHEN SOME ARE KILLED  
+✅ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
+⏳ IMPLEMENT GAME OVER SEQUENCE  
 ⏳ IMPLEMENT ALL PLAYER ANIMATIONS  
-⏳ MAKE ENEMIES ANIMATIONS  
 ❌ TEST GAME OVER WITH FUCKTON OF ENEMIES  
+❌ MAKE ENEMIES ANIMATIONS  
 ❌ MAKE BETTER RANDOMNESS FOR ENEMY SPAWNING  
-❌ MAKE NEW BASIC PLAYER SPRITESHEET  
-❌ MAKE PLAYER SPRITESHEET COMPATIBLE WITH BOTH BONUS AND NON BONUS GAME  
+❌ SEPARATE PLAYER SPRITESHEETS IN `player.xpm` and `player_bonus.xpm`  
+❌ MAKE BASIC `player_bonus.xpm` SPRITESHEET  
+❌ MAKE BONUS `player.xpm` SPRITESHEET  
 ❌ ADD MUSIC AND SOUND EFFECTS  
-❌ TEST ALL MAPS WITH NON-BONUS VERSION (COIN AND MOVE COUNTER ESPECIALLY)  
+❌ TEST ALL MAPS WITH MANDATORY VERSION  
+❌ TEST ALL MAPS WITH BONUS VERSION  
 ❌ MEGA NORM CLEANUP  
