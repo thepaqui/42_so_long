@@ -62,7 +62,7 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 
 ## To-do list 🗒️ 
 
-Make game over animation.
+Make game over animation and test it.
 
 ✅ MAKE BASIC AND BONUS BACKGROUND TEXTURES  
 ✅ IMPLEMENT BACKGROUND TEXTURE TILING  
