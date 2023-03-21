@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 19th 2023, at 23:11.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 21st 2023, at 15:15.
 
 ## Presentation 👾
 
@@ -60,7 +60,7 @@ All sprites in the bonus pack were ripped from the original *Yoshi's Island* on 
 
 ## To-do list 🗒️ 
 
-Properly clean up enemies linked list of dead enemies.  
+Make game over collision and animation.
 
 ✅ MAKE BASIC AND BONUS BACKGROUND TEXTURES  
 ✅ IMPLEMENT BACKGROUND TEXTURE TILING  
@@ -80,12 +80,13 @@ Properly clean up enemies linked list of dead enemies.
 ✅ MAKE ENEMIES DISPLAY  
 ✅ MAKE ENEMIES MOVEMENT  
 ✅ MAKE ENEMIES KILLABLE WITH PROJECTILES  
-⏳ MAKE ENEMIES ANIMATIONS  
+⏳ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
 ⏳ IMPLEMENT ALL PLAYER ANIMATIONS  
+⏳ MAKE ENEMIES ANIMATIONS  
+❌ TEST GAME OVER WITH FUCKTON OF ENEMIES  
 ❌ MAKE BETTER RANDOMNESS FOR ENEMY SPAWNING  
 ❌ MAKE NEW BASIC PLAYER SPRITESHEET  
 ❌ MAKE PLAYER SPRITESHEET COMPATIBLE WITH BOTH BONUS AND NON BONUS GAME  
-❌ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
 ❌ ADD MUSIC AND SOUND EFFECTS  
 ❌ TEST ALL MAPS WITH NON-BONUS VERSION (COIN AND MOVE COUNTER ESPECIALLY)  
 ❌ MEGA NORM CLEANUP  
