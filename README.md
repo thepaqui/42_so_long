@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 21st 2023, at 17:09.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 21st 2023, at 19:46.
 
 ## Presentation 👾
 
@@ -82,7 +82,7 @@ Make game over animation and test it.
 ✅ MAKE ENEMIES KILLABLE WITH PROJECTILES  
 ✅ CLEAN UP ENEMY LIST WHEN SOME ARE KILLED  
 ✅ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
-⏳ IMPLEMENT GAME OVER SEQUENCE  
+✅ IMPLEMENT GAME OVER SEQUENCE  
 ⏳ IMPLEMENT ALL PLAYER ANIMATIONS  
 ❌ TEST GAME OVER WITH FUCKTON OF ENEMIES  
 ❌ MAKE ENEMIES ANIMATIONS  
