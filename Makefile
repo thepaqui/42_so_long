@@ -6,7 +6,7 @@
 #    By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:25:02 by thepaqui          #+#    #+#              #
-#    Updated: 2023/03/18 20:45:47 by thepaqui         ###   ########.fr        #
+#    Updated: 2023/03/22 21:58:14 by thepaqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,6 +97,7 @@ SRCS_B= bonus/utils/text_bonus.c \
 		bonus/checking/check_map_help_bonus.c \
 		bonus/checking/check_xpm_bonus.c \
 		bonus/process/end_bonus.c \
+		bonus/process/game_over_bonus.c \
 		bonus/process/canvas_bonus.c \
 		bonus/process/secret_bonus.c \
 		bonus/process/process_bonus.c \
@@ -111,9 +112,14 @@ SRCS_B= bonus/utils/text_bonus.c \
 		bonus/process/projectile_bonus.c \
 		bonus/process/projectile_collisions_bonus.c \
 		bonus/process/enemy_bonus.c \
+		bonus/process/enemy_collisions_bonus.c \
+		bonus/process/enemy_pos_bonus.c \
+		bonus/process/enemy_anim_bonus.c \
 		bonus/process/player_bonus.c \
 		bonus/process/player_anim_bonus.c \
-		bonus/process/player_end_anim_bonus.c \
+		bonus/process/player_anim_end_bonus.c \
+		bonus/process/player_anim_death_bonus.c \
+		bonus/process/player_anim_wake_bonus.c \
 		bonus/process/ui_bonus.c \
 		bonus/process/mouse_bonus.c \
 		bonus/process/text_bonus.c \
