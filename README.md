@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 21st 2023, at 19:46.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 22nd 2023, at 23:09.
 
 ## Presentation 👾
 
@@ -84,7 +84,7 @@ Make game over animation and test it.
 ✅ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
 ✅ IMPLEMENT GAME OVER SEQUENCE  
 ✅ IMPLEMENT ALL PLAYER ANIMATIONS  
-⏳ TEST GAME OVER WITH FUCKTON OF ENEMIES  
+✅ TEST GAME OVER WITH FUCKTON OF ENEMIES  
 ⏳ MAKE ENEMIES ANIMATIONS  
 ❌ MAKE BETTER RANDOMNESS FOR ENEMY SPAWNING  
 ❌ SEPARATE PLAYER SPRITESHEETS IN `player.xpm` and `player_bonus.xpm`  
