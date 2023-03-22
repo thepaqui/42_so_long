@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:37:30 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:13:50 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:32:27 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	prepare_new_frame(t_game *game)
 	*movsize = print_move_count(game, game->moves, &game->last_moves, coins);
 	print_coin_count(game, *movsize, coins, &game->map->last);
 	game->last_movesize = *movsize;
+	if (game->nbenemies)
+		draw_enemies(game, game->enemies);
 	draw_cursor(game);
 	put_t_xpm_to_img(game->player->sprite, game, game->player->pos);
 }

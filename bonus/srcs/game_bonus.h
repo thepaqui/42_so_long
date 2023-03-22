@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 19:58:30 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/22 22:26:25 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,25 +50,32 @@ typedef struct s_enemy
 	int				type;
 	int				alive;
 	t_vector		pos;
+	int				dist_to_player; // manhattan dist to only check death when in range of 2
+	int				dist_to_proj; // manhattan dist to only check destroy when in range of 2
 	int				speed;
+	int				turn;
+	int				dir;
 	int				anim_len;
+	int				cur_spr;
 	struct s_enemy	*prev;
 	struct s_enemy	*next;
 }				t_enemy;
 
 // Enemy density = 100 means there will be 1 enemy for every 100 FLOOR tiles
 // In short, higher density means less enemies (weird i know)
-# define ENEMY_DENSITY 80
+# define ENEMY_DENSITY 15
+// Defines maximum number of enemies
+# define ENEMY_MAX 50
 # define E_DEAD 0
 # define E_GROUND 1
 # define E_FLY_H 2
 # define E_FLY_V 3
 // Enemy speed for each enemy type (in pixels)
-# define EG_SPEED 3
-# define EFH_SPEED 5
-# define EFV_SPEED 6
-// Size of square enemy hitbox
-# define ENEMY_HITBOX 16
+# define EG_SPEED 1
+# define EFH_SPEED 2
+# define EFV_SPEED 2
+// Radius of circle enemy hitbox
+# define ENEMY_HITBOX 10
 
 typedef struct s_player
 {
@@ -84,6 +91,7 @@ typedef struct s_player
 	t_xpm		*sprite;
 	int			anim_len;
 	int			anim_state;
+	int			anim_loops;
 	int			throw;
 	t_xpm		*pro;
 	t_dblvector	pro_pos;
@@ -112,6 +120,9 @@ typedef struct s_player
 # define PWIN 5
 # define PCHEER 6
 # define PDEATH 7
+# define PSPIN 8
+# define PFAINT 9
+# define PWAKE 10
 
 /* --- PROJECTILE --- */
 // Projectile speed (in pixels) (should be kept lower than 10)
@@ -165,6 +176,7 @@ typedef struct s_game
 	t_map		*map;
 	int			nbenemies;
 	t_enemy		*enemies;
+	int			need_enemy_refresh;
 	t_xpm		*spr_eg;
 	t_xpm		*spr_efh;
 	t_xpm		*spr_efv;
@@ -184,7 +196,7 @@ typedef struct s_game
 }				t_game;
 
 // Name of the game window
-# define WINNAME "thepaqui's amazingly wasteful so_long"
+# define WINNAME "Super Mario World 42: Yoshi's Islong"
 
 /* --- GAME STATES --- */
 # define GAME_ERROR 0
@@ -192,5 +204,6 @@ typedef struct s_game
 # define GAME_RUN 2
 # define GAME_STOP 3
 # define GAME_WIN 4
+# define GAME_LOSE 5
 
 #endif

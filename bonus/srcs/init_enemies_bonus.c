@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 16:33:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 20:46:24 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/22 22:01:32 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static int	get_enemy_number(int floorsize)
 		res = 0;
 	else
 		res = floorsize / ENEMY_DENSITY;
+	if (res > ENEMY_MAX)
+		res = ENEMY_MAX;
 	//printf("There should be %d enemies on this map with %d floor tiles\n", res, floorsize); //---------
 	return (res);
 }
@@ -77,10 +79,11 @@ static void	enemy_init_pos(t_enemy *enemy, t_map *map)
 	while (enemy)
 	{
 		while (map->map[enemy->pos.y][enemy->pos.x] != '0'
-			|| get_manhattan_dist(enemy->pos, map->start) <= 2)
+			|| get_manhattan_dist(enemy->pos, map->start) <= 3)
 		{
 			enemy->pos.x = rand() % map->size.x;
 			enemy->pos.y = rand() % map->size.y;
+			//printf("Trying to create enemy at (%d,%d)\n", enemy->pos.x, enemy->pos.y); //-------
 		}
 		//printf("\n"); //-------
 		enemy->pos.x *= SPR_DIM;
@@ -91,19 +94,27 @@ static void	enemy_init_pos(t_enemy *enemy, t_map *map)
 
 static void	enemy_init_state(t_enemy *enemy, t_map *map)
 {
+	int	i;
+
 	while (enemy->prev)
 		enemy = enemy->prev;
+	i = 0;
 	while (enemy)
 	{
+		enemy->anim_len = -1;
 		enemy->alive = 1;
 		enemy->type = get_enemy_type(enemy->pos, map->map);
 		if (enemy->type == E_GROUND)
-			enemy->speed = EG_SPEED;
+			enemy->dir = LEFT+i;
 		else if (enemy->type == E_FLY_H)
-			enemy->speed = EFH_SPEED;
+			enemy->dir = LEFT+i;
 		else if (enemy->type == E_FLY_V)
-			enemy->speed = EFV_SPEED;
+			enemy->dir = TOP+i;
 		enemy = enemy->next;
+		if (!i)
+			i = 1;
+		else
+			i = 0;
 	}
 }
 

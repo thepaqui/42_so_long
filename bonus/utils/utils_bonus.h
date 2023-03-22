@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:47:33 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/17 17:42:57 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:02:30 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	*ft_calloc(size_t count, size_t size);
 char	**ft_free_tab(char **tab, int index);
 t_xpm	*free_xpm(t_xpm *xpm);
 t_enemy	*free_enemies(t_enemy *enemies);
+t_enemy	*clean_enemy_list(t_game *game, t_enemy *enemies);
 t_game	*free_game(t_game *game);
 
 /* STRINGS */

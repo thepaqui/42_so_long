@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 16:50:29 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:57:55 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ static void	debug(t_game *game, int silent)
 		"collecting a coin",
 		"throwing",
 		"finishing throwing",
-		"dying"
+		"winning",
+		"cheering",
+		"dying",
+		"spinning",
+		"fainting",
+		"waking up"
 		};
 	
 	if (silent)
@@ -50,9 +55,21 @@ static int	main_loop(t_game *game)
 		}
 		ending_sequence(game);
 	}
+	else if (game->state == GAME_LOSE)
+	{
+		if (!game->end_frame)
+		{
+			player_anim_death_init(game, game->player);
+			put_background_color_to_img(game, GAME_OVER_BG);
+			game->end_frame++;
+		}
+		game_over_sequence(game, game->player);
+	}
 	else
 	{
 		update_player(game, game->player);
+		if (game->nbenemies)
+			update_enemies(game, game->enemies);
 		update_cursor(game);
 		update_map(game->map, game);
 		if (game->map->totalcoins - game->map->nbcoins < MAXCOINS)

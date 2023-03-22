@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 18:05:44 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:43:17 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,37 @@ int		touch_obj_r(t_vector pos, t_map *map, char obj, int hitbox_size);
 int		touch_obj_t(t_vector pos, t_map *map, char obj, int hitbox_size);
 int		touch_obj_b(t_vector pos, t_map *map, char obj, int hitbox_size);
 void	snap_to_grid(t_vector *pos);
+
 void	get_cursor_pos(t_game *game);
 void	get_player_to_cursor_dir(t_game *game, t_player *player);
 void	throw(t_game *game);
 void	bounce(t_game *game, t_vector pos);
 void	destroy_projectile(t_game *game, t_vector pos);
 void	update_player(t_game *game, t_player *player);
+
+void	update_enemies(t_game *game, t_enemy *enemies);
+void	update_enemy_distances(t_player *player, t_enemy *enemy);
+int		check_enemy_collisions(t_game *game, t_player *player, t_enemy *enemy);
+void	update_enemy_speed(t_enemy *enemy);
+void	update_enemy_pos(t_enemy *enemy, t_map *map);
+void	destroy_enemy(t_game *game, t_enemy *enemy);
+
 void	update_map(t_map *map, t_game *game);
 void	collect_coin(t_map *map, t_vector pos, int coin);
 void	pro_collect_coin(t_map *map, t_vector pos, int coin);
 void	update_coins(t_map *map);
+
 void	launch_game(t_game *game);
 void	ending_sequence(t_game *game);
+void	game_over_sequence(t_game *game, t_player *p);
 void	ft_end(t_game *game, int color);
 void	stop_sequence(t_game *game);
+
+/* --- GAME OVER --- */
+# define DIE_MSG_XL "YOU'VE MET WITH A TERRIBLE FATE, HAVEN'T YOU?"
+# define DIE_MSG_L "YOUR GAME IS OVER..."
+# define DIE_MSG_M "GAME OVER"
+# define DIE_MSG_S "DED"
 
 /* --- END --- */
 # define END_MSG_XL "NINTENDO PLEASE DON'T SEND YOUR LAWYERS..."
@@ -118,6 +135,7 @@ void	draw_coins(t_game *game);
 void	update_cursor(t_game *game);
 void	update_projectile(t_game *game, t_player *player, t_map *map);
 void	draw_cursor(t_game *game);
+void	draw_enemies(t_game *game, t_enemy *enemies);
 void	put_char_to_img(char c, t_vector pos, t_game *game, int color);
 void	put_str_to_img(char *s, t_vector pos, t_game *game, int color);
 void	put_nbr_to_img(unsigned int n, t_vector pos, t_game *game, int color);

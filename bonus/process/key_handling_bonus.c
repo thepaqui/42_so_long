@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:44:50 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/15 06:01:06 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:14:03 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,18 @@ static void	key_move(int key, t_player *player)
 int	handle_key_press(int key, t_game *game)
 {
 	if (key == KEY_ESC)
-		game->state = GAME_STOP;
+	{
+		if (game->player->state == PFAINT)
+		{
+			game->player->state = PWAKE;
+			game->player->anim_state = PAS_STARTUP;
+			game->player->sprite->cur_spr = PA_WSU_S;
+			game->player->anim_len = PA_WSU_LEN;
+			put_background_color_to_img(game, WAKING_BG);
+		}
+		else if (game->player->state != PWAKE)
+			game->state = GAME_STOP;
+	}
 	else if (game->state != GAME_RUN)
 		return (0);
 	else if ((key >= KEY_A && key <= KEY_D) || key == KEY_W)
