@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:11:18 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:23:17 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,6 @@ static int	get_obj_spr(char **map, t_vector map_size, t_vector pos)
 	else
 		return (1);
 }
-
-/*static void	draw_all_background(t_game *game, t_map *map)
-{
-	t_vector	pos;
-
-	pos.y = 0;
-	while (pos.y < game->win_size.y)
-	{
-		pos.x = 0;
-		while (pos.x < game->win_size.x)
-		{
-			map->sprite->cur_spr = get_obj_spr(map->map, map->size, pos);
-			put_t_xpm_to_img(map->sprite, game, pos);
-			pos.x += SPR_DIM;
-		}
-		pos.y += SPR_DIM;
-	}
-}*/
 
 void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s)
 {
@@ -87,11 +69,8 @@ void	draw_map(t_game *game)
 		pos.x = 0;
 		pos.y = 0;
 		refresh_area(game, pos, game->win_size.x / SPR_DIM, game->win_size.y / SPR_DIM);
-		//draw_all_background(game, game->map);
 		game->state = GAME_RUN;
 	}
-	else if (game->player->state != PIDLE)
-		refresh_area(game, game->player->pos, 3, 3);
 	if (game->map->nbcoins == game->map->totalcoins)
 	{
 		game->map->sprite->cur_spr = 49;

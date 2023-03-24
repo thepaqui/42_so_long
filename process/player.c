@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:31:14 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 16:41:58 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:38:22 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,10 @@ static void	update_player_pos(t_player *player, t_map *map)
 		player->pos.x += player->speed;
 }
 
-static void	set_player_animations(t_player *player)
+static void	set_player_animations(t_game *game, t_player *player)
 {
+	//(void)game; //---------
+	refresh_area(game, player->pos, 3, 3);
 	if (player->state == PMOVE)
 	{
 		if (player->last_key == KEY_ARRUP)
@@ -79,7 +81,7 @@ static void	set_player_speed(t_player *player)
 
 void	update_player(t_game *game)
 {
-	set_player_animations(game->player);
+	set_player_animations(game, game->player);
 	set_player_speed(game->player);
 	update_player_pos(game->player, game->map);
 	adjust_player_pos(game->player, game->win_size);

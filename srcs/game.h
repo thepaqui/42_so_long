@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:29:27 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:01:11 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_vector
 // Dimensions of game's textures
 # define SPR_DIM 32
 // Dimensions of detection box for counter refresh (keep bigger than SPR_DIM)
-# define CNT_COL 64
+# define CNT_COL 80
 
 typedef struct s_xpm
 {

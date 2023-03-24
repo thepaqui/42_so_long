@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 01:21:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:33:16 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:49:03 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ void	print_coin_count(t_game *game, int movsize, int coins, int *last)
 		//printf("\nRefreshing a %d by %d rectangle at x = %d\n\n", size.x - 1, size.y, pos.x/SPR_DIM); //----------
 		refresh_area(game, pos, size.x - 1, size.y);
 	}
-	if (game->map->size.x >= movsize + size.x
-		&& (coins != *last || game->player->pos.y < CNT_COL))
+	if (game->map->size.x >= movsize + size.x && (coins != *last
+		|| game->player->pos.y < CNT_COL || movsize != game->last_movesize))
 	{
 		size.x--;
 		refresh_area(game, pos, size.x, size.y);
-		put_nbr_to_img(coins, pos, game, 0x00FFD700);
+		put_nbr_to_img(coins, pos, game, 0x00C0C0C0);
 		pos.x += SPR_DIM * (size.x - 1);
-		put_str_to_img("$", pos, game, 0x00FFD700);
+		put_str_to_img("$", pos, game, 0x00C0C0C0);
 		*last = coins;
 	}
 }

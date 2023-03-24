@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 16:27:08 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/22 22:53:09 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:52:35 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	close_window(t_game *game, int code, char *file)
 	if (code)
 		error_handling(code, game, file);
 	free_game(game);
-	system("leaks so_long | grep leak"); //---------------------------------
+	system("leaks so_long"); //---------------------------------
 	exit(code);
 }
 
