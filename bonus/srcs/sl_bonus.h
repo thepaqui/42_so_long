@@ -6,13 +6,14 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 09:43:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 20:45:24 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:47:42 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SL_BONUS_H
 # define SL_BONUS_H
 # include <errno.h>
+# include <time.h>
 # include <stdio.h> //---------------------------------------------------------
 # include "game_bonus.h"
 # include "sprites_bonus.h"

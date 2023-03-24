@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 18:39:32 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/19 19:09:58 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:20:43 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	update_enemy_speed(t_enemy *enemy)
 		enemy->speed = 0;
 	else if (enemy->type == E_FLY_V)
 	{
-		if (enemy->dir == TOP)
+		if (enemy->turn)
+			enemy->speed = 0;
+		else if (enemy->dir == TOP)
 			enemy->speed = -1 * EFV_SPEED;
 		else if (enemy->dir == BOT)
 			enemy->speed = EFV_SPEED;
@@ -49,7 +51,7 @@ static void	update_enemy_v_pos(t_enemy *enemy, t_map *map, int tmpdir)
 	while ((enemy->speed < 0 && get_obj_from_pos(enemy->pos, map) == WALL)
 		|| (enemy->speed > 0 && get_obj_from_pos(offpos, map) == WALL))
 	{
-		//enemy->turn = ;
+		enemy->turn = 1;
 		if (enemy->dir == tmpdir)
 		{
 			if (enemy->dir == TOP)

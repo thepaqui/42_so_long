@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 18:00:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/22 22:28:56 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 19:27:59 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	set_enemy_animations(t_game *game, t_enemy *enemy);
 # define EVA_EU 11
 // Number of frames each frame of the turn around animation plays for
 // Should be more than 0
-# define EVA_LEN 4
+# define EVA_LEN 3
 
 /* --- PLAYER --- */
-# define PLAYER_SPRITE "./textures/bonus/player.xpm"
+# define PLAYER_SPRITE "./textures/bonus/player_bonus.xpm"
 
 /* --- PLAYER ANIMATIONS --- */
 void	player_anim_move(t_player *player);

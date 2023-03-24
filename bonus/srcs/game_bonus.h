@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/22 22:26:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:42:14 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ typedef struct s_game
 }				t_game;
 
 // Name of the game window
-# define WINNAME "Super Mario World 42: Yoshi's Islong"
+# define WINNAME "Super Mario World 42: Yoshi's Isolong"
 
 /* --- GAME STATES --- */
 # define GAME_ERROR 0

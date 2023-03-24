@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:26:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 16:45:01 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:47:26 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 
 	err = 0;
 	game = NULL;
+	srand(time(NULL));
 	check_input(ac, av, &err);
 	check_err(err, game, "Input checking");
 	game = game_init(&err);

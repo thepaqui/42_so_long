@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 20:14:02 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/22 22:27:01 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:35:55 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,35 @@ static void	enemy_anim_g(t_game *game, t_enemy *enemy)
 	game->spr_eg->cur_spr = enemy->cur_spr;
 }
 
-/*static void	enemy_anim_fv(t_game *g, t_enemy *enemy)
+static void	enemy_anim_fv(t_game *game, t_enemy *enemy)
 {
-	if (enemy->anim_len < 0)
-		enemy->anim_len = EGHA_LEN;
-	if (!enemy->anim_len)
+	if (!enemy->turn)
 	{
-		if (enemy->dir == RIGHT && g->spr_eg->cur_spr == EHA_ER)
-			g->spr_eg->cur_spr = EHA_SR;
-		else if (enemy->dir == LEFT && g->spr_eg->cur_spr == EHA_EL)
-			g->spr_eg->cur_spr = EHA_SL;
+		if (enemy->dir == BOT)
+			enemy->cur_spr = EVA_SD;
 		else
-			g->spr_eg->cur_spr++;
+			enemy->cur_spr = EVA_SU;
 	}
-}*/
+	else
+	{
+		if (enemy->anim_len < 0)
+			enemy->anim_len = EVA_LEN;
+		if (!enemy->anim_len)
+		{
+			if (enemy->cur_spr == EVA_ED || enemy->cur_spr == EVA_EU)
+			{
+				if (enemy->cur_spr == EVA_ED)
+					enemy->cur_spr = EVA_SU;
+				else
+					enemy->cur_spr = EVA_SD;
+				enemy->turn = 0;
+			}
+			else
+				enemy->cur_spr++;
+		}
+	}
+	game->spr_efv->cur_spr = enemy->cur_spr;
+}
 
 void	set_enemy_animations(t_game *game, t_enemy *enemy)
 {
@@ -73,7 +88,7 @@ void	set_enemy_animations(t_game *game, t_enemy *enemy)
 		enemy_anim_g(game, enemy);
 	else if (enemy->type == E_FLY_H)
 		enemy_anim_fh(game, enemy);
-	/*else if (enemy->type == E_FLY_V)
-		enemy_anim_fv(game, enemy);*/
+	else if (enemy->type == E_FLY_V)
+		enemy_anim_fv(game, enemy);
 	enemy->anim_len--;
 }

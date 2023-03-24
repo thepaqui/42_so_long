@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 16:33:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/22 22:01:32 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/24 19:18:45 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,25 @@ static t_enemy	*enemy_init_help(int nb, void *n, int i)
 
 static void	enemy_init_pos(t_enemy *enemy, t_map *map)
 {
+	int	i;
+
 	while (enemy->prev)
 		enemy = enemy->prev;
 	//printf("mapsizex %d\n", map->size.x); //----------------
 	while (enemy)
 	{
+		//printf("Start is at (%d,%d)\n", map->start.x, map->start.y); //-------
+		i = 0;
 		while (map->map[enemy->pos.y][enemy->pos.x] != '0'
-			|| get_manhattan_dist(enemy->pos, map->start) <= 3)
+			|| enemy->pos.x == map->start.x || enemy->pos.y == map->start.y)
 		{
 			enemy->pos.x = rand() % map->size.x;
 			enemy->pos.y = rand() % map->size.y;
+			if (i++ == 20)
+			{
+				enemy->pos.x = -1;
+				break ;
+			}
 			//printf("Trying to create enemy at (%d,%d)\n", enemy->pos.x, enemy->pos.y); //-------
 		}
 		//printf("\n"); //-------
@@ -101,15 +110,20 @@ static void	enemy_init_state(t_enemy *enemy, t_map *map)
 	i = 0;
 	while (enemy)
 	{
-		enemy->anim_len = -1;
-		enemy->alive = 1;
-		enemy->type = get_enemy_type(enemy->pos, map->map);
-		if (enemy->type == E_GROUND)
-			enemy->dir = LEFT+i;
-		else if (enemy->type == E_FLY_H)
-			enemy->dir = LEFT+i;
-		else if (enemy->type == E_FLY_V)
-			enemy->dir = TOP+i;
+		if (enemy->pos.x >= 0)
+		{
+			enemy->anim_len = -1;
+			enemy->alive = 1;
+			enemy->type = get_enemy_type(enemy->pos, map->map);
+			if (enemy->type == E_GROUND)
+				enemy->dir = LEFT + i;
+			else if (enemy->type == E_FLY_H)
+				enemy->dir = LEFT + i;
+			else if (enemy->type == E_FLY_V)
+				enemy->dir = TOP + i;
+		}
+		else
+			enemy->type = E_DEAD;
 		enemy = enemy->next;
 		if (!i)
 			i = 1;
