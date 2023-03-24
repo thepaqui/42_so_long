@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 24th 2023, at 16:58.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 24th 2023, at 17:45.
 
 ## Presentation 👾
 
@@ -72,7 +72,7 @@ If you're unsure of how to do this, check out the two included texture packs (`t
 
 ## To-do list 🗒️ 
 
-Make game over animation and test it.
+Make `player_bonus.xpm` for basic texture pack.
 
 ✅ MAKE ENEMIES TEXTURES  
 ✅ MAKE PLAYER GROUNDED IDLE ANIMATION  
@@ -89,8 +89,8 @@ Make game over animation and test it.
 ✅ MAKE BETTER RANDOMNESS FOR ENEMY SPAWNING  
 ⏳ SEPARATE PLAYER SPRITESHEETS IN `player.xpm` and `player_bonus.xpm`  
 ⏳ MAKE BASIC `player_bonus.xpm` SPRITESHEET  
-⏳ MAKE BONUS `player.xpm` SPRITESHEET  
-❌ ADD MUSIC AND SOUND EFFECTS  
+✅ MAKE BONUS `player.xpm` SPRITESHEET  
+❌ ADD MUSIC (?) AND SOUND EFFECTS  
 ❌ TEST ALL MAPS WITH MANDATORY VERSION  
 ❌ TEST ALL MAPS WITH BONUS VERSION  
 ❌ MEGA NORM CLEANUP  
