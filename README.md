@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 24th 2023, at 18:03.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 24th 2023, at 19:02.
 
 ## Presentation 👾
 
@@ -49,30 +49,27 @@ Fiddle around with some stuff and have fun!
 
 You can change texture size by changing the `SPR_DIM` macro in `srcs/game.h` and in `bonus/srcs/game_bonus.h`.  
 You can then use your own textures by creating a new folder in the `textures` folder.  
+
 In it, you'll need spritesheets with these names:
 - `map.xpm`,
 - `bg.xpm` -> will display starting from the window's bottom, tiles horizontally only, fills the window vertically with the first sprite,
 - `coin.xpm`,
 - `player.xpm`,
-- `end_bg.xpm`,
 - `font.xpm`.  
 
-If you're doing this to the bonuses, also add:
+For the bonuses, also add:
 - `player_bonus.xpm`,
 - `cursor.xpm`,
 - `projectile.xpm`,
-- `canvas.xpm`,
+- `end_bg.xpm`,
 - `enemy_fly_h.xpm`,
 - `enemy_fly_v.xpm`,
 - `enemy_ground.xpm`.  
 
-Then, you'll just have to change the macros to use your folder's name instead of *basic* or *bonus*.  
-
-If you're unsure of how to do this, check out the two included texture packs (`textures/basic` and `textures/bonus`).  
+Then, you'll just have to change the macros in `game.h` and `sprites_bonus.h` to use your folder's name instead of *basic* or *bonus*.  
+If you're unsure of how to make the spritesheets, check out the two included texture packs (`textures/basic` and `textures/bonus`).  
 
 ## To-do list 🗒️ 
-
-Make `player_bonus.xpm` for basic texture pack.
 
 ✅ MAKE ENEMIES TEXTURES  
 ✅ MAKE PLAYER GROUNDED IDLE ANIMATION  
@@ -89,7 +86,8 @@ Make `player_bonus.xpm` for basic texture pack.
 ✅ MAKE BETTER RANDOMNESS FOR ENEMY SPAWNING  
 ✅ MAKE BONUS `player.xpm` SPRITESHEET  
 ✅ TEST ALL MAPS WITH MANDATORY VERSION  
-⏳ MAKE BASIC `player_bonus.xpm` SPRITESHEET  
-❌ TEST ALL MAPS WITH BONUS VERSION  
+✅ MAKE BASIC `player_bonus.xpm` SPRITESHEET  
+⏳ TEST ALL MAPS WITH BONUS VERSION  
 ❌ ADD MUSIC (?) AND SOUND EFFECTS  
+❌ MAKE BONUS2 TEXTURE PACK  
 ❌ MEGA NORM CLEANUP  
