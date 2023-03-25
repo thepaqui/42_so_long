@@ -21,6 +21,21 @@ Wish me luck as I embark on this journey!
 
 All sprites in the basic texture pack were created by myself with *Aseprite*.  
 All sprites in the bonus texture pack were ripped from the original *Super Mario World 2: Yoshi's Island* game on SNES and uploaded to *[The Spriters Resource]* by various rippers. I then edited them myself to be usable in my game with *Aseprite*.  
+
+Credit goes to the following rippers from *[The Spriters Resource]*:
+- Inky
+- Drshnaps
+- Sonicfan32
+- Murphmario
+- DogToon64
+- Bacon
+- David "Tonberry2k" Hurley
+- Barack Obama *(🤨)*
+- playgames169vg
+- MarioFanGamer
+- Nemica
+- daemoth
+- Romi
   
 *Super Mario World 2: Yoshi's Island* and all of its assets belong to Nintendo.  
 I am using these assets in a learning project for 42 Nice and in no way do I plan on releasing this game comercially, even as a free game.  
