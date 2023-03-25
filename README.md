@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 25th 2023, at 16:52.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 25th 2023, at 23:33.
 
 ## Presentation 👾
 
@@ -88,6 +88,8 @@ If you're unsure of how to make the spritesheets, check out the two included tex
 
 ## To-do list 🗒️ 
 
+Check norm in `bonus/process/` and `bonus/utils/`.  
+
 ✅ MAKE ENEMIES TEXTURES  
 ✅ MAKE PLAYER GROUNDED IDLE ANIMATION  
 ✅ IMPLEMENT BASIC ENEMIES CODE  
@@ -108,4 +110,3 @@ If you're unsure of how to make the spritesheets, check out the two included tex
 ✅ MAKE BONUS2 TEXTURE PACK  
 ⏳ MEGA NORM CLEANUP  
 ⏳ CHECK FOR LOST `printf()` AND `system()` FUNCTION CALLS  
-⏳ ADD MUSIC (?) AND SOUND EFFECTS  
