@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 25th 2023, at 04:03.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 25th 2023, at 16:52.
 
 ## Presentation 👾
 
@@ -107,4 +107,4 @@ If you're unsure of how to make the spritesheets, check out the two included tex
 ✅ TEST ALL MAPS WITH BONUS VERSION  
 ✅ MAKE BONUS2 TEXTURE PACK  
 ⏳ ADD MUSIC (?) AND SOUND EFFECTS  
-❌ MEGA NORM CLEANUP  
+⏳ MEGA NORM CLEANUP  
