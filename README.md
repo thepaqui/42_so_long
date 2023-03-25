@@ -106,5 +106,6 @@ If you're unsure of how to make the spritesheets, check out the two included tex
 ✅ MAKE BASIC `player_bonus.xpm` SPRITESHEET  
 ✅ TEST ALL MAPS WITH BONUS VERSION  
 ✅ MAKE BONUS2 TEXTURE PACK  
-⏳ ADD MUSIC (?) AND SOUND EFFECTS  
 ⏳ MEGA NORM CLEANUP  
+⏳ CHECK FOR LOST `printf()` AND `system()` FUNCTION CALLS  
+⏳ ADD MUSIC (?) AND SOUND EFFECTS  
