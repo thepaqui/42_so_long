@@ -37,6 +37,7 @@ Credit goes to the following rippers from *[The Spriters Resource]*:
 - daemoth
 - Romi
 - Superjustinbros
+- Arima
   
 *Super Mario World 2: Yoshi's Island* and all of its assets belong to Nintendo.  
 I am using these assets in a learning project for 42 Nice and in no way do I plan on releasing this game comercially, even as a free game.  
