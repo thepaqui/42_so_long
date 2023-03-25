@@ -1,6 +1,6 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 24th 2023, at 19:29.
+My still unfinished *so_long* project for **42 Nice**, last updated on March 25th 2023, at 02:43.
 
 ## Presentation 👾
 
@@ -36,6 +36,7 @@ Credit goes to the following rippers from *[The Spriters Resource]*:
 - Nemica
 - daemoth
 - Romi
+- Superjustinbros
   
 *Super Mario World 2: Yoshi's Island* and all of its assets belong to Nintendo.  
 I am using these assets in a learning project for 42 Nice and in no way do I plan on releasing this game comercially, even as a free game.  
