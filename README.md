@@ -30,7 +30,7 @@ Credit goes to the following rippers from *[The Spriters Resource]*:
 - DogToon64
 - Bacon
 - David "Tonberry2k" Hurley
-- Barack Obama *(🤨)*
+- Barack Obama (🤨)
 - playgames169vg
 - MarioFanGamer
 - Nemica
