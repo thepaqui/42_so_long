@@ -6,16 +6,13 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/13 01:31:13 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:30:25 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROCESS_H
 # define PROCESS_H
-# include <stdlib.h>
 # include "../mlx/mlx.h"
-# include "../srcs/game.h"
-# include "../utils/utils.h"
 # include "../parsing/parse.h"
 
 /* GAME */

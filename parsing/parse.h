@@ -6,17 +6,14 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:24:03 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 17:05:20 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:10:44 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSE_H
 # define PARSE_H
 # include <fcntl.h>
-# include <unistd.h>
-# include "../utils/utils.h"
 # include "../checking/check.h"
-# include "../srcs/game.h"
 
 /* MAP */
 void	get_map(char *file, t_game *game);
@@ -28,6 +25,7 @@ int		get_colors(char **tab, t_xpm *xpm);
 int		get_palette(t_xpm *xpm, char *raw_pal);
 int		get_spritesheet(t_xpm *xpm, char *sprites);
 t_xpm	*parse_xpm(char *file, int *err);
+# define BUFSIZE 1000
 
 /* COLOR */
 int		is_keyword_valid(char *word);

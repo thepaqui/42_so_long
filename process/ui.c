@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 01:21:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 17:49:03 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:19:16 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,10 @@ int	print_move_count(t_game *game, int mov, int *last, int coins)
 		size.y = 1;
 		pos.y = 0;
 		pos.x = 0;
-		if (size.x != game->last_movesize) {
-			//printf("moves case 1\n"); //---
-			//printf("\nRefreshing a %d by %d rectangle at (%d,%d)\n\n", game->last_movesize, size.y, pos.x, pos.y); //----------
+		if (size.x != game->last_movesize)
 			refresh_area(game, pos, game->last_movesize, size.y);
-		}
-		else {
-			//printf("moves case 2\n"); //---
+		else
 			refresh_area(game, pos, size.x, size.y);
-		}
 		if (size.x == ft_strlen(MOV_PREFIX) + get_magnitude(mov))
 		{
 			put_str_to_img(MOV_PREFIX, pos, game, RED);
@@ -70,12 +65,10 @@ void	print_coin_count(t_game *game, int movsize, int coins, int *last)
 	size.y = 1;
 	pos.x = SPR_DIM * (game->map->size.x - size.x + 1);
 	pos.y = 0;
-	if (movsize != game->last_movesize) {
-		//printf("\nRefreshing a %d by %d rectangle at x = %d\n\n", size.x - 1, size.y, pos.x/SPR_DIM); //----------
+	if (movsize != game->last_movesize)
 		refresh_area(game, pos, size.x - 1, size.y);
-	}
-	if (game->map->size.x >= movsize + size.x && (coins != *last
-		|| game->player->pos.y < CNT_COL || movsize != game->last_movesize))
+	if ((game->player->pos.y < CNT_COL || movsize != game->last_movesize
+			|| coins != *last) && game->map->size.x >= movsize + size.x)
 	{
 		size.x--;
 		refresh_area(game, pos, size.x, size.y);

@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 17:23:17 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:15:37 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s)
 void	draw_map(t_game *game)
 {
 	t_vector	pos;
+	t_vector	tmp;
 
 	if (game->player->state == PIDLE && game->player->sprite->cur_spr == 5)
 		game->player->state = PCOIN;
@@ -68,7 +69,9 @@ void	draw_map(t_game *game)
 	{
 		pos.x = 0;
 		pos.y = 0;
-		refresh_area(game, pos, game->win_size.x / SPR_DIM, game->win_size.y / SPR_DIM);
+		tmp.x = game->win_size.x / SPR_DIM;
+		tmp.y = game->win_size.y / SPR_DIM;
+		refresh_area(game, pos, tmp.x, tmp.y);
 		game->state = GAME_RUN;
 	}
 	if (game->map->nbcoins == game->map->totalcoins)

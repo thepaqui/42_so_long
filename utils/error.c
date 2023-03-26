@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:46:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 17:02:37 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:11:26 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	ft_error(int code, t_game *game, char *file)
 	else
 		puterr("Unknown error");
 	free_game(game);
-	system("leaks so_long | grep leak"); //-----------------------------------
 	exit(code);
 }
 
@@ -79,16 +78,13 @@ void	errno_error(int code, t_game *game, char *file)
 	}
 	puterr(strerror(code));
 	free_game(game);
-	system("leaks so_long | grep leak"); //-----------------------------------
 	exit(code);
 }
 
 void	error_handling(int code, t_game *game, char *file)
 {
-	if (code < 0)
+	if (code <= 0)
 		ft_error(code, game, file);
 	else if (code > 0)
 		errno_error(code, game, file);
-	else
-		ft_error(0, game, file);
 }

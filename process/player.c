@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:31:14 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 17:38:22 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:16:09 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ static void	update_player_pos(t_player *player, t_map *map)
 
 static void	set_player_animations(t_game *game, t_player *player)
 {
-	//(void)game; //---------
 	refresh_area(game, player->pos, 3, 3);
 	if (player->state == PMOVE)
 	{

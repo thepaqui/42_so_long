@@ -6,13 +6,13 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:35:13 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 18:26:49 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 19:44:40 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../utils.h"
 
-size_t	ft_strlcat_gnl(char *dst, const char *src, size_t dstsize)
+static size_t	ft_strlcat_gnl(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;

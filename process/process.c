@@ -6,25 +6,14 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 17:38:06 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:16:55 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process.h"
-#include <stdio.h> //--------------------------------------------------
-
-static void	debug(t_game *game, int silent)
-{ // remove this before final push
-	if (silent)
-		return ;
-	printf("Player position\t(%d,%d)\n", game->player->pos.x, game->player->pos.y);
-	printf("Player is on cell (%d,%d)\n", game->map->start.x, game->map->start.y);
-	printf("\n");
-}
 
 static int	main_loop(t_game *game)
 {
-	debug(game, 1); //-----------------------------------
 	if (game->state == GAME_STOP)
 		stop_sequence(game);
 	else if (game->state == GAME_WIN)

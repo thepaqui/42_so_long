@@ -6,12 +6,11 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:17:13 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 18:28:30 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:01:25 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-#include <stdio.h> //----------------------------------------------------------
 
 void	*ft_memset(void *b, int c, size_t len)
 {

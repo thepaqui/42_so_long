@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:47:33 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/17 22:40:01 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:44:09 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <errno.h>
 # include <string.h>
-# include <stdio.h>
 # include "../srcs/game.h"
 
 /* TEXT */
@@ -36,6 +35,7 @@ void	*ft_memset(void *b, int c, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 char	**ft_free_tab(char **tab, int index);
 t_xpm	*free_xpm(t_xpm *xpm);
+t_map	*free_map(t_map *map);
 t_game	*free_game(t_game *game);
 
 /* STRINGS */
@@ -44,11 +44,9 @@ int		ft_strclen(const char *str, const char *set);
 char	*ft_strndup(const char *str, int n);
 int		ft_strlcpy(char *dst, const char *src, int dstsize);
 int		ft_strncmp(const char *s1, const char *s2, int n);
-void	print_tab(char **tab);
 char	**ft_split(const char *s, const char *set);
 
 /* GNL */
-size_t	ft_strlcat_gnl(char *dst, const char *src, size_t dstsize);
 char	*ft_strjoin_gnl(char *s1, char const *s2);
 char	*get_next_line(int fd, int *err);
 # define BUFFER_SIZE 10

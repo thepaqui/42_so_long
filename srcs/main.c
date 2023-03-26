@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:26:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 17:02:58 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 19:37:57 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ int	main(int ac, char **av)
 	check_err(err, game);
 	launch_game(game);
 	free_game(game);
-	system("leaks so_long | grep leak"); //-----------------------------------
 	return (0);
 }
