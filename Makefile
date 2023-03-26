@@ -27,7 +27,7 @@ CC= cc -Wall -Wextra -Werror
 
 CCOBJ= $(CC) $(INCLUDES)
 
-CCBIN= $(CC) -L./ -lmlx -framework OpenGL -framework AppKit
+CCBIN= $(CC) -lm -L./ -lmlx -framework OpenGL -framework AppKit
 
 MLX= libmlx.a
 
