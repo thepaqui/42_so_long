@@ -1,6 +1,6 @@
 # 42_so_long
 
-My finished *so_long* project for **42 Nice**, last updated on March 26th 2023, at 18:53.  
+My finished *so_long* project for **42 Nice**, last updated on March 26th 2023, at 18:56.  
 This project took me ~210 hours of work, over ~22 days.  
 
 ## Start of project 👾 January 29th 2023
