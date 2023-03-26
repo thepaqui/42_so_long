@@ -70,7 +70,7 @@ For the bonuses, also add:
 - `enemy_ground.xpm`.  
 
 Then, you'll just have to change the macros in `game.h` and `sprites_bonus.h` to use your folder's name instead of *basic* or *bonus*.  
-If you're unsure of how to make the spritesheets, check out the two included texture packs (`textures/basic` and `textures/bonus`).  
+If you're unsure of how to make the spritesheets, check out the three included texture packs (`textures/basic`, `textures/bonus` and `textures/bonus2`).  
 
 ## Legal disclaimer 🔨
 
