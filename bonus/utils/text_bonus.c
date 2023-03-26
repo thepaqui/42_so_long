@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:51:11 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:04:44 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:11:36 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,19 @@ int	isinset(char c, const char *set)
 		if (c == *set++)
 			return (1);
 	return (0);
+}
+
+char	*ft_strdup(const char *str)
+{
+	char	*copy;
+	size_t	size;
+
+	if (!str)
+		return (NULL);
+	size = ft_strlen(str) + 1;
+	copy = malloc(sizeof(*copy) * size);
+	if (!copy)
+		return (NULL);
+	ft_strlcpy(copy, str, size);
+	return (copy);
 }

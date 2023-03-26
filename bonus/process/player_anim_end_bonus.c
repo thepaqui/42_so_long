@@ -6,13 +6,13 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 23:26:31 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/21 19:02:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:43:17 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
 
-void	player_anim_end(t_game *game, t_player *player)
+int	player_anim_end(t_game *game, t_player *player)
 {
 	t_vector	tmp;
 
@@ -29,7 +29,7 @@ void	player_anim_end(t_game *game, t_player *player)
 		player->pos.y = game->curs_pos.y;
 	if (player->anim_len < 0)
 		player->anim_len = PA_GROUND_LEN;
-	player_anim_move_help(player, PA_GL_S, PA_GL_E, PA_GR_S, PA_GR_E);
+	player_anim_move_ground(player);
 	put_t_xpm_to_img(player->sprite, game, player->pos);
 	if (player->pos.x == game->curs_pos.x && player->pos.y == game->curs_pos.y)
 	{
@@ -37,6 +37,7 @@ void	player_anim_end(t_game *game, t_player *player)
 		player->state = PCHEER;
 		player->sprite->cur_spr = PA_CHEER_S;
 	}
+	return (0);
 }
 
 void	player_anim_end_init(t_game *game, t_player *player)

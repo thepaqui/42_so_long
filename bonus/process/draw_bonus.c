@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:47:55 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/22 18:51:03 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:55:56 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	put_pixel_to_img_help(t_img *img, t_vector pos, int color)
 {
-	char		*dst;
+	char		*pixel;
 
-	dst = img->add + (pos.y * img->line_len + pos.x * (img->bpp / 8));
-	*(unsigned int *)dst = color;
+	pixel = img->add + (pos.y * img->line_len + pos.x * (img->bpp / 8));
+	*(unsigned int *)pixel = color;
 }
 
 static int	get_img_pixel_color(t_img *img, int x, int y)

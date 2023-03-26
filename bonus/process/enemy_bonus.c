@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 00:09:56 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/22 22:25:17 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:34:27 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	destroy_enemy(t_game *game, t_enemy *enemy)
 	game->need_enemy_refresh = 1;
 }
 
-static void update_enemy(t_game *game, t_enemy *enemy)
+static void	update_enemy(t_game *game, t_enemy *enemy)
 {
 	if (enemy->type == E_FLY_V)
 		refresh_area(game, enemy->pos, 1, 2);
@@ -44,14 +44,8 @@ void	update_enemies(t_game *game, t_enemy *enemies)
 {
 	while (enemies->prev)
 		enemies = enemies->prev;
-	//int i = 0; //-----------------
 	while (enemies)
 	{
-		/*i++; //-----------------
-		if (enemies->alive) //-----------------
-			printf("Enemy %d is alive!\n", i); //-----------------
-		else //-----------------
-			printf("Enemy %d is dead...\n", i); //-----------------*/
 		if (enemies->alive)
 			update_enemy(game, enemies);
 		if (game->state == GAME_LOSE)
@@ -60,7 +54,6 @@ void	update_enemies(t_game *game, t_enemy *enemies)
 			break ;
 		enemies = enemies->next;
 	}
-	//printf("\n"); //-----------------
 	while (enemies->prev)
 		enemies = enemies->prev;
 	if (game->need_enemy_refresh)
@@ -70,7 +63,7 @@ void	update_enemies(t_game *game, t_enemy *enemies)
 	}
 }
 
-static void draw_enemy(t_game *game, t_enemy *enemy)
+static void	draw_enemy(t_game *game, t_enemy *enemy)
 {
 	set_enemy_animations(game, enemy);
 	if (enemy->type == E_GROUND)
@@ -85,13 +78,8 @@ void	draw_enemies(t_game *game, t_enemy *enemies)
 {
 	while (enemies->prev)
 		enemies = enemies->prev;
-	//int i = 0; //------
 	while (enemies)
 	{
-		//i++; //-----
-		//printf("enemy %i is type %i\n", i, enemies->type); //--
-		//if (i == 50) //---
-			//printf("enemy %d has dir = %d and speed = %d\n", i, enemies->dir, enemies->speed); //---
 		draw_enemy(game, enemies);
 		if (!enemies->next)
 			break ;

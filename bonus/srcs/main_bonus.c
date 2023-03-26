@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:26:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 16:47:26 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 21:16:39 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ int	main(int ac, char **av)
 	check_err(err, game, "Enemies initialization");
 	launch_game(game);
 	free_game(game);
-	system("leaks so_long | grep leak"); //-----------------------------------
 	return (0);
 }

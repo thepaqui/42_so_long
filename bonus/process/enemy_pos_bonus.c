@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 18:39:32 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 16:20:43 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:32:23 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,22 @@
 
 void	update_enemy_speed(t_enemy *enemy)
 {
-	if (enemy->turn || enemy->type == E_DEAD || enemy->dir == NONE)
+	if (enemy->type == E_DEAD || enemy->dir == NONE)
+	{
 		enemy->speed = 0;
+		return ;
+	}
+	enemy->speed = 1;
+	if (enemy->dir == TOP || enemy->dir == LEFT)
+		enemy->speed = -1;
+	if (enemy->turn)
+		enemy->speed *= 1;
 	else if (enemy->type == E_FLY_V)
-	{
-		if (enemy->turn)
-			enemy->speed = 0;
-		else if (enemy->dir == TOP)
-			enemy->speed = -1 * EFV_SPEED;
-		else if (enemy->dir == BOT)
-			enemy->speed = EFV_SPEED;
-	}
+		enemy->speed *= EFV_SPEED;
 	else if (enemy->type == E_FLY_H)
-	{
-		if (enemy->dir == LEFT)
-			enemy->speed = -1 * EFH_SPEED;
-		else if (enemy->dir == RIGHT)
-			enemy->speed = EFH_SPEED;
-	}
+		enemy->speed *= EFH_SPEED;
 	else if (enemy->type == E_GROUND)
-	{
-		if (enemy->dir == LEFT)
-			enemy->speed = -1 * EG_SPEED;
-		else if (enemy->dir == RIGHT)
-			enemy->speed = EG_SPEED;
-	}
+		enemy->speed *= EG_SPEED;
 }
 
 static void	update_enemy_v_pos(t_enemy *enemy, t_map *map, int tmpdir)
@@ -77,18 +68,7 @@ static void	update_enemy_h_pos(t_enemy *enemy, t_map *map, int tmpdir)
 	while ((enemy->speed < 0 && get_obj_from_pos(enemy->pos, map) == WALL)
 		|| (enemy->speed > 0 && get_obj_from_pos(offpos, map) == WALL))
 	{
-		//enemy->turn = ;
-		if (enemy->dir == tmpdir)
-		{
-			if (enemy->dir == LEFT)
-				enemy->dir = RIGHT;
-			else if (enemy->dir == RIGHT)
-				enemy->dir = LEFT;
-		}
-		if (enemy->speed < 0)
-			enemy->pos.x++;
-		else
-			enemy->pos.x--;
+		unclip_enemy(enemy, tmpdir);
 		offpos.x = enemy->pos.x + SPR_DIM;
 	}
 }
@@ -107,18 +87,7 @@ static void	update_enemy_g_pos(t_enemy *enemy, t_map *map, int tmpdir)
 		|| (enemy->speed > 0 && get_obj_from_pos(offpos, map) == WALL)
 		|| (get_obj_from_pos(grpos, map) != WALL))
 	{
-		//enemy->turn = ;
-		if (enemy->dir == tmpdir)
-		{
-			if (enemy->dir == LEFT)
-				enemy->dir = RIGHT;
-			else if (enemy->dir == RIGHT)
-				enemy->dir = LEFT;
-		}
-		if (enemy->speed < 0)
-			enemy->pos.x++;
-		else
-			enemy->pos.x--;
+		unclip_enemy(enemy, tmpdir);
 		offpos.x = enemy->pos.x + SPR_DIM;
 		grpos.x = enemy->pos.x + (SPR_DIM / 2);
 	}

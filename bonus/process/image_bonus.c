@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:37:30 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/21 16:32:27 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:58:20 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	prepare_new_frame(t_game *game)
 {
 	int	*movsize;
-	int coins;
+	int	coins;
 
 	draw_map(game);
 	draw_coins(game);

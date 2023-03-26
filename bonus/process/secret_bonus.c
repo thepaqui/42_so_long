@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 19:12:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/10 19:43:47 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 15:32:59 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_end(t_game *game, int color)
 	int			i;
 
 	nb = ft_end_help(game->map);
-	//printf("nb = %d\n", nb); //---
 	i = 0;
 	while (i != nb)
 	{

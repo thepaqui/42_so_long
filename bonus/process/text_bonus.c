@@ -6,11 +6,13 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 17:40:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:09:59 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 15:29:59 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
+
+const static char	g_font[13] = ".,:\'\"!?()&$-";
 
 static int	get_text_xpm_pixel_color(t_xpm *xpm, t_vector pos, int color)
 {
@@ -60,8 +62,6 @@ static void	put_text_xpm_to_img(t_xpm *xpm, t_game *game, t_vector pos, int c)
 		posxpm.x = SPR_DIM * (xpm->cur_spr % xpm->spr_per_line) - 1;
 	}
 }
-
-const static char	g_font[13] = ".,:\'\"!?()&$-"; // placement ?
 
 void	put_char_to_img(char c, t_vector pos, t_game *game, int color)
 {

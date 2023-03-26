@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:21:36 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 18:16:52 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 21:11:12 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,30 @@ static t_img	*image_init(void)
 	return (image);
 }
 
-static t_player	*player_init(int *err, char *file, char *filepro)
+static t_player	*player_init(int *err)
 {
 	t_player	*player;
 
 	player = ft_calloc(1, sizeof(t_player));
 	if (!player)
 		return (NULL);
-	player->sprite = parse_xpm(file, err);
+	player->sprite = parse_xpm(PLAYER_SPRITE, err);
 	if (!player->sprite || *err)
 	{
-		if (player->sprite)
-			player->sprite = free_xpm(player->sprite);
-		free(player);
+		free_player(player);
 		return (NULL);
 	}
-	player->pro = parse_xpm(filepro, err);
+	player->pro = parse_xpm(PRO_SPRITE, err);
 	if (!player->pro || *err)
 	{
-		player->sprite = free_xpm(player->sprite);
-		if (player->pro)
-			player->pro = free_xpm(player->pro);
-		free(player);
+		free_player(player);
 		return (NULL);
 	}
 	player->speed = PLAYER_SPEED;
 	return (player);
 }
 
-static t_map	*map_init(int *err, char *fmap, char *fcoin, char *fbg)
+static t_map	*map_init(int *err)
 {
 	t_map	*map;
 
@@ -58,53 +53,20 @@ static t_map	*map_init(int *err, char *fmap, char *fcoin, char *fbg)
 		*err = MALLOCFAIL;
 		return (NULL);
 	}
-	map->sprite = parse_xpm(fmap, err);
-	if (!map->sprite)
+	map->sprite = parse_xpm(MAP_SPRITE, err);
+	map->coin_spr = parse_xpm(COIN_SPRITE, err);
+	map->bg = parse_xpm(BG_SPRITE, err);
+	if (!map->bg || !map->coin_spr || !map->sprite)
 	{
-		free(map);
-		return (NULL);
-	}
-	map->coin_spr = parse_xpm(fcoin, err);
-	if (!map->coin_spr)
-	{
-		map->sprite = free_xpm(map->sprite);
-		free(map);
-		return (NULL);
-	}
-	map->bg = parse_xpm(fbg, err);
-	if (!map->bg)
-	{
-		map->sprite = free_xpm(map->sprite);
-		map->coin_spr = free_xpm(map->coin_spr);
-		free(map);
+		free_map(map);
 		return (NULL);
 	}
 	map->last = -1;
 	return (map);
 }
 
-t_game	*game_init(int *err)
+static void	game_textures_init(t_game *game, int *err)
 {
-	t_game	*game;
-
-	game = ft_calloc(1, sizeof(t_game));
-	if (!game)
-	{
-		*err = MALLOCFAIL;
-		return (NULL);
-	}
-	game->image = image_init();
-	if (!game->image)
-	{
-		*err = MALLOCFAIL;
-		return (free_game(game));
-	}
-	game->map = map_init(err, MAP_SPRITE, COIN_SPRITE, BG_SPRITE);
-	if (!game->map)
-		error_handling(*err, game, "Map structure");
-	game->player = player_init(err, PLAYER_SPRITE, PRO_SPRITE);
-	if (!game->player)
-		error_handling(*err, game, "Player structure");
 	game->font = parse_xpm(FONT, err);
 	if (!game->font)
 		error_handling(*err, game, FONT);
@@ -123,6 +85,31 @@ t_game	*game_init(int *err)
 	game->spr_efv = parse_xpm(ENEMY_FV_SPRITE, err);
 	if (!game->spr_efv)
 		error_handling(*err, game, ENEMY_FV_SPRITE);
+}
+
+t_game	*game_init(int *err)
+{
+	t_game	*game;
+
+	game = ft_calloc(1, sizeof(t_game));
+	if (!game)
+	{
+		*err = MALLOCFAIL;
+		return (NULL);
+	}
+	game->image = image_init();
+	if (!game->image)
+	{
+		*err = MALLOCFAIL;
+		return (free_game(game));
+	}
+	game->map = map_init(err);
+	if (!game->map)
+		error_handling(*err, game, "Map structure");
+	game->player = player_init(err);
+	if (!game->player)
+		error_handling(*err, game, "Player structure");
+	game_textures_init(game, err);
 	game->last_moves = -1;
 	return (game);
 }

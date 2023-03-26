@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:28:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/21 19:37:12 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:54:06 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	player_anim_death(t_game *game, t_player *player)
 		player->pos.y = game->curs_pos.y;
 	if (player->anim_len < 0)
 		player->anim_len = PA_DIE_LEN;
-	player_anim_move_help(player, PA_DIE_SL, PA_DIE_EL, PA_DIE_SR, PA_DIE_ER);
+	player_anim_move_die(player);
 	put_t_xpm_to_img(player->sprite, game, player->pos);
 	if (player->pos.x == game->curs_pos.x && player->pos.y == game->curs_pos.y)
 	{
@@ -109,26 +109,29 @@ void	player_anim_spin(t_game *g, t_player *p)
 
 void	player_anim_faint(t_game *g, t_player *p)
 {
+	t_xpm	*sp;
+
 	refresh_bg_color(g, p->pos, 1, 1);
+	sp = p->sprite;
 	if (p->anim_len < 0)
 	{
-		if (p->sprite->cur_spr >= PA_FAINT_T && p->sprite->cur_spr < PA_FAINT_S)
+		if (sp->cur_spr >= PA_FAINT_T && sp->cur_spr < PA_FAINT_S)
 			p->anim_len = PA_FAINT_T_LEN;
 		else
 			p->anim_len = PA_FAINT_LEN;
 	}
 	if (!p->anim_len)
 	{
-		if (p->sprite->cur_spr >= PA_FAINT_T && p->sprite->cur_spr < PA_FAINT_S)
-			p->sprite->cur_spr++;
+		if (sp->cur_spr >= PA_FAINT_T && sp->cur_spr < PA_FAINT_S)
+			sp->cur_spr++;
 		else
 		{
-			if (p->sprite->cur_spr == PA_FAINT_E)
-				p->sprite->cur_spr = PA_FAINT_S;
+			if (sp->cur_spr == PA_FAINT_E)
+				sp->cur_spr = PA_FAINT_S;
 			else
-				p->sprite->cur_spr++;
+				sp->cur_spr++;
 		}
 	}
 	p->anim_len--;
-	put_t_xpm_to_img(p->sprite, g, p->pos);
+	put_t_xpm_to_img(sp, g, p->pos);
 }

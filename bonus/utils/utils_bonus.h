@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:47:33 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/21 15:02:30 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:11:07 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,49 +16,49 @@
 # include <unistd.h>
 # include <errno.h>
 # include <string.h>
-# include <stdio.h>
 # include "../srcs/game_bonus.h"
 
 /* TEXT */
-void	ft_putchar_fd(const char c, int fd);
-void	ft_putstr_fd(const char *s, int fd);
-void	ft_putendl_fd(const char *s, int fd);
-int		isinset(char c, const char *s);
-void	str_toupper(char *s);
+void		ft_putchar_fd(const char c, int fd);
+void		ft_putstr_fd(const char *s, int fd);
+void		ft_putendl_fd(const char *s, int fd);
+int			isinset(char c, const char *s);
+void		str_toupper(char *s);
 
 /* NUMBERS */
-void	ft_putnbr_fd(int n, int fd);
-int		ft_atoi(const char *str);
-int		ft_atoi_base(char *str, char *base);
+void		ft_putnbr_fd(int n, int fd);
+int			ft_atoi(const char *str);
+int			ft_atoi_base(char *str, char *base);
 
 /* MEMORY */
-void	*ft_memset(void *b, int c, size_t len);
-void	*ft_calloc(size_t count, size_t size);
-char	**ft_free_tab(char **tab, int index);
-t_xpm	*free_xpm(t_xpm *xpm);
-t_enemy	*free_enemies(t_enemy *enemies);
-t_enemy	*clean_enemy_list(t_game *game, t_enemy *enemies);
-t_game	*free_game(t_game *game);
+void		*ft_memset(void *b, int c, size_t len);
+void		*ft_calloc(size_t count, size_t size);
+char		**ft_free_tab(char **tab, int index);
+t_xpm		*free_xpm(t_xpm *xpm);
+t_player	*free_player(t_player *player);
+t_enemy		*free_enemies(t_enemy *enemies);
+t_enemy		*clean_enemy_list(t_game *game, t_enemy *enemies);
+t_map		*free_map(t_map *map);
+t_game		*free_game(t_game *game);
 
 /* STRINGS */
-int		ft_strlen(const char *s);
-int		ft_strclen(const char *str, const char *set);
-char	*ft_strndup(const char *str, int n);
-int		ft_strlcpy(char *dst, const char *src, int dstsize);
-int		ft_strncmp(const char *s1, const char *s2, int n);
-void	print_tab(char **tab);
-char	**ft_split(const char *s, const char *set);
+int			ft_strlen(const char *s);
+int			ft_strclen(const char *str, const char *set);
+char		*ft_strdup(const char *str);
+char		*ft_strndup(const char *str, int n);
+int			ft_strlcpy(char *dst, const char *src, int dstsize);
+int			ft_strncmp(const char *s1, const char *s2, int n);
+char		**ft_split(const char *s, const char *set);
 
 /* GNL */
-size_t	ft_strlcat_gnl(char *dst, const char *src, size_t dstsize);
-char	*ft_strjoin_gnl(char *s1, char const *s2);
-char	*get_next_line(int fd, int *err);
+char		*ft_strjoin_gnl(char *s1, char const *s2);
+char		*get_next_line(int fd, int *err);
 # define BUFFER_SIZE 10
 
 /* ERROR */
-void	ft_error(int code, t_game *game, char *file);
-void	errno_error(int code, t_game *game, char *file);
-void	error_handling(int code, t_game *game, char *file);
+void		ft_error(int code, t_game *game, char *file);
+void		errno_error(int code, t_game *game, char *file);
+void		error_handling(int code, t_game *game, char *file);
 # define TOOFEWARGS -1
 # define TOOMANYARGS -2
 # define NOPATH -3

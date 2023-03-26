@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 23:04:55 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:03:11 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:36:45 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	get_coins_pos(t_map *map)
 		col = -1;
 		while (map->map[lin][++col])
 		{
-			if (map->map[lin][col] == 'C')
+			if (map->map[lin][col] == COIN)
 			{
 				map->coin_pos[coin].y = lin;
 				map->coin_pos[coin].x = col;

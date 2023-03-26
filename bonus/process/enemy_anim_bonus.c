@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 20:14:02 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 16:35:55 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:38:01 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,9 @@ static void	enemy_anim_fv(t_game *game, t_enemy *enemy)
 {
 	if (!enemy->turn)
 	{
+		enemy->cur_spr = EVA_SU;
 		if (enemy->dir == BOT)
 			enemy->cur_spr = EVA_SD;
-		else
-			enemy->cur_spr = EVA_SU;
 	}
 	else
 	{
@@ -69,10 +68,9 @@ static void	enemy_anim_fv(t_game *game, t_enemy *enemy)
 		{
 			if (enemy->cur_spr == EVA_ED || enemy->cur_spr == EVA_EU)
 			{
+				enemy->cur_spr = EVA_SD;
 				if (enemy->cur_spr == EVA_ED)
 					enemy->cur_spr = EVA_SU;
-				else
-					enemy->cur_spr = EVA_SD;
 				enemy->turn = 0;
 			}
 			else

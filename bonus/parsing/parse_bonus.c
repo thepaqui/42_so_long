@@ -6,12 +6,11 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:18:41 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/10 19:10:20 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:42:48 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_bonus.h"
-#include <stdio.h> //---------------------------------------------------------
 
 static int	open_mapfile(char *file, t_game *game)
 {

@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:31:14 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/14 23:12:35 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:23:49 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ static void	update_player_pos(t_player *player, t_map *map)
 
 static void	set_player_animations(t_player *player)
 {
-	//printf("Player state = %d\n", player->state); //-----
 	if (player->state == PTHROW)
 		player_anim_throw(player);
 	if (player->state == PTHROWEND)
@@ -73,7 +72,7 @@ static void	set_player_animations(t_player *player)
 			player->state = PIDLE;
 	}
 	if (player->state == PMOVE || player->state == PIDLE)
-		player_anim_move(player);
+		player_anim_move(player, player->sprite);
 }
 
 static void	set_player_speed(t_player *player)
@@ -86,15 +85,15 @@ static void	set_player_speed(t_player *player)
 
 void	update_player(t_game *game, t_player *player)
 {
-	if (game->player->state == PMOVE && !player->up && !player->down
+	if (player->state == PMOVE && !player->up && !player->down
 		&& !player->left && !player->right)
-		game->player->state = PIDLE;
-	if (game->player->state == PIDLE)
-		refresh_area(game, game->player->pos, 2, 2);
+		player->state = PIDLE;
+	if (player->state == PIDLE)
+		refresh_area(game, player->pos, 2, 2);
 	else
-		refresh_area(game, game->player->pos, 3, 3);
-	set_player_animations(game->player);
-	set_player_speed(game->player);
-	update_player_pos(game->player, game->map);
-	adjust_player_pos(game->player, game->win_size, game->map);
+		refresh_area(game, player->pos, 3, 3);
+	set_player_animations(player);
+	set_player_speed(player);
+	update_player_pos(player, game->map);
+	adjust_player_pos(player, game->win_size, game->map);
 }

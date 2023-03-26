@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:23 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 18:17:34 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:36:40 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_img	*free_img(t_img *image)
 	return (NULL);
 }
 
-static t_player	*free_player(t_player *player)
+t_player	*free_player(t_player *player)
 {
 	if (!player)
 		return (NULL);
@@ -44,7 +44,7 @@ static t_player	*free_player(t_player *player)
 	return (NULL);
 }
 
-static t_map	*free_map(t_map *map)
+t_map	*free_map(t_map *map)
 {
 	if (!map)
 		return (NULL);
@@ -86,25 +86,25 @@ t_game	*free_game(t_game *game)
 	if (!game)
 		return (NULL);
 	if (game->image)
-		free_img(game->image);
+		game->image = free_img(game->image);
 	if (game->player)
-		free_player(game->player);
+		game->player = free_player(game->player);
 	if (game->map)
-		free_map(game->map);
+		game->map = free_map(game->map);
 	if (game->enemies)
-		free_enemies(game->enemies);
+		game->enemies = free_enemies(game->enemies);
 	if (game->font)
-		free_xpm(game->font);
+		game->font = free_xpm(game->font);
 	if (game->cursor)
-		free_xpm(game->cursor);
+		game->cursor = free_xpm(game->cursor);
 	if (game->canvas)
-		free_xpm(game->canvas);
+		game->canvas = free_xpm(game->canvas);
 	if (game->spr_eg)
-		free_xpm(game->spr_eg);
+		game->spr_eg = free_xpm(game->spr_eg);
 	if (game->spr_efh)
-		free_xpm(game->spr_efh);
+		game->spr_efh = free_xpm(game->spr_efh);
 	if (game->spr_efv)
-		free_xpm(game->spr_efv);
+		game->spr_efv = free_xpm(game->spr_efv);
 	free(game);
 	game = NULL;
 	return (NULL);

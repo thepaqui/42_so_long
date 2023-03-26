@@ -6,76 +6,57 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:57:00 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 16:46:57 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 15:58:10 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
-#include <stdio.h> //--------------------------------------------------
 
-static void	debug(t_game *game, int silent)
-{ // remove this before final push
-	char		*pstate[] = {
-		"idle",
-		"moving",
-		"collecting a coin",
-		"throwing",
-		"finishing throwing",
-		"winning",
-		"cheering",
-		"dying",
-		"spinning",
-		"fainting",
-		"waking up"
-		};
-	
-	if (silent)
-		return ;
-	printf("Player position\t(%d,%d)\n", game->player->pos.x, game->player->pos.y);
-	printf("Player is on cell (%d,%d)\n", game->map->start.x, game->map->start.y);
-	printf("Player is %s\n", pstate[game->player->state]);
-	printf("\n");
-	printf("Mouse cursor at position (%d,%d)\n", game->curs_pos.x, game->curs_pos.y);
-	printf("\n");
+static void	win(t_game *game)
+{
+	if (!game->end_frame)
+	{
+		player_anim_end_init(game, game->player);
+		draw_all_canvas(game);
+		game->end_color = 0x00FF0000;
+		game->end_frame++;
+	}
+	ending_sequence(game);
+}
+
+static void	lose(t_game *game)
+{
+	if (!game->end_frame)
+	{
+		player_anim_death_init(game, game->player);
+		put_background_color_to_img(game, GAME_OVER_BG);
+		game->end_frame++;
+	}
+	game_over_sequence(game, game->player);
+}
+
+static void	play(t_game *game)
+{
+	update_player(game, game->player);
+	if (game->nbenemies)
+		update_enemies(game, game->enemies);
+	update_cursor(game);
+	update_map(game->map, game);
+	if (game->map->totalcoins - game->map->nbcoins < MAXCOINS)
+		update_coins(game->map);
+	prepare_new_frame(game);
 }
 
 static int	main_loop(t_game *game)
 {
-	debug(game, 1); //-----------------------------------
 	if (game->state == GAME_STOP)
 		stop_sequence(game);
 	else if (game->state == GAME_WIN)
-	{
-		if (!game->end_frame)
-		{
-			player_anim_end_init(game, game->player);
-			draw_all_canvas(game);
-			game->end_color = 0x00FF0000;
-			game->end_frame++;
-		}
-		ending_sequence(game);
-	}
+		win(game);
 	else if (game->state == GAME_LOSE)
-	{
-		if (!game->end_frame)
-		{
-			player_anim_death_init(game, game->player);
-			put_background_color_to_img(game, GAME_OVER_BG);
-			game->end_frame++;
-		}
-		game_over_sequence(game, game->player);
-	}
+		lose(game);
 	else
-	{
-		update_player(game, game->player);
-		if (game->nbenemies)
-			update_enemies(game, game->enemies);
-		update_cursor(game);
-		update_map(game->map, game);
-		if (game->map->totalcoins - game->map->nbcoins < MAXCOINS)
-			update_coins(game->map);
-		prepare_new_frame(game);
-	}
+		play(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->image->img, 0, 0);
 	return (0);
 }
@@ -87,7 +68,6 @@ void	launch_game(t_game *game)
 	game->mlx = mlx_init();
 	game->win_size.x = game->map->size.x * SPR_DIM;
 	game->win_size.y = game->map->size.y * SPR_DIM;
-	//printf("Window is %d pixels wide and %d pixels high\n", game->win_size.x, game->win_size.y); //---------------
 	open_window(game);
 	t = game->image;
 	t->img = mlx_new_image(game->mlx, game->win_size.x, game->win_size.y);

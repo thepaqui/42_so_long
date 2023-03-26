@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:20:06 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/21 16:02:25 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:26:13 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,19 @@ int	check_enemy_collisions(t_game *game, t_player *player, t_enemy *enemy)
 	if (hit)
 		game->state = GAME_LOSE;
 	return (hit);
+}
+
+void	unclip_enemy(t_enemy *enemy, int tmpdir)
+{
+	if (enemy->dir == tmpdir)
+	{
+		if (enemy->dir == LEFT)
+			enemy->dir = RIGHT;
+		else if (enemy->dir == RIGHT)
+			enemy->dir = LEFT;
+	}
+	if (enemy->speed < 0)
+		enemy->pos.x++;
+	else
+		enemy->pos.x--;
 }

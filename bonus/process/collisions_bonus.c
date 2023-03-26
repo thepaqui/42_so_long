@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 21:50:32 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 18:11:50 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:56:56 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	get_manhattan_dist(t_vector pos1, t_vector pos2)
 	res = (pos2.x - pos1.x) + (pos2.y - pos1.y);
 	if (res < 0)
 		res *= -1;
-	//printf("dist from enemy to player = %d\n", res); //------------
 	return (res);
 }
 
@@ -30,7 +29,7 @@ char	get_obj_from_pos(t_vector pos, t_map *map)
 	mpos.x = pos.x / SPR_DIM;
 	mpos.y = pos.y / SPR_DIM;
 	if (mpos.x >= map->size.x || mpos.y >= map->size.y)
-		return ('1');
+		return (WALL);
 	else
 		return (map->map[mpos.y][mpos.x]);
 }

@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 18:00:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 19:27:59 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:05:26 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define CNT_COL 64
 
 /* --- PROJECTILE --- */
-# define PRO_SPRITE "./textures/bonus/projectile.xpm"
+# define PRO_SPRITE "./textures/bonus2/projectile.xpm"
 // Number of frames between each projectile animation frame
 # define PRO_ANIM_LEN 3
 // Defines how many frames the breaking animation will play for (/4)
@@ -30,25 +30,25 @@
 # define PRO_BREAK_ANIM_LEN 3
 
 /* --- MAP --- */
-# define MAP_SPRITE "./textures/bonus/map.xpm"
+# define MAP_SPRITE "./textures/bonus2/map.xpm"
 # define BG_SPRITE "./textures/bonus/bg.xpm"
-# define COIN_SPRITE "./textures/bonus/coin.xpm"
+# define COIN_SPRITE "./textures/bonus2/coin.xpm"
 // Number of frames between each animation frame of the coins
 # define COIN_SPEED 6
 // Threshold over which coins stop being animated (for performance)
 # define MAXCOINS 60
 
 /* --- UI --- */
-# define FONT "./textures/bonus/font.xpm"
-# define CURSOR "./textures/bonus/cursor.xpm"
-# define CANVAS "./textures/bonus/end_bg.xpm"
+# define FONT "./textures/bonus2/font.xpm"
+# define CURSOR "./textures/bonus2/cursor.xpm"
+# define CANVAS "./textures/bonus2/end_bg.xpm"
 // Speed of the rainbow text effect (higher = faster)
 # define RAINBOWSPEED 10
 
 /* --- ENEMIES --- */
-# define ENEMY_G_SPRITE "./textures/bonus/enemy_ground.xpm"
-# define ENEMY_FH_SPRITE "./textures/bonus/enemy_fly_h.xpm"
-# define ENEMY_FV_SPRITE "./textures/bonus/enemy_fly_v.xpm"
+# define ENEMY_G_SPRITE "./textures/bonus2/enemy_ground.xpm"
+# define ENEMY_FH_SPRITE "./textures/bonus2/enemy_fly_h.xpm"
+# define ENEMY_FV_SPRITE "./textures/bonus2/enemy_fly_v.xpm"
 
 /* --- ENEMY ANIMATIONS --- */
 void	set_enemy_animations(t_game *game, t_enemy *enemy);
@@ -81,23 +81,30 @@ void	set_enemy_animations(t_game *game, t_enemy *enemy);
 # define EVA_LEN 3
 
 /* --- PLAYER --- */
-# define PLAYER_SPRITE "./textures/bonus/player_bonus.xpm"
+# define PLAYER_SPRITE "./textures/bonus2/player_bonus.xpm"
 
 /* --- PLAYER ANIMATIONS --- */
-void	player_anim_move(t_player *player);
-void	player_anim_move_help(t_player *p, int ls, int le, int rs, int re);
+void	player_anim_move(t_player *player, t_xpm *psp);
 void	player_anim_throw(t_player *player);
+void	player_anim_move_ground(t_player *p);
+void	player_anim_ground_idle(t_player *p);
 
 void	player_anim_end_init(t_game *game, t_player *player);
-void	player_anim_end(t_game *game, t_player *player);
+int		player_anim_end(t_game *game, t_player *player);
 void	player_anim_cheer(t_game *game, t_player *player);
 
 void	refresh_bg_color(t_game *game, t_vector opos, int width, int height);
 void	player_anim_death_init(t_game *game, t_player *player);
 void	player_anim_death(t_game *game, t_player *player);
+void	player_anim_move_die(t_player *p);
 void	player_anim_spin(t_game *g, t_player *p);
 void	player_anim_faint(t_game *g, t_player *p);
 void	player_anim_wake(t_game *g, t_player *p);
+void	player_anim_wake_startup(t_player *p);
+void	player_anim_wake_look(t_player *p);
+void	player_anim_wake_scratch(t_player *p);
+void	player_anim_wake_jump(t_game *g, t_player *p);
+void	player_anim_wake_fall(t_game *g, t_player *p);
 
 /* --- PLAYER ANIMATIONS --- */
 /* ! FLYING ! */

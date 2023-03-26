@@ -6,12 +6,11 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:17:13 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:04:32 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:43:15 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
-#include <stdio.h> //----------------------------------------------------------
 
 void	*ft_memset(void *b, int c, size_t len)
 {

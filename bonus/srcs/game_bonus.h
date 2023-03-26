@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:39:01 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 18:42:14 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 15:11:35 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ typedef struct s_enemy
 	int				type;
 	int				alive;
 	t_vector		pos;
-	int				dist_to_player; // manhattan dist to only check death when in range of 2
-	int				dist_to_proj; // manhattan dist to only check destroy when in range of 2
+	int				dist_to_player;
+	int				dist_to_proj;
 	int				speed;
 	int				turn;
 	int				dir;
@@ -132,7 +132,8 @@ typedef struct s_player
 // Size of square projectile hitbox
 # define PRO_HITBOX 16
 // Defines if projectiles can go through walls or not (0 NO, 1 YES)
-# define PRO_SPECTRAL 0 // !!! ------------- THIS SHOULD ABSOLUTELY BE 0 FOR FINAL PUSH -------------------
+// ------------- THIS SHOULD ABSOLUTELY BE 0 FOR FINAL PUSH -------------------
+# define PRO_SPECTRAL 0
 // Defines if projectiles can collect coins or not (0 NO, 1 YES)
 # define PRO_COLLECT 1
 // Defines if projectiles break after PRO_BOUNCE_LIMIT bounces (0 NO, 1 YES)
@@ -196,7 +197,7 @@ typedef struct s_game
 }				t_game;
 
 // Name of the game window
-# define WINNAME "Super Mario World 42: Yoshi's Isolong"
+# define WINNAME "SMW 42: Yoshi's Isolong"
 
 /* --- GAME STATES --- */
 # define GAME_ERROR 0

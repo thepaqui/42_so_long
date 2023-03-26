@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:35:04 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/14 18:34:01 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:00:32 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	draw_bg_part(t_game *game, t_map *map, t_vector opos, t_vector s)
 void	draw_map(t_game *game)
 {
 	t_vector	pos;
+	t_vector	size;
 
 	if (game->state == GAME_ERROR)
 		return ;
@@ -66,7 +67,9 @@ void	draw_map(t_game *game)
 	{
 		pos.x = 0;
 		pos.y = 0;
-		refresh_area(game, pos, game->win_size.x / SPR_DIM, game->win_size.y / SPR_DIM);
+		size.x = game->win_size.x / SPR_DIM;
+		size.y = game->win_size.y / SPR_DIM;
+		refresh_area(game, pos, size.x, size.y);
 		game->state = GAME_RUN;
 	}
 	if (game->map->nbcoins == game->map->totalcoins)

@@ -6,12 +6,33 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 21:54:53 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:10:11 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 15:14:28 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "process_bonus.h"
 
+// ar stores a wall's 8 surrounding cells in 8 bits.
+// For example: (0 = floor, 1 = wall)
+//
+//    001
+//    1W1
+//    110
+//
+// The info about what surrounds the wall W is stored in ar as
+// 8 bits: 00111110 or in a more readable form: 001 1W1 110
+//
+// This value is then compared with each int value that corresponds
+// to a 8 bit formation that has a defined wall texture.
+// We go in descending order as to not falsely attribute a 'big int'
+// formation to a 'small int' formation because of how the '&' (binary AND)
+// operator works.
+//
+// Return values correspond to the sprite index of this formation in the
+// map.xpm spritesheet.
+// 1 corresponds to the following formation: 000 0W0 000. It acts as a
+// default return value for all these functions to check if a sprite was found.
+// If a formation isn't identified, it will get sprite 1 as a failsafe.
 static int	wall_texture_210(int ar)
 {
 	if ((ar & 255) == 255)

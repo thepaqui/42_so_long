@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:45:10 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/14 23:09:40 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:41:42 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,11 @@ void	get_player_to_cursor_dir(t_game *game, t_player *player)
 {
 	double	distance;
 
-	//printf("Player is at pos (%d,%d)\n", player->pos.x, player->pos.y); //---------------
-	//printf("Cursor is at pos (%d,%d)\n", game->curs_pos.x, game->curs_pos.y); //---------------
 	player->pro_dir.x = game->curs_pos.x - player->pos.x;
 	player->pro_dir.y = game->curs_pos.y - player->pos.y;
-	//printf("Basic cursor direction is (%f,%f)\n", player->pro_dir.x, player->pro_dir.y); //---------------
-	distance = sqrt((player->pro_dir.x * player->pro_dir.x) + (player->pro_dir.y * player->pro_dir.y));
-	//printf("Distance from player to cursor is %f\n", distance); //---------------
+	distance = player->pro_dir.x * player->pro_dir.x;
+	distance += player->pro_dir.y * player->pro_dir.y;
+	distance = sqrt(distance);
 	if (distance)
 	{
 		player->pro_dir.x *= PRO_SPEED / distance;
@@ -50,7 +48,6 @@ void	get_player_to_cursor_dir(t_game *game, t_player *player)
 		player->pro_dir.x = PRO_SPEED;
 		player->pro_dir.y = 0;
 	}
-	//printf("Cursor direction is (%f,%f)\n\n", player->pro_dir.x, player->pro_dir.y); //---------------
 }
 
 void	draw_cursor(t_game *game)
@@ -82,7 +79,6 @@ int	handle_click(int key, int x, int y, t_game *game)
 		return (0);
 	snap_pos.x = nearbyint(game->player->pro_pos.x);
 	snap_pos.y = nearbyint(game->player->pro_pos.y);
-	//printf("%d is clicked at (%d,%d)\n", key, x, y); //---------------
 	if (!game->player->pro_here)
 		throw(game);
 	else

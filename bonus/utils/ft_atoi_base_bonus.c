@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 22:00:42 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:04:28 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:39:18 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_atoi_base(char *str, char *base)
 	int	sign;
 	int	base_len;
 
-	if (ft_is_base_valid(base) == 0)
+	if (!ft_is_base_valid(base))
 		return (0);
 	i = 0;
 	res = 0;

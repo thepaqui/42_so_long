@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:36:59 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/02/24 18:03:30 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:41:57 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,10 @@ static int	clean_sprites(char *spr, t_xpm *xpm)
 {
 	int	i;
 
-	i = ft_strlen(spr);
-	if (spr[i - 1] == ';')
-		spr[i - 1] = '\"';
-	if (spr[i - 2] == '}')
-		spr[i - 2] = '\"';
+	if (spr[ft_strlen(spr) - 1] == ';')
+		spr[ft_strlen(spr) - 1] = '\"';
+	if (spr[ft_strlen(spr) - 2] == '}')
+		spr[ft_strlen(spr) - 2] = '\"';
 	i = -1;
 	while (spr[++i])
 	{

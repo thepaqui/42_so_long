@@ -6,7 +6,7 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:30:40 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/18 16:54:58 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:28:46 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,24 @@ static void	clean_map(char **map)
 
 static void	obj_counter(int i, int j, int *io, t_map *map)
 {
-	if (map->map[i][j] == 'C')
+	if (map->map[i][j] == COIN)
 	{
 		map->totalcoins++;
 		map->floorsize++;
 	}
-	else if (map->map[i][j] == 'P')
+	else if (map->map[i][j] == PLAYER)
 	{
 		io[0]++;
 		map->start.x = j;
 		map->start.y = i;
 	}
-	else if (map->map[i][j] == 'E')
+	else if (map->map[i][j] == EXIT_CLOSE)
 	{
 		io[1]++;
 		map->exit.x = j;
 		map->exit.y = i;
 	}
-	else if (map->map[i][j] == '0')
+	else if (map->map[i][j] == EMPTY)
 		map->floorsize++;
 }
 

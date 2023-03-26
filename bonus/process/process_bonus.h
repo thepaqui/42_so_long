@@ -6,17 +6,14 @@
 /*   By: thepaqui <thepaqui@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:56:15 by thepaqui          #+#    #+#             */
-/*   Updated: 2023/03/24 16:47:37 by thepaqui         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:04:44 by thepaqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROCESS_BONUS_H
 # define PROCESS_BONUS_H
-# include <stdlib.h>
 # include <math.h>
 # include "../../mlx/mlx.h"
-# include "../srcs/game_bonus.h"
-# include "../utils/utils_bonus.h"
 # include "../parsing/parse_bonus.h"
 
 /* GAME */
@@ -39,6 +36,7 @@ void	update_player(t_game *game, t_player *player);
 void	update_enemies(t_game *game, t_enemy *enemies);
 void	update_enemy_distances(t_player *player, t_enemy *enemy);
 int		check_enemy_collisions(t_game *game, t_player *player, t_enemy *enemy);
+void	unclip_enemy(t_enemy *enemy, int tmpdir);
 void	update_enemy_speed(t_enemy *enemy);
 void	update_enemy_pos(t_enemy *enemy, t_map *map);
 void	destroy_enemy(t_game *game, t_enemy *enemy);
@@ -49,7 +47,7 @@ void	pro_collect_coin(t_map *map, t_vector pos, int coin);
 void	update_coins(t_map *map);
 
 void	launch_game(t_game *game);
-void	ending_sequence(t_game *game);
+int		ending_sequence(t_game *game);
 void	game_over_sequence(t_game *game, t_player *p);
 void	ft_end(t_game *game, int color);
 void	stop_sequence(t_game *game);
@@ -88,7 +86,6 @@ void	stop_sequence(t_game *game);
 void	open_window(t_game *game);
 int		handle_cross(t_game *game);
 void	close_window(t_game *game, int code, char *file);
-//void	get_window_size(t_game *game);
 
 /* --- INPUT --- */
 int		handle_key_press(int key, t_game *game);
