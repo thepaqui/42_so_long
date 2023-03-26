@@ -1,8 +1,9 @@
 # 42_so_long
 
-My still unfinished *so_long* project for **42 Nice**, last updated on March 26th 2023, at 14:51.
+My finished *so_long* project for **42 Nice**, last updated on March 26th 2023, at 18:53.  
+This project took me ~210 hours of work, over ~22 days.  
 
-## Presentation 👾
+## Start of project 👾 January 29th 2023
 
 I'm doing this project for **42 Nice**, just after finishing *pipex* with bonuses.
 
@@ -17,36 +18,21 @@ I already have a good idea of what I'll be doing, I want to make a *Yoshi's Isla
 I'll first make the mandatory part to become familiar with the **MLX**, and then I'll move on to the serious stuff.  
 Wish me luck as I embark on this journey!
 
-## Legal disclaimer 🔨
+## End of project 😩 March 26th 2023
 
-All sprites in the basic texture pack were created by myself with *Aseprite*.  
-All sprites in the bonus texture pack were ripped from the original *Super Mario World 2: Yoshi's Island* game on SNES and uploaded to *[The Spriters Resource]* by various rippers. I then edited them myself to be usable in my game with *Aseprite*.  
+I'm EXHAUSTED! I'm pooped. I want to go home and eat a sandwich.  
 
-Credit goes to the following rippers from *[The Spriters Resource]*:
-- Inky
-- Drshnaps
-- Sonicfan32
-- Murphmario
-- DogToon64
-- Bacon
-- David "Tonberry2k" Hurley
-- Barack Obama (🤨)
-- playgames169vg
-- MarioFanGamer
-- Nemica
-- daemoth
-- Romi
-- Superjustinbros
-- Arima
-  
-*Super Mario World 2: Yoshi's Island* and all of its assets belong to Nintendo.  
-I am using these assets in a learning project for 42 Nice and in no way do I plan on releasing this game comercially, even as a free game.  
-This repository only exists to privately share my project to friends, family and fellow 42 Network students.  
-If the content of this repository infringes on your or your company's rights, please contact me through [my email address].  
-Please note that the 42 Nice project *so_long* does not explicitly ask to reuse other video game's assets. Their use was a decision on my part.  
+More seriously, I've been so engrossed in this project that it kinda feels like the end of an era.  
+You know how when you come out of watching an amazing movie and you don't know what to do with your life anymore?  
 
-[The Spriters Resource]: https://www.spriters-resource.com/snes/yoshiisland/
-[my email address]: theopaquier2@gmail.com
+But even though I love this project very much and I'm extremely proud of what I've accomplished (I remember the days of my so_long only being a white screen with a black pixel you could move with the keyboard *sniff* 🤧), it's time to let it go and go on to explore new projects (coming for you *Minishell* 👀).
+
+It's been great but anything I'd add to this would be unnecessary fluff. I'm content leaving this project as is.  
+
+I thank my friends and family for the emotional support and the feedback💗.  
+And I don't thank *bbourret* for the emotional burden and the dogshit feedback (🤪 guuh duh make koopas FUCK YOU 🖕).  
+
+Good night.  
 
 ## How to use ❓
 
@@ -86,27 +72,33 @@ For the bonuses, also add:
 Then, you'll just have to change the macros in `game.h` and `sprites_bonus.h` to use your folder's name instead of *basic* or *bonus*.  
 If you're unsure of how to make the spritesheets, check out the two included texture packs (`textures/basic` and `textures/bonus`).  
 
-## To-do list 🗒️ 
+## Legal disclaimer 🔨
 
-Check norm in `bonus/process/`.  
+All sprites in the basic texture pack were created by myself with *Aseprite*.  
+All sprites in the bonus texture pack were ripped from the original *Super Mario World 2: Yoshi's Island* game on SNES and uploaded to *[The Spriters Resource]* by various rippers. I then edited them myself to be usable in my game with *Aseprite*.  
 
-✅ MAKE ENEMIES TEXTURES  
-✅ MAKE PLAYER GROUNDED IDLE ANIMATION  
-✅ IMPLEMENT BASIC ENEMIES CODE  
-✅ MAKE ENEMIES DISPLAY  
-✅ MAKE ENEMIES MOVEMENT  
-✅ MAKE ENEMIES KILLABLE WITH PROJECTILES  
-✅ CLEAN UP ENEMY LIST WHEN SOME ARE KILLED  
-✅ MAKE THE PLAYER DIE ON CONTACT WITH AN ENEMY  
-✅ IMPLEMENT GAME OVER SEQUENCE  
-✅ IMPLEMENT ALL PLAYER ANIMATIONS  
-✅ TEST GAME OVER WITH FUCKTON OF ENEMIES  
-✅ MAKE ENEMIES ANIMATIONS  
-✅ MAKE BETTER RANDOMNESS FOR ENEMY SPAWNING  
-✅ MAKE BONUS `player.xpm` SPRITESHEET  
-✅ TEST ALL MAPS WITH MANDATORY VERSION  
-✅ MAKE BASIC `player_bonus.xpm` SPRITESHEET  
-✅ TEST ALL MAPS WITH BONUS VERSION  
-✅ MAKE BONUS2 TEXTURE PACK  
-⏳ MEGA NORM CLEANUP  
-⏳ CHECK FOR LOST `printf()` AND `system()` FUNCTION CALLS  
+Credit goes to the following rippers from *[The Spriters Resource]*:
+- Inky
+- Drshnaps
+- Sonicfan32
+- Murphmario
+- DogToon64
+- Bacon
+- David "Tonberry2k" Hurley
+- Barack Obama (🤨)
+- playgames169vg
+- MarioFanGamer
+- Nemica
+- daemoth
+- Romi
+- Superjustinbros
+- Arima
+  
+*Super Mario World 2: Yoshi's Island* and all of its assets belong to Nintendo.  
+I am using these assets in a learning project for 42 Nice and in no way do I plan on releasing this game comercially, even as a free game.  
+This repository only exists to privately share my project to friends, family and fellow 42 Network students.  
+If the content of this repository infringes on your or your company's rights, please contact me through [my email address].  
+Please note that the 42 Nice project *so_long* does not explicitly ask to reuse other video game's assets. Their use was a decision on my part.  
+
+[The Spriters Resource]: https://www.spriters-resource.com/snes/yoshiisland/
+[my email address]: theopaquier2@gmail.com
