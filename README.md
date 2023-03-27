@@ -2,6 +2,9 @@
 
 My finished *so_long* project for **42 Nice**, last updated on March 26th 2023, at 18:56.  
 This project took me ~210 hours of work, over ~22 days.  
+It was validated on March 27th 2023, on first push, with a grade of 125/100 with 3 outstanding flags.  
+
+![Screen Shot 2023-03-27 at 4 00 30 PM](https://user-images.githubusercontent.com/117783405/227961970-a5594405-b873-419b-b64d-352b10742abd.png)
 
 ## Start of project 👾 January 29th 2023
 
