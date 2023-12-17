@@ -100,7 +100,7 @@ Credit goes to the following rippers from *[The Spriters Resource]*:
 *Super Mario World 2: Yoshi's Island* and all of its assets belong to Nintendo.  
 I am using these assets in a learning project for 42 Nice and in no way do I plan on releasing this game commercially, even as a free or opensource game.  
 This repository only exists to privately share my project to friends, family and fellow 42 Network students.  
-If the contents of this repository infringe on your or your copyright, please contact me through [my email address].  
+If the contents of this repository infringe on your copyright, please contact me through [my email address].  
 Please note that the 42 Nice project *so_long* does not explicitly ask to reuse other video game's assets. Their use was a decision on my part.  
 
 [The Spriters Resource]: https://www.spriters-resource.com/snes/yoshiisland/
