@@ -18,7 +18,7 @@ Since then, I've owned every Nintendo console, a PC, a PSP and a PS4. You can se
 Needless to say, I've been eyeing this project for a while now, and I'm finally doing it!
 
 I already have a good idea of what I'll be doing, I want to make a *Yoshi's Island* (SNES) inspired game. Well, only for the bonuses.  
-I'll first make the mandatory part to become familiar with the **MLX**, and then I'll move on to the serious stuff.  
+I'll first make the mandatory part to become familiar with the **MLX** library, and then I'll move on to the serious stuff.  
 Wish me luck as I embark on this journey!
 
 ## End of project 😩 March 26th 2023
@@ -28,12 +28,12 @@ I'm EXHAUSTED! I'm pooped. I want to go home and eat a sandwich.
 More seriously, I've been so engrossed in this project that it kinda feels like the end of an era.  
 You know how when you come out of watching an amazing movie and you don't know what to do with your life anymore?  
 
-But even though I love this project very much and I'm extremely proud of what I've accomplished (I remember the days of my so_long only being a white screen with a black pixel you could move with the keyboard *sniff* 🤧), it's time to let it go and go on to explore new projects (coming for you *Minishell* 👀).
+But even though I love this project very much and I'm extremely proud of what I've accomplished (I remember the days of my *so_long* only being a white screen with a black pixel you could move with the keyboard *sniff* 🤧), it's time to let it go and go on to explore new projects (coming for you *Minishell* 👀).
 
 It's been great but anything I'd add to this would be unnecessary fluff. I'm content leaving this project as is.  
 
 I thank my friends and family for the emotional support and the feedback💗.  
-And I don't thank *bbourret* for the emotional burden and the dogshit feedback (🤪 guuh duh make koopas FUCK YOU 🖕).  
+And I **don't** thank *bbourret* for the emotional burden and the dubious feedback (🤪 guuh duh make koopas NO >:[ ).  
 
 Good night.  
 
@@ -41,11 +41,13 @@ Good night.
 
 ### General advice 🧰
 
+**NOTE:** This game has only been tested for MacOS! I offer no promise of portability to other operating systems.
+
 Maps shouldn't be any larger than ~60 (width) by ~30 (height) for playability's sake (if the game uses 32x32 textures).  
   
 The game will start lagging if you have too many collectibles,  
 so the `MAXCOINS` macro sets the number over which collectibles won't be animated anymore.  
-You can modify this threshold in `srcs/game.h` or `bonus/srcs/game_bonus.h` with the `MAXCOINS` macro.  
+You can modify this threshold in `srcs/game.h` and `bonus/srcs/game_bonus.h` with the `MAXCOINS` macro.  
   
 You can modify a lot of things in this game.  
 Check out my comments in `bonus/srcs/game_bonus.h` and in `bonus/process/process_bonus.h` to know what to change.  
@@ -73,7 +75,7 @@ For the bonuses, also add:
 - `enemy_ground.xpm`.  
 
 Then, you'll just have to change the macros in `game.h` and `sprites_bonus.h` to use your folder's name instead of *basic* or *bonus*.  
-If you're unsure of how to make the spritesheets, check out the three included texture packs (`textures/basic`, `textures/bonus` and `textures/bonus2`).  
+If you're unsure of how to make the spritesheets, check out how the three included texture packs are made (`textures/basic`, `textures/bonus` and `textures/bonus2`).  
 
 ## Legal disclaimer 🔨
 
@@ -88,7 +90,7 @@ Credit goes to the following rippers from *[The Spriters Resource]*:
 - DogToon64
 - Bacon
 - David "Tonberry2k" Hurley
-- Barack Obama (🤨)
+- Barack Obama
 - playgames169vg
 - MarioFanGamer
 - Nemica
@@ -98,10 +100,10 @@ Credit goes to the following rippers from *[The Spriters Resource]*:
 - Arima
   
 *Super Mario World 2: Yoshi's Island* and all of its assets belong to Nintendo.  
-I am using these assets in a learning project for 42 Nice and in no way do I plan on releasing this game commercially, even as a free or opensource game.  
-This repository only exists to privately share my project to friends, family and fellow 42 Network students.  
+I am using these assets in the context of a learning project for 42 Nice and in no way do I plan on releasing this game commercially, even as a free or opensource game.  
+This repository only exists to privately share my project to friends, family, fellow 42 Network students and recruiters.  
 If the contents of this repository infringe on your copyright, please contact me through [my email address].  
-Please note that the 42 Nice project *so_long* does not explicitly ask to reuse other video game's assets. Their use was a decision on my part.  
+Please note that the 42 Nice project *so_long* does not explicitly ask to reuse other video game's assets. Their use was a decision on my part and my decision alone.  
 
 [The Spriters Resource]: https://www.spriters-resource.com/snes/yoshiisland/
 [my email address]: theopaquier2@gmail.com
